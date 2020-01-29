@@ -1,0 +1,183 @@
+<div class="container"> 
+    <div class="page-bar">
+           <h3 class="titleName">
+              Profile
+             </h3>
+              <ul class="page-breadcrumb">
+             <li class="Homebar">
+               <i class="fa fa-home"></i>
+               <a href="#" routerLink="/homepage">Home</a>
+              
+             </li>
+             <li>
+                 <i class="fa fa-angle-right"></i>
+               <a href="#" routerLink="">Profile</a>
+              </li>
+            </ul>  
+         </div>        
+
+
+<div class="row">
+    <div class="col-3 font-weight-bold tabs">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active border" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> <i class="fas fa-user-tie fa-1x mr-2"></i>Employee Details </a>
+ 
+  <a class="nav-link border  text-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">  <i class="fas fa-user-graduate mr-2"></i>Education Details</a>
+     
+      <a class="nav-link border text-danger" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"> 
+      <i class="fas fa-university  mr-2"></i>
+      Bank Details</a>
+        <a class="nav-link border text-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+            <i class="fas fa-briefcase  mr-2"></i>Company Details</a>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <table class="table table-hover border border-left">
+            <tbody>
+            <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td>{{id}}</td>
+            </tr>
+            <tr>
+            <td>Phone</td>
+            <td>:</td>
+            <td>{{phone}}</td>
+            </tr>
+            <tr>
+            <td>DOB</td>
+            <td>:</td>
+            <td>{{DOB}}</td>
+            </tr>
+            <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>{{gender}} </td>
+            </tr>
+            <tr>
+            <td>Email-1</td>
+            <td>:</td>
+            <td>{{email}}</td>
+            </tr>
+            
+            <tr>
+            <td>B.Group</td>
+            <td>:</td>
+            <td>B +ve</td>
+            </tr>
+            <tr>
+            <td>Local Address</td>
+            <td>:</td>
+            <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
+            </tr>
+            <tr>
+            <td>Perminant Address</td>
+            <td>:</td>
+            <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <table class="table border border-left">
+            <thead>
+            <tr>
+            <th scope="col" class="font-weight-bold">Qualification</th>
+            <th scope="col" class="font-weight-bold">:</th>
+            <th scope="col" class="font-weight-bold">Institution Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>SSC</td>
+            <td>:</td>
+            <td>Govt. High School</td>
+            </tr>
+            <tr>
+            <td>+2</td>
+            <td>:</td>
+            <td>Ekashila Jr. College</td>
+            </tr>
+            <tr>
+            <td>Degree</td>
+            <td>:</td>
+            <td>Gurunanak Institute of Technical Campus</td>
+            </tr>
+            </tbody>
+            </table> 
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <table class="table border border-left">
+      
+            <tbody>
+            <tr>
+            <td>Account Holder Name	</td>
+            <td>:</td>
+            <td>kiran</td>
+            </tr>
+            <tr>
+            <td>Account Number	</td>
+            <td>:</td>
+            <td>2121321313</td>
+            </tr>
+            <tr>
+            <td>Bank Name</td>
+            <td>:</td>
+            <td>ICICI</td>
+            </tr>
+            <tr>
+            <td>PAN Number</td>
+            <td>:</td>
+            <td>215415421</td>
+            </tr>
+            <tr>
+            <td>IFSC Code</td>
+            <td>:</td>
+            <td>214215413215</td>
+            </tr>
+            <tr>
+            <td>Branch</td>
+            <td>:</td>
+            <td>Banjarahills</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+          <table class="table border border-left">
+      
+            <tbody>
+            <tr>
+            <td>Employee ID</td>
+            <td>:</td>
+            <td>ZYX_02_20_2019</td>
+            </tr>
+            <tr>
+            <td>Department</td>
+            <td>:</td>
+            <td>ALL</td>
+            </tr>
+            <tr>
+            <td>Designation</td>
+            <td>:</td>
+            <td>Developer</td>
+            </tr>
+            <tr>
+            <td>Date of Joining</td>
+            <td>:</td>
+            <td>02-Jan-2019</td>
+            </tr>
+            <tr>
+            <td>Salary ( $ )</td>
+            <td>:</td>
+            <td>40,000PM</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>

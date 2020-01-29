@@ -1,0 +1,51 @@
+.bgLogo{
+    background-image: url('/assets/img/Bg.jpg');
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+   
+}
+.file-field .btn{
+    line-height:2rem;
+    background-color:#657a87;
+}
+.btn-small{
+    background-color:#ccc;
+}
+label{
+    color: black;
+}
+.page-bar{
+    background: none;
+}
+.form-control{
+background:none;
+}
+
+.page-content-wrapper .page-content {
+margin-left: 0px; 
+margin-top: 0px; 
+min-height:0px;
+padding: 0px;
+}
+.form-control,input[type=text]:not(.browser-default){
+border: 1px solid #ccc;
+text-align:left;
+height:2rem;
+}
+.form-control,input[type=date]:not(.browser-default){
+height: 1rem;
+border-bottom:none;
+}
+
+.portlet.box.blue{
+    width: 79%;
+    margin-left: 10px;
+}
+.custom-file{
+    border: 1px solid #ccc;
+}
+.custom-file-label::after{
+    background: #c1bbbb;
+    height:auto;
+}

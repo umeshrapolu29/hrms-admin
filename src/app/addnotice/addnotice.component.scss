@@ -1,0 +1,28 @@
+.form-group input,textarea{
+    border:1px solid rgb(219, 218, 218);
+    background:none;
+    width: 200%;
+    height: 30px;
+}
+.box{
+    width:700px;
+}
+h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #f38c06;
+    font-weight: bold;
+}
+.caption{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.bgLogo{
+    background-image: url('/assets/img/Bg.jpg');
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+   
+}
+.page-bar{
+    background: none;
+}

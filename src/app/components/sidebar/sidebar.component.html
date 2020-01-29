@@ -1,0 +1,286 @@
+<div class="logo  text-center fixed-top">
+  <img src="/assets/img/ZYCLYX1.png">
+</div>
+
+
+<div class="sidebar-wrapper bg-white">
+
+<div class="text-center sideBarImg">
+  <div class="imgOverlay"></div>
+        <img src="/assets/img/logo.png" class="rounded-circle sideImg bg-dark" >
+<h4 class="text-white pt-2 font-weight-bold adminName" >ZYCLYX  ADMIN</h4>
+
+    <div class="text-center bg-icon p-2">
+      <i class="fa fa-user mr-4"></i>
+    <a (click)="logoutUser()"><i class="fas fa-power-off"></i></a>
+
+    </div>
+  </div>
+
+    <div class="accordion font-weight-bold" id="accordionExample">
+        <div class="card" >
+            <div class="card-header" id="heading1">
+              <h2 class="mb-0 home" >
+                <p routerLink='/homepage' class="collapsed home h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <i class="fa fa-home mr-2"></i> Home                        
+                </p>
+              </h2>
+            </div>
+            </div>
+            <div class="card" >
+              <div class="card-header" id="heading2">
+                <h2 class="mb-0 home" >
+                  <p routerLink='/viewdetails' class="collapsed employee h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <i class="fa fa-user mr-2"></i>  Employee                        
+                  </p>
+                </h2>
+              </div>
+              </div>
+              <div class="card" >
+                <div class="card-header" id="heading3">
+                  <h2 class="mb-0 home" >
+                    <p routerLink='/leaverequest' class="collapsed leave  h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                      <i class="fas fa-edit mr-2"></i> Leave Requests                        
+                    </p>
+                  </h2>
+                </div>
+                </div>
+                <div class="card" >
+                  <div class="card-header" id="heading4">
+                    <h2 class="mb-0 home" >
+                      <p routerLink='/holiday' class="collapsed holiday h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                        <i class="far fa-calendar-alt mr-2"></i> Holidays                        
+                      </p>
+                    </h2>
+                  </div>
+                  </div>
+                  <div class="card" >
+                    <div class="card-header" id="heading5">
+                      <h2 class="mb-0 home" >
+                        <p routerLink='/attendence' class="collapsed attendence h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                          <i class="fas fa-chart-bar mr-2"></i> Attendance                        
+                        </p>
+                      </h2>
+                    </div>
+                    </div>
+                    <div class="card" >
+                      <div class="card-header" id="heading6">
+                        <h2 class="mb-0 home" >
+                          <p routerLink='/uploadpayslips' class="collapsed payslips h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="fa fa-upload  mr-2"></i>Upload Payslips                        
+                          </p>
+                        </h2>
+                      </div>
+                      </div>
+                      <div class="card" >
+                        <div class="card-header" id="heading7">
+                          <h2 class="mb-0 home" >
+                            <p routerLink='/noticeboard' class="collapsed notice  h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                              <i class="fas fa-sticky-note  mr-2"></i>Notice Board                        
+                            </p>
+                          </h2>
+                        </div>
+                        </div>
+                        <div class="card" >
+                          <div class="card-header" id="heading8">
+                            <h2 class="mb-0 home" >
+                              <p routerLink='/iprocurement' class="collapsed iprocurement h-50" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                <i class="fa fa-list mr-2"></i>Iprocurement                        
+                              </p>
+                            </h2>
+                          </div>
+                          </div>
+                          
+            <!-- <div class="card">
+              <div class="card-header" id="heading9"  >
+                <h2 class="mb-0">
+                  <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                      <i class="fas fa-calendar mr-2"></i>Employee  
+                      <i class="fa fa-caret-down float-right m-3"></i>
+                  </p>
+                </h2>
+
+            </div>
+            </div> -->
+
+
+                <!-- <div class="card">
+                    <div class="card-header" id="heading3"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            <i class="fas fa-edit mr-2"></i>Leave Applications  
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/leaverequest' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i> Leave Request
+                        </p>
+                     
+                      <br>
+
+                        
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="heading4"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            <i class="fas fa-calendar mr-2"></i>Holidays  
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/holiday' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i> Holidays
+                        </p>
+                     
+                        <p routerLink='/holiday' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                          <i class="far fa-circle mr-2"></i>Optional Holidays
+                      </p>
+                      <br>
+                    </div>
+                    </div>
+                  </div>
+                  </div>
+                   <div class="card">
+                    <div class="card-header" id="heading5"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                            <i class="fas fa-chart-bar mr-2"></i>Attendance  
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/attendence' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i>Mark Attendance
+                        </p>
+                      <br>
+                       </div>
+                    </div>
+                  </div>
+                  </div>
+                   <div class="card">
+                    <div class="card-header" id="heading6"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                            <i class="fa fa-download  mr-2"></i>Payslips  
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/downloadpayslips' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i>View Payslips
+                        </p>
+                      <br>
+                       </div>
+                    </div>
+                  </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="heading7"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                            <i class="fas fa-sticky-note  mr-2"></i>NoticeBoard  
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/noticeboard' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i>View NoticeBoard
+                        </p>
+                        <br>
+                       </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card-header" id="heading8"  >
+                      <h2 class="mb-0">
+                        <p class=" collapsed h-50"  data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                            <i class="fa fa-list mr-2"></i>Iprocurement
+                            <i class="fa fa-caret-down float-right m-3"></i>
+                        </p>
+                      </h2>
+                    
+                    <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <p routerLink='/iprocurement' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            <i class="far fa-circle mr-2"></i>Iprocurement Status
+                        </p>
+                        <p routerLink='/addiprocurement' class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                          <i class="far fa-circle mr-2"></i>Add Iprocurement
+                        </p>
+                      <br>
+                       </div>
+                    </div>
+                  </div>
+                  </div> -->
+
+
+
+<!-- 
+    <div class="logo-img">
+       <img src="http://zyclyx.com/wp-content/uploads/2018/10/ZYCLYX-EXPERIENCED-IN-FUTURE-WORLD-White.png" style=" height:35px; width:150px;">
+    </div>
+  
+<div class="sidebar-wrapper">
+
+<div class="text-center mt-3 ">
+    <img src="https://image.shutterstock.com/image-photo/apple-tree-isolated-on-white-260nw-267376982.jpg" class="rounded-circle sideImg" >
+<h4 class="text-white pt-4" >Employee name</h4>
+</div>
+<ul class="p-2 sidebarElements">
+    <li  routerLink='/homepage' ><a><i class="fa fa-home mr-2"></i> Home</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+        
+    <li routerLink='/viewdetails' ><a ><i class="fa fa-user mr-2"></i> Profile</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+
+    
+
+    <li routerLink='/leaverequest' ><a ><i class="fas fa-edit mr-2"></i>  Leave Request</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+    <li routerLink='/holiday' ><a ><i class="far fa-calendar-alt mr-2"></i> Holidays</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+    <li routerLink='/attendence'><a ><i class="fas fa-chart-bar mr-2"></i> Attendence</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+    <li routerLink='/downloadpayslips'><a ><i class="fa fa-download  mr-2"></i> Download Payslips</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+    <li routerLink='/noticeboard'><a ><i class="fas fa-sticky-note  mr-2"></i> Notice Board</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+    <li routerLink='/iprocurement'><a ><i class="fa fa-list mr-2"></i> Iprocurement</a>
+        <ul  class="collapse list-unstyled" id="pageSubmenu" >
+    </ul>
+    </li>
+</ul>
+</div>
+-->

@@ -1,0 +1,190 @@
+
+<div class="container">      
+        <div class="page-bar">
+            <h3 class="titleName">
+                Notice Board
+              </h3>       
+            <ul class="page-breadcrumb">
+              <li class="Homebar">
+                <i class="fa fa-home"></i>
+                <a href="#" routerLink="/homepage">Home</a>         
+              </li>
+              <li>
+                 <i class="fa fa-angle-right"></i>
+                <a href="#" routerLink="/uploadpayslips">NoticeBoard</a>
+               </li>
+             </ul>  
+          </div> 
+          <button type="button" class="btn float-right addBtn btn-sm" data-toggle="modal" data-target="#exampleModal">
+            Add Notice
+            </button>
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title font-weight-bold report" id="exampleModalLabel">Add Notice</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">                      
+                      </button>    
+                       </div>   
+                       <hr class="bg-primary">        
+                    <div class="modal-body">                     
+                      <form class="example-form">
+                          <mat-form-field class="example-full-width">
+                            <input matInput class="Company text-dark font-weight-bold" placeholder="Company" disabled value="ZYCLYX Technologies">
+                          </mat-form-field>                        
+                          <table class="example-full-width" cellspacing="0"><tr>
+                            <td><mat-form-field class="example-full-width">
+                              <input matInput type="date" placeholder="Date">
+                            </mat-form-field></td>
+                            <td class="float-right"><mat-form-field class="example-full-width">
+                                <input matInput  name="title" [(ngModel)]="noticedata.title" placeholder="Title">
+                              </mat-form-field></td>
+                          </tr></table>                        
+                          <p>
+                            <mat-form-field class="example-full-width">
+                              <textarea matInput name="description"  [(ngModel)]="noticedata.description" placeholder="Description"></textarea>
+                            </mat-form-field>                           
+                          </p>                        
+                         <label>Attachments : </label>
+                         <input class="ml-3" type="file">
+                        </form>                        
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn bg-blue rounded btn-sm" data-dismiss="modal">Close</button>
+                      <button type="button" (click)="addnotice()" class="btn bg-success rounded btn-sm ">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+           <div class="card">             
+               <div class="card-body">
+                  <h4 class="font-weight-bold mb-3 report">  <i class="fas fa-sticky-note fa-1x mr-2"></i>List of all Notices</h4>
+                  <hr class="bg-primary">
+                 <div class="row">
+                  <div class="col lg-6">
+                      <div class="btn-group border-primary ">
+                          <span class="font-weight-bolder">Show</span>  &nbsp; <button class="btn btnShow btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                         
+                               </button>&nbsp;<span class="font-weight-bolder">entries</span>
+                               <div class="dropdown-menu ">
+                                   <a class="dropdown-item" href="#">10</a>
+                                   <a class="dropdown-item" href="#">25</a>
+                                   <a class="dropdown-item" href="#">50</a>
+                                   <a class="dropdown-item" href="#">100</a>                           
+                               </div>
+                             </div>
+                 </div>
+                  <div class="col lg-6 ">
+                      <div class="input-group mb-3 justify-content-end">
+                          <input type="text" class=" border search text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                          <div class="input-group-append">
+                            <button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
+                          </div>
+                        </div>
+                  </div>           
+                  </div>
+                    <table class="table table-striped table-hover tabel-responsive" id="myTable">
+                  <thead>
+                    <tr class="table-fields font-weight-bolder">
+                      <th> ID</th>
+                      <th> Title</th>
+                      <th> Description</th>
+                     
+                      <th> Date</th>                  
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr  >
+                      <td>1</td>
+                      <td>{{title}}</td>
+                      <td>{{description}}</td>
+                      <td>{{date | date:'yyyy-MM-dd'}}</td>
+                                      
+                                                  
+                    </tr> 
+                   </tbody>
+                 </table>
+                 <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end font-weight-bold ">
+                      <li class="page-item disabled border">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                      </li>
+                      <li class="page-item border"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item border"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item border"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item border">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>        
+            </div>
+
+<!-- <div class="page-content-wrapper" style="margin-left: -237px;">
+ 	
+    <div class="page-content bgLogo" style="margin-right: -232px;">
+      <h3>
+           Notice Board
+       </h3>
+       <div class="float-right">
+        <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
+      </div>
+        <div class="page-bar">
+           <ul class="page-breadcrumb">
+               <li>
+                   <i class="fa fa-home"></i>
+                   <a href="#">Home</a>
+                   <a><i class="fa fa-angle-right"></i>Notice Board</a>
+               </li>
+             </ul>
+             </div>
+        <div class="row ">
+           <div class="col-md-6">   
+           </div>
+           <div class="col-md-6 form-group text-right">   
+               <span id="load_notification"></span>
+               <input type="checkbox" onchange="ToggleEmailNotification('notice_notification');return false;"
+                      class="make-switch" name="notice_notification" checked
+                       data-on-color="success" data-on-text="Yes" data-off-text="No" data-off-color="danger">
+               <strong>Email Notification</strong><br>    
+           </div>
+       </div>     
+         <div class="row">
+           <div class="col-md-12">  
+               <div id="load"> 
+             </div>
+               <div class="portlet box blue">
+                   <div class="portlet-title">
+                       <div class="caption">
+                           <i class="fa fa-clipboard"></i>Notice List
+                       </div>
+                       <div class="tools">
+                       </div>
+                   </div>
+                  <div class="portlet-body">
+                     <table class="table table-striped table-bordered table-hover" id="notices">
+                           <thead>
+                           <tr>
+                               <th> ID</th>
+                               <th> Title</th>
+                               <th> Description</th>                              
+                               <th> Date</th>                          
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>{{title}}</td>
+                               <td>{{description}}</td>
+                               <td>{{date}}</td>
+                           </tr>
+                           </thead>
+                           <tbody>   
+                           </tbody>
+                       </table>
+                   </div>
+               </div>              
+                 </div>
+                </div> 
+    </div>
+    </div> -->

@@ -1,0 +1,4 @@
+<div class="row">
+		<input id="imageUpload" class="form-control" class="" type="file" [formControl]="deviceForm.controls['imageUpload']" [(ngModel)]="deviceTempObj.imageUpload"
+		(change)="fileChangeEvent($event)">
+  </div> 				

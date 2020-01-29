@@ -1,0 +1,70 @@
+
+	.bgLogo{
+		background-image: url('/assets/img/Bg.jpg');
+		background-attachment: fixed;
+		background-size:cover;
+		background-repeat: no-repeat;
+	   
+	}
+	
+	table{
+		font-size: 15px;
+	}
+	input{
+		border-bottom: none;
+
+	}
+	.headtext{
+			
+		// text-align: center;
+		font-style: bold;
+		// background-color: #000;
+		margin-left: 165px;
+		color: #ff9800;
+		// width: 300px;
+		
+
+	}
+	.page-bar{
+		background: none;
+	}
+	
+	.card{
+		overflow: hidden;
+		opacity: .9;
+	}
+	input[type=text]:not(.browser-default){
+		border-bottom: none;
+	}
+	input[type=date]:not(.browser-default){
+		border-bottom: none;
+	}
+	input[type=file]:not(.browser-default){
+		border-bottom: none;
+	}
+	input[type=password]:not(.browser-default){
+		border-bottom: none;
+	}
+	tr{
+		border-bottom: 0px;
+	}
+	.submit-btn{
+		border: none;
+		height:auto;
+		padding: 10px;
+		color: white;
+	}
+	.header{
+		background-color:#000;
+	}
+	input{
+		border:none;
+		outline:none;
+	}
+	.btnsubmit{
+		margin-left: 200px;
+	}
+	.empData{
+		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+	}

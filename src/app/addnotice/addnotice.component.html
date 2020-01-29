@@ -1,0 +1,91 @@
+<div class="page-content-wrapper" style="margin-left: -237px;">
+ 	
+  <div class="page-content bgLogo" style="margin-right: -232px;">
+      <h3>
+         Add Notice Board
+      </h3>
+      <div class="float-right">
+        <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
+      </div>
+      <div class="page-bar">
+          <ul class="page-breadcrumb">
+            <li>
+              <i class="fa fa-home"></i>
+              <a>Home</a>
+              <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+              <a href="#" routerLink="/noticeboard"> Notice
+              <i class="fa fa-angle-right"></i>
+            </a>
+            </li>
+            <li>
+              <a href="">Add Notice</a>
+            </li>
+          </ul>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+
+
+                    <div class="portlet-title">
+                        <div class="caption">
+                          <i class="fa fa-plus"></i>New Notice
+                        </div>
+                        <div class="tools">
+                        </div>
+                      </div>
+                      <div class="portlet-body form">
+
+                          <form style=" height: 301px;">
+                          
+                              <div class="form-body" >
+                                  <div class="form-group">
+                                      <label class="col-md-2 control-label">Title: <span class="required">
+                                      * </span>
+                                          </label>
+                                         
+                                          <div class="col-md-6">
+                                              <input type="text" class="form-control block" name="title" [(ngModel)]="noticedata.title">
+                                            </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-md-2 control-label">Discription: <span class="required">
+                                        * </span>
+                                            </label>
+                                            <div class="col-md-6">
+                                                <textarea class="form-control" name="description"  [(ngModel)]="noticedata.description"></textarea>
+                                              </div>
+                                        </div>
+                                        <div class="form-actions">
+                                          <div class="row">
+                                              <div class="col-md-offset-3 col-md-9">
+
+                                                     <button type="button" (click)="addnotice()" class="btn green">
+                                                Submit </button>
+
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+
+                              </div>
+                          
+                          
+                          </form>
+
+
+
+                      </div>
+
+
+                </div>
+
+
+              </div>
+              </div>
+
+    </div>
+    </div>

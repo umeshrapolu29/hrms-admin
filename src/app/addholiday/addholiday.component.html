@@ -1,0 +1,193 @@
+<div class="page-content-wrapper " style="margin-left: -237px;">
+    <div class="page-content bgLogo" style="margin-right: -232px;">
+
+      <h3>
+    Add Holiday
+    </h3>
+<div class="float-right">
+  <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
+</div>
+  <div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a >Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+         <li>
+            <a href="#">Holidays</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Add Holiday </a>
+        </li>
+    </ul>
+
+</div>
+
+<div class="row">
+ <div class="col-md-12">
+        <div class="portlet box blue">
+          <div class="tittle">
+            <div class="caption text-white p-2">
+                    <i class="fas fa-edit mr-2"></i>Add Holiday
+            </div>
+          </div>
+
+          <div class="portlet-body">
+        
+       
+                <form method="POST" action="#" accept-charset="UTF-8" id="add_holiday_form" class="form-horizontal "><input name="_token" type="hidden" value="dQTuwZQEpxNYil6cEmFDzChuT8u0eI1LnFG26GCZ">
+    
+    
+                  <div class="form-body">
+            
+                   <table>
+                       <tbody>
+                           <tr>
+                        <div class="row inputfields">
+                          <div class="col-md-4 ">
+                              <td> <label>Date:</label>
+                             <input type="date" value="" class="border p-3" name="date" placeholder="Date" [(ngModel)]="addholidaydata.date"></td>
+            
+                          </div>
+                          <div class="col-md-4">
+                              <td> <label>Reason:</label><br>
+    
+                              <textarea class="form-control form-control-inline"  class="" type="text" name="reason" placeholder="Occasion" [(ngModel)]="addholidaydata.reason"></textarea></td>
+                          </div>
+                          <div class="col-md-4 ">
+                                <div class="input-group-prepend">
+                                  <label>Holiday Type</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="holidaytype" [(ngModel)]="addholidaydata.holidaytype">
+                                  <option selected>Choose...</option>
+                                  <option value="Holiday">Holiday</option>
+                                  <option value="OptionalHoliday">Optional Holiday</option>
+                                
+                                </select>
+                                
+                              </div>
+                          </div>
+                          </tr>
+                      </tbody>
+                     </table>
+                      <div id="insertBefore"></div>
+                     
+            
+                  </div>
+            
+                  <div class="form-actions">
+                      <div class="row">
+                          <div class="col-md-offset-3 col-md-9">
+                              <button type="submit"  (click)="addholiday()"  routerLink="/holiday" class="btn green p-2 mr-2"><i class="fa fa-check" ></i> Submit</button>
+            
+                          </div>
+                      </div>
+                  </div>
+                  </form>
+
+
+         </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!-- 
+
+<div class="container bg-light mt-2">
+  <div class="page-content-wrapper" style="margin-left:0px;">
+    <div class="page-content"style="margin-right:0px;">
+<h3>
+    Add Holiday
+</h3>
+<div class="float-right">
+    <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
+  </div>
+</div>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+    <a href="#"  routerLink="/holiday">Holiday</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        
+    </ul>
+
+</div>
+
+  
+    <div class="portlet box blue">
+      <div class="portlet-title">
+        <div class="caption">
+            
+        </div>
+        <div class="tools">
+        </div>
+      </div>
+
+      <div class="portlet-body form">
+        
+       
+            <form method="POST" action="#" accept-charset="UTF-8" id="add_holiday_form" class="form-horizontal "><input name="_token" type="hidden" value="dQTuwZQEpxNYil6cEmFDzChuT8u0eI1LnFG26GCZ">
+
+
+              <div class="form-body">
+        
+               <table>
+                   <tbody>
+                       <tr>
+                    <div class="row inputfields">
+                      <div class="col-md-4 ">
+                          <td> <label>Date:</label>
+                         <input type="date" value="" class="border p-3" name="date" placeholder="Date" [(ngModel)]="addholidaydata.date"></td>
+        
+                      </div>
+                      <div class="col-md-4">
+                          <td> <label>Reason:</label><br>
+
+                          <textarea class="form-control form-control-inline"  class="" type="text" name="reason" placeholder="Occasion" [(ngModel)]="addholidaydata.reason"></textarea></td>
+                      </div>
+                      <div class="col-md-4 ">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="inputGroupSelect01">Holiday Type</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01" name="holidaytype" [(ngModel)]="addholidaydata.holidaytype">
+                              <option selected>Choose...</option>
+                              <option value="Holiday">Holiday</option>
+                              <option value="OptionalHoliday">Optional Holiday</option>
+                            
+                            </select>
+                            
+                          </div>
+                      </div>
+                      </tr>
+                  </tbody>
+                 </table>
+                  <div id="insertBefore"></div>
+                 
+        
+              </div>
+        
+              <div class="form-actions">
+                  <div class="row">
+                      <div class="col-md-offset-3 col-md-9">
+                          <button type="submit"  (click)="addholiday()"  routerLink="/holiday" class="btn green"><i class="fa fa-check" ></i> Submit</button>
+        
+                      </div>
+                  </div>
+              </div>
+              </form>
+      </div>
+    </div>
+</div> -->
+

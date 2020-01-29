@@ -1,0 +1,272 @@
+<div class="container empData bgLogo">
+	<div class="row">
+		<div class="col-1"></div>
+
+		<div class="col-10">
+			<div class="card">
+				<div class="card-title">
+					<div class="row header bg-dark">
+						<img src="http://zyclyx.com/wp-content/uploads/2018/10/ZYCLYX-EXPERIENCED-IN-FUTURE-WORLD-White.png" class="ml-3" width="200px" height="50px">					
+							<p class="float-right headtext display-4 mt-2 font-weight-bold">New Employee Details</p>
+						</div>
+				</div>	
+				<form name="form" #f="ngForm" validate>				
+					<div class="card-body">
+						<div class="row">
+							<div class="col-1"></div>
+							<div class="col-9">
+								<table class="table">
+								<tr>
+										<td>
+											First Name
+											<span>*</span>
+										</td>
+										<td>
+											:
+										</td>
+
+										<td>
+											<input 
+											type="text" 
+											name="first_name" 
+											Autocomplete="off" 
+											[(ngModel)]=" empData.first_name" 
+											#first_name= "ngModel"
+											pattern="^[a-zA-Z\s]+([a-zA-Z]+\s)?$" 
+											minlength="3"
+											required>
+											<div *ngIf="first_name.touched && first_name.invalid">
+									<div *ngIf="first_name.errors?.required"><span style="color:red">First name is required!..</span></div>
+									<div *ngIf="first_name.errors?.minlength"><span style="color:red">Please enter more than 3 characters!..</span></div>
+									<div *ngIf="first_name.errors?.pattern"><span style="color:red">Please enter characters only!..</span></div>
+									</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Last Name
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<input 
+											type="text"
+											 name="last_name"
+											  Autocomplete="off" 
+											  [(ngModel)]=" empData.last_name" 
+											  #last_name= "ngModel"
+											pattern="^[a-zA-Z\s]+([a-zA-Z]+\s)?$" 
+											required>
+											<div *ngIf="last_name.touched && last_name.invalid">
+												<div *ngIf="last_name.errors?.required"><span style="color:red">last name is required!..</span></div>
+												<div *ngIf="last_name.errors?.pattern"><span style="color:red">Please enter characters only!..</span></div>
+												</div>
+												</td>
+									</tr>
+
+									<tr>
+										<td>
+											Email
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<input type="text" 
+											name="email" 
+											Autocomplete="off" 
+											[(ngModel)]=" empData.email"
+											#email="ngModel"
+											pattern="^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$"
+											required>
+											<div *ngIf="email.touched && email.invalid">
+												<div *ngIf="email.errors.required"><span style="color:red">Email is required</span></div>
+												<div *ngIf="email.errors.pattern"><span style="color:red">Invalid Email address</span></div>
+	
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Date of Joining
+										</td>
+										<td>
+											:
+										</td>
+
+										<td>
+											<input type="date"
+											 name="DOJ"
+											  Autocomplete="off" 
+											  [(ngModel)]=" empData.DOJ"
+											  #DOJ="ngModel"
+											  Autocomplete="off"
+												 required>
+												 <div *ngIf="DOJ.touched && DOJ.invalid">
+													<div *ngIf="DOJ.errors.required"><span style="color:red">Date of Joining is required</span></div>
+			
+												</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Phone Number
+										</td>
+										<td>
+											:
+										</td>
+
+										<td>
+											<input type="text" 
+											name="phonenumber" 
+											Autocomplete="off" 
+											[(ngModel)]=" empData.phonenumber" 
+											#PhoneNumber="ngModel"
+											pattern="^[6-9]\d{9}$"
+											required
+											minlength="10"
+											maxlength="10">
+											<div *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
+												<div *ngIf="PhoneNumber.errors.required"><span style="color:red">Phone number is required!..</span></div>
+												<div *ngIf="PhoneNumber.errors.pattern"><span style="color:red">Invalid mobile number!..</span></div>
+												
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											Gender
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<p class="left-align">
+											
+													<input 
+													type="radio" 
+													name="gender" 
+													value="male" 
+													[(ngModel)]=" empData.gender"/>
+													<span> Male</span>&nbsp;&nbsp;
+											
+											
+													<input 
+													type="radio"  
+													name="gender" 
+													value="female" 
+													[(ngModel)]=" empData.gender" />
+													<span> Female</span>											
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Date of Birth
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<input 
+											type="date" 
+											name="DOB" 
+											Autocomplete="off" 
+											[(ngModel)]=" empData.DOB" 
+											#DOB="ngModel"
+											Autocomplete="off"
+											required>
+											<div *ngIf="DOB.touched && DOB.invalid">
+												<div *ngIf="DOB.errors.required"><span style="color:red">Date of Birth is required</span></div>
+	
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											password
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<input 
+											type="password" 
+											name="password" 
+											Autocomplete="off" 
+											[(ngModel)]=" empData.password"
+											#password="ngModel"
+											minlength="8"
+											pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" 
+											required>
+											<div *ngIf="password.touched && password.invalid">
+												<div *ngIf="password.errors.required"><span style="color:red" >Password is required!..</span></div>
+												<div *ngIf="password.errors.minlength"><span style="color:red">Password minimum 8 letters required </span></div>
+												<div *ngIf="password.errors.pattern"><span style="color: red">Atleast one uppercase,one lowercase,one digit and  one special character</span></div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Cnfm Password
+										</td>
+										<td>
+											:
+										</td>
+										<td>
+											<input 
+											type="password" 										 
+											name="cnf-pswd" 
+											Autocomplete="off"
+											[(ngModel)]=" empData.cnf-pswd"
+											#cnfmPass="ngModel"
+											Autocomplete="off"
+											required>
+											<div *ngIf="cnfmPass.touched && cnfmPass.invalid">
+												<div *ngIf="cnfmPass.errors.required"><span style="color:red">Confirm Password is required</span></div>
+												<div *ngIf="cnfmPass.errors.notEqual"><span style="color: red">Password and Confirm Password is mismatch</span></div>
+							
+											</div>										
+
+										</td>
+									</tr>
+									<tr>
+										<td>Upload image</td>
+										<td>:</td>
+										<td>
+											<input 
+											type="file" 
+											id="avatar"
+											 name="imageproduct" 
+											 [(ngModel)]="imageproduct"
+											 #uploadImage="ngModel"
+											 (change)="fileChangeEvent($event)" 
+											 #fileInput>
+											<label for="fileupload"> Select a file to upload</label>
+											<br>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<br>
+										<td>
+										</td>
+									</tr>
+								</table>								
+
+							</div>
+						</div>
+						<div class="text-center">
+							<button class="btn-block btn-success w-50 btnsubmit" type="button" (click)="addemployee()">Submit</button>
+						</div>					
+				</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-1">
+		</div>
+	</div>
+</div>

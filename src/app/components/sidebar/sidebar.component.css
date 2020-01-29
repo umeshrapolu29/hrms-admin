@@ -1,0 +1,214 @@
+
+.sidebar-wrapper a{
+    color: black;
+    font-family: "Poppins"!important;
+  
+}
+
+.bg-icon {
+    background: #2d2d2d;
+    color: rgb(177, 177, 177);
+    box-shadow:inset 0px 2px 5px 0px black;
+}
+.bg-icon i:hover{
+    color:#f44336;
+}
+.logo img{
+    height:26px;
+     width:125px;
+}
+/* .fa-caret-left:active{
+    transform: rotate(270deg); 
+    transition: 3s transform;
+} */
+
+.sidebar-wrapper h2:hover, p:hover .rotate:hover{
+color:#0177bc;
+}
+.imgOverlay{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -5;
+}
+.logo{
+    background-color: #0177bc;
+}
+.sideBarImg{
+    background-image: url('https://techcrunch.com/wp-content/uploads/2016/02/shutterstock_147776027.jpg?w=730&crop=1');
+    position: relative;
+    background-position: -50px -30px;
+    height: 200px;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -10;
+}
+.fa-circle{
+    font-size: 10px;
+}
+.sideImg{
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px -4px;
+    z-index: 1000;
+
+}
+ .sidebar-wrapper{
+    position: relative;
+    height: calc(120vh - 75px); 
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    padding-bottom:0px;
+
+} 
+ .card-header p{
+    font-size: 16px;
+  }
+
+ .card-body p{
+  font-size: 15px;
+}
+.card{
+    background-color:transparent;
+    color: black;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: none;
+    
+   }
+
+.card-body a{
+ font-size: 17px;
+ font-weight: bold;
+}
+
+.accordion>.card .card-header {
+    margin-bottom: -45px;
+}
+.card p{
+    font-weight: bolder;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0;
+    margin-top: -20px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+h4{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.sidebar-wrapper{
+    box-shadow: 1px 2px 5px -2px;
+}
+.fa-home{
+    color: #7ab22d;
+}
+.card-header .home:hover{
+    border-right: 1px solid  #7ab22d;  
+    color: #7ab22d;
+    
+}
+.fa-user{
+    color: #d29d34;
+}
+.card-header .employee:hover{
+    border-right: 2px solid #d29d34;  
+    color: #d29d34;
+    
+}
+.fa-edit{
+    color: #4babcb;
+}
+.card-header .leave:hover{
+    border-right:2px solid #4babcb;  
+    color: #4babcb;
+    
+}
+
+.fa-calendar-alt{
+    color: #f7524f;
+}
+.card-header .holiday:hover{
+    border-right:2px solid #f7524f;  
+    color: #f7524f;
+    
+}
+.fa-chart-bar{
+    color: #7ab22d;
+}
+.card-header .attendence:hover{
+    border-right:2px solid #7ab22d;  
+    color: #7ab22d;    
+}
+.fa-upload{
+    color: #f075cf;
+}
+.card-header .payslips:hover{
+    border-right:2px solid #f075cf;  
+    color: #f075cf;    
+}
+.fa-sticky-note{
+color: #d29d34;
+}
+.card-header .notice:hover{
+    border-right:2px solid #d29d34;  
+    color: #d29d34;    
+}
+.fa-list{
+color: #f44336;
+}
+.card-header .iprocurement:hover{
+    border-right:2px solid #f44336;  
+    color: #f44336;    
+}
+
+/* .accordion .card  .card-header{
+    height: 69px;
+} */
+
+/* .sidebar-wrapper a{
+    color: white;
+}
+.sidebar-wrapper li{
+    list-style: none;
+    margin:10px;
+  padding: 10px;
+}
+
+.sidebar-wrapper li:hover{
+background-color: rgb(207, 136, 5);
+}
+span:hover{
+   color: white;
+}
+.logo-img img{
+    top: 10;
+    width: 177px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+ul{
+    overflow: hidden;
+    scroll-behavior:none;
+}
+.sideImg{
+    height: 100px;
+    width: 100px;
+}
+ .sidebar-wrapper{
+    position: relative;
+    height: calc(120vh - 75px); 
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    padding-bottom:0px;
+} */

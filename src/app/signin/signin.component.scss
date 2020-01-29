@@ -1,0 +1,35 @@
+ body{
+  background:url('/assets/img/admin_image.jpg') fixed center cover;
+}
+.container{
+  width:600px;
+
+}
+.bottomTitle:hover{
+  font-weight: bolder;
+}
+.logo{
+  background-image: url('/assets/img/logo.png');
+  background-size: 120px 130px;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-position-x: 105%;
+  background-position-y: -5%;
+}
+.emp-text{
+font-size:14px;
+
+}
+.card{
+ position:relative;
+  top: 60px;
+  transform: translate(50% 50%);
+
+}
+.work{
+color: #0886f5;
+}
+
+.btn-block{
+  background-color: #0886f5;
+}

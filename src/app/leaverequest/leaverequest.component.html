@@ -1,0 +1,191 @@
+
+<div class="container">      
+		<div class="page-bar">
+			<h3 class="titleName">
+				Leave Requests
+			  </h3>       
+			<ul class="page-breadcrumb">
+			  <li class="Homebar">
+				<i class="fa fa-home"></i>
+				<a href="#" routerLink="/homepage">Home</a>         
+			  </li>
+			  <li>
+				 <i class="fa fa-angle-right"></i>
+				<a href="#" routerLink="/iprocurement">	Leave Requests</a>
+			   </li>
+			 </ul>  
+      </div>      
+      <div class="card">       
+        <div class="card-body">
+      <mat-form-field class="">
+          <mat-label>Select Employee </mat-label>
+            <mat-select [(value)]="empName" name="name"[(ngModel)]=" empData.name">
+            
+            <mat-option value="{{hero.name}}" *ngFor="let hero of myArray">{{hero.name}}</mat-option>
+                    
+            </mat-select>
+          </mat-form-field>    
+          <button type="button"  class="btn btn-sm btn-success selectEmp" (click)="leaveapplication()">submit</button>       
+  </div>
+  </div>
+			  <div class="card">       
+			   <div class="card-body">
+				  <h4 class="font-weight-bold mb-3 report"><i class="fas fa-edit fa-1x mr-2"></i>List of all Leave Requests</h4>
+				  <hr class="bg-primary">
+				 <div class="row">
+				  <div class="col lg-6">
+					<div class="btn-group border-primary ">
+						<span class="font-weight-bolder">Show</span>  &nbsp; <button class="btn btnShow btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                         
+							 </button>&nbsp;<span class="font-weight-bolder">entries</span>
+							 <div class="dropdown-menu ">
+								 <a class="dropdown-item" href="#">10</a>
+								 <a class="dropdown-item" href="#">25</a>
+								 <a class="dropdown-item" href="#">50</a>
+								 <a class="dropdown-item" href="#">100</a>                           
+							 </div>
+						   </div>
+				</div>
+				  <div class="col lg-6 ">
+					  <div class="input-group mb-3 justify-content-end">
+						  <input type="text" class=" border search text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+						  <div class="input-group-append">
+							<button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
+						  </div>
+						</div>
+				  </div>           
+				  </div>
+					<table class="table table-striped table-bordered table-hover tabel-responsive" id="myTable">
+				  <thead>
+					<tr class="table-fields font-weight-bolder">
+					  <th><b>ID</b></th>
+                                                                             <th><b>Name</b></th>
+                                                                       
+                                                                             <th><b>Leave Type</b></th>
+                                                                             <th><b>Reason</b></th>
+                                                                             <th><b>From Date</b></th>
+                                                                             <th><b>To Date</b></th>
+                                                                             <th><b>Status</b></th>        
+				  </tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td> {{fullid}}</td>
+                                                                              <td> {{Ename}} </td>
+                                                                             <td>{{reqtype}}</td>
+                                                                              <td>{{reason}}  </td>
+                                                                              <td> {{fromdays}} </td>
+                                                                              <td>{{todays}}</td>
+					  <td class="actionIcons"> 
+						 <input type="radio"  name="status" value="Approved" [(ngModel)]=" empData.status">Approved
+						 <input type="radio" name="status" value="Denied" [(ngModel)]=" empData.status">Denied
+						 <button class="text-success ml-4" (click)="senddata()"><i class="fas fa-cloud-upload-alt"></i></button>
+						 </td>                                               
+					</tr> 
+				   </tbody>
+				 </table>
+				 <nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-end font-weight-bold ">
+					  <li class="page-item disabled border">
+						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+					  </li>
+					  <li class="page-item border"><a class="page-link" href="#">1</a></li>
+					  <li class="page-item border"><a class="page-link" href="#">2</a></li>
+					  <li class="page-item border"><a class="page-link" href="#">3</a></li>
+					  <li class="page-item border">
+						<a class="page-link" href="#">Next</a>
+					  </li>
+					</ul>
+				  </nav>
+				</div>        
+			</div>
+
+
+<!-- <div class="page-content-wrapper" style="margin-left: -237px;">
+    <div class="page-content bgLogo" style="margin-right: -232px;">   
+        <h3>
+            Leave Applications
+        </h3>
+         <div class="float-right">
+                <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
+              </div>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a >Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                </ul>
+             </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                        <select class="form-control form-control-lg "  name="name"[(ngModel)]=" empData.name" >
+                                <option value="" selected> --select Employee Name--</option>
+                                <option *ngFor="let hero of myArray">{{hero.name}}</option>
+                                
+                              </select>
+                             </div>
+                  <button type="button" class="btn btn-sm btn-success selectEmp" (click)="leaveapplication()">submit</button>                  
+                  <div class="col-md-4 form-group text-right">
+                      </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="load">
+                              </div> 
+                              <div class="portlet box blue">  
+                                  <div class="portlet-title">
+                                      <div class="caption">
+                                          <i class="fa fa-rocket"></i>Applications
+                                      </div>
+                                      <div class="tools">
+                                      </div>
+                                  </div>
+                                  <div class="portlet-body">
+                                      <table class="table table-striped table-bordered table-hover" id="applications">
+                                                                          <thead>
+                                                                         <tr>
+                                                                             <th><b>ID</b></th>
+                                                                             <th><b>Name</b></th>
+                                                                       
+                                                                             <th><b>Leave Type</b></th>
+                                                                             <th><b>Reason</b></th>
+                                                                             <th><b>From Date</b></th>
+                                                                             <th><b>To Date</b></th>
+                                                                             <th><b>Status</b></th>
+                                                                           
+                                     
+                                                                         </tr>
+                                                                         </thead>
+                                                                         <tbody>
+                                                                         <tr>
+                                                                              <td> {{fullid}}</td>
+                                                                              <td> {{Ename}} </td>
+                                                                             <td>{{reqtype}}</td>
+                                                                              <td>{{reason}}  </td>
+                                                                              <td> {{fromdays}} </td>
+                                                                              <td>{{todays}}</td>                                                                           
+                                                                            <td> 
+                                                                               <p class="left-align">											
+                                                                                    <input type="radio" name="status" value="Approved" [(ngModel)]=" empData.status"/>
+                                                                                    <span> Approve</span>&nbsp;&nbsp;                                                                           
+                                                                            
+                                                                                    <input type="radio"  name="status" value="Denied" [(ngModel)]=" empData.status" />
+                                                                                    <span> Deny</span>
+                                                                                    <input type="hidden" name="fullid" value="{{fullid}}" [(ngModel)]=" empData.fullid">
+                                                                                    <button class="btn btn-sm btn-success float-right" type="submit" (click)="senddata()">submit</button>
+                                                                                
+                                                                            </p>                                                                           
+                                                                            
+                                                                            </td>
+                                                                         </tr>                                     
+                                                                             </tbody>                                     
+                                                                 </table>
+                                                             </div>
+                                                             </div>
+                                                             </div>
+                          </div>
+                         </div>
+      </div>         
+   -->
+                 

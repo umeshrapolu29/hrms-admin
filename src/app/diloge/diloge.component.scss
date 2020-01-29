@@ -1,0 +1,28 @@
+.delBtn{
+    border:1px solid red;
+    color:red;
+    background: white;
+}
+.delBtn:hover{
+background-color: red;
+color: white;
+}
+.closeBtn{
+    border: 1px solid #1d7ce7;
+    color:#1d7ce7;
+    background: white;
+
+   }
+.closeBtn:hover{
+  background:#1d7ce7;
+  color: white;
+    }
+.box{
+    height: 250px;
+    width:500px;
+
+    }
+    .img{
+       height: 150px;
+       width:230px;
+    }

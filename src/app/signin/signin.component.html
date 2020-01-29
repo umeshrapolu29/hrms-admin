@@ -1,0 +1,51 @@
+<div class="container ">
+  <div class="card logo py-2 shadow-lg">
+    <div class="card-title text-center">
+      <h2 class="mb-0"><b>ADMIN PANEL</b></h2>
+      <h5 class="text-success font-weight-bolder">Login with your Credentials</h5>
+     
+    </div>
+  <div class="card-body" style="border-radius: 5px;">
+    <div class="row">
+      <div class="col-lg-4  text-center ">
+        <i class="fa fa-user-shield fa-5x work mb-3"></i>
+         <p class="emp-text"><span class="font-weight-bolder work text-lg">ZYCLYX ADMIN </span><br>Proudly Welcomes You<br></p>
+      </div>
+      <div class="col-lg-8 border-left">
+    <form>
+      <div class="input-group flex-nowrap mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping"><i class="fa fa-user"></i></span>
+    </div>
+    <input type="text" class="form-control" placeholder="enter email" name="email" aria-label="Username" aria-describedby="addon-wrapping" [(ngModel)]="loginUserData.email">
+  </div>
+  
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping"><i class="fa fa-key"></i></span>
+    </div>
+    <input type="password" class="form-control" placeholder="password"  aria-label="Username" aria-describedby="addon-wrapping" name="password"  [(ngModel)]="loginUserData.password" >
+  </div>
+  <div class="login">
+    <button type="button" class="btn btn-block my-4" (click)=" loginUser()">Login</button>
+    <a href="#">Lost your password?</a>
+  </div>
+  
+   
+ 
+  
+    </form>
+    </div>
+    
+  </div>
+  </div>
+  <a href="#" class="bottomTitle">
+  <div class="card-title text-center text-white p-2  " style="background-color:#50b947;">
+    Want to move to Employee Panel
+     
+    </div>
+  </a>
+  
+  </div>
+     </div>
+  

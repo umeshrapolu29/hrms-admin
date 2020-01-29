@@ -1,0 +1,83 @@
+.pop{ 
+    padding: 10px;
+    display: none;
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+        width: 25%;
+ 
+  height: 20%;
+    z-index: 1000;
+    overflow: hidden;
+    box-shadow: 0 0 20px -10px black;
+
+  }
+  .report{
+    color: #0177bc;
+    font-size: 23px;
+}
+  .search{
+    margin: 5px 0px;
+}
+  .actionIcons{
+    background: white;
+    box-shadow: 1px 1px 3px -1px black;
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 20PX;
+    padding: 5px;
+    width: 30px;
+}
+  .bgLogo{
+    background-image: url('/assets/img/Bg.jpg');
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+   
+} 
+  .cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0,0,0,0.4);
+  }
+  #close{
+    float: right;
+    background-color: none;
+    padding: 5px;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #close:hover,
+  #close:focus{
+    background-color: red;
+    padding: 5px;
+    color: white;
+  }
+.tabHead{
+  background: #dff3ff;
+}
+    .titleName{
+      font-weight: bold;
+      margin-top: 63px;
+  }
+    .field{
+      font-size: 18px;
+      color:#0177bc;
+  }
+  .modal-header{
+    border-bottom:none;
+  }
+  .page-bar{
+    background: none;
+}
