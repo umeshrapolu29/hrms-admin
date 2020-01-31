@@ -11,7 +11,7 @@ import{HttpErrorResponse } from '@angular/common/http';
 export class HolidayComponent implements OnInit {
   constructor(private _auth: AuthService,
     private _router: Router) { }
-    addholidaydata={    holidayType:'',
+    addholidaydata={    holidaytype:'',
        token: localStorage.getItem('token') }
     
     reason:string='';
@@ -59,7 +59,7 @@ export class HolidayComponent implements OnInit {
   }
   addholiday()
   {
-    //console.log(this.addholidaydata)
+    console.log(this.addholidaydata)
     this._auth.addholiday(this.addholidaydata)
     .subscribe(
       res => {
