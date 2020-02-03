@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-file-upload';
+import { FileSelectDirective, FileDropDirective, FileUploadModule,FileUploader  } from 'ng2-file-upload/ng2-file-upload';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -77,7 +77,7 @@ import {MatIconModule} from '@angular/material/icon';
   bootstrap: [AppComponent],
   exports: [
     FileSelectDirective,
-    FileDropDirective
+    FileDropDirective,FileUploader
     ]
 })
 export class AppModule { }
