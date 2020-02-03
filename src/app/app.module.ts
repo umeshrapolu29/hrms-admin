@@ -1,11 +1,12 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FileSelectDirective, FileDropDirective, FileUploadModule,FileUploader  } from 'ng2-file-upload';
-
+// import { FileSelectDirective, FileDropDirective, FileUploadModule,FileUploader  } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -35,6 +36,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatInputModule, MatNativeDateModule, MatMenuModule, MatRadioModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
+import { DilogeComponent } from './diloge/diloge.component';
 
 @NgModule({
   imports: [
@@ -66,7 +68,10 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    SigninComponent,FileSelectDirective,FileDropDirective    
+    SigninComponent,
+    DilogeComponent
+    // FileSelectDirective,
+    // FileDropDirective    
    ],
   providers: [AuthGuard,AuthService, {
     provide: HTTP_INTERCEPTORS,
@@ -76,8 +81,8 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   bootstrap: [AppComponent],
   exports: [
-    FileSelectDirective,
-    FileDropDirective,FileUploader
+    // FileSelectDirective,
+    // FileDropDirective,FileUploader
     ]
 })
 export class AppModule { }

@@ -19,6 +19,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./viewdetails.component.scss']
 })
 export class ViewdetailsComponent  {
+  imageproduct:any;
   empData = { 
     first_name:'',
     last_name:'',
@@ -29,6 +30,8 @@ export class ViewdetailsComponent  {
     gender:'',
     DOB:'', 
     fullid:'',
+    cnf_pswd:'',
+    
     //confirmpassword: '',
     token: localStorage.getItem('token'),
     id:localStorage.getItem('id')

@@ -12,7 +12,11 @@ import{HttpErrorResponse } from '@angular/common/http';
 export class SigninComponent implements OnInit {
   name:string='';
   password:number;
-  loginUserData = {}
+  loginUserData = {
+    email:"",
+    password:'',
+
+  }
 
   constructor(private _auth: AuthService,
               private _router: Router) { }

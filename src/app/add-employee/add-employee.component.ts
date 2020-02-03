@@ -19,6 +19,7 @@ class ImageSnippet {
 
 })
 export class AddEmployeeComponent implements OnInit {
+  imageproduct:any;
   empData = { 
     first_name:'',
     last_name:'',
@@ -28,6 +29,7 @@ export class AddEmployeeComponent implements OnInit {
     phonenumber:'',
     gender:'',
     DOB:'', 
+    cnf_pswd:'',
     //confirmpassword: '',
     token: localStorage.getItem('token'),
     id:localStorage.getItem('id')

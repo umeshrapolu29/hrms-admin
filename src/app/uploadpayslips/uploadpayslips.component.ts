@@ -13,6 +13,12 @@ import { DilogeComponent } from 'app/diloge/diloge.component';
 export class UploadpayslipsComponent implements OnInit {
   //name:string='';
   name1:string='';
+  selected1:any;
+  selected2:any;
+  EmployeeName:any
+  file1:any;
+  Yes:any;
+  success:any;
   name2:string='';
   name3:string='';
   myArray:any;

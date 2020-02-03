@@ -13,7 +13,11 @@ export class NoticeboardComponent implements OnInit {
 title:string='';
 description:string='';
 date:string='';
-noticedata={}
+noticedata={
+  title:'',
+  description:'',
+  
+}
 
   constructor(private _auth: AuthService,
     private _router: Router, private _httpclient:HttpClient) { }

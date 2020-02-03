@@ -12,6 +12,8 @@ import { Response } from '@angular/http';
   styleUrls: ['./viewemployeelist.component.scss']
 })
 export class ViewemployeelistComponent implements OnInit {
+  name:any;
+  fullid:any;
 
   heroes:[];
   empData = { 
@@ -19,9 +21,11 @@ export class ViewemployeelistComponent implements OnInit {
     
  
   }
-  viewemployee1={};
-  name:string='';
-  fullid:string='';
+  viewemployee1={
+    names:'',
+    fullid:''
+  };
+ 
   name1:string='';
   fullid1:string='';
   name2:string='';
@@ -30,6 +34,8 @@ export class ViewemployeelistComponent implements OnInit {
   fullid3:string='';
   name4:string='';
   fullid4:string='';
+ 
+
   
   
 

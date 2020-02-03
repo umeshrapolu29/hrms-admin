@@ -11,6 +11,8 @@ import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-u
 })
 
 export class FileuploadComponent implements OnInit {
+  deviceForm:any;
+  deviceTempObj:any;
   AddemployeeData = {'token':localStorage.getItem('token')}
   public filesToUpload: Array<File> = [];
 

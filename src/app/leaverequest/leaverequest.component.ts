@@ -14,6 +14,7 @@ export class LeaverequestComponent implements OnInit {
   ename1:string='';
   ename2:string='';
   fullid:any;
+  empName:any;
 
   empData={
     status:'',

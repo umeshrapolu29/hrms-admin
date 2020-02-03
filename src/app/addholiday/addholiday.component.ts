@@ -9,7 +9,13 @@ import{HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./addholiday.component.scss']
 })
 export class AddholidayComponent implements OnInit {
-  addholidaydata={  token: localStorage.getItem('token') }
+  addholidaydata={  token: localStorage.getItem('token'),
+  date:'',
+  reason:'',
+  holidaytype:'',
+  deviceForm:'',
+
+}
 
   constructor(private _auth: AuthService,
     private _router: Router) { }

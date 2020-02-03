@@ -9,7 +9,10 @@ import{HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./addnotice.component.scss']
 })
 export class AddnoticeComponent implements OnInit {
-  noticedata={}
+  noticedata={
+    title:'',
+    description:'',
+  }
 
  
   constructor(private _auth: AuthService,

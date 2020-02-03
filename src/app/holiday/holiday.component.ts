@@ -9,14 +9,22 @@ import{HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./holiday.component.scss']
 })
 export class HolidayComponent implements OnInit {
+  success:any;
+  Yes:any;
+  holidayType:any;
   constructor(private _auth: AuthService,
     private _router: Router) { }
-    addholidaydata={    holidaytype:'',
+    addholidaydata={    
+    holidaytype:'',
+   
+    reason:'',
+    date:'',
+
        token: localStorage.getItem('token') }
     
-    reason:string='';
+   
   Type:string='';
-  date:string='';
+ 
   day:string='';
   myArray:any;
   file1:string;
