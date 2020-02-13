@@ -24,7 +24,7 @@ noticedata={
 
   ngOnInit() {
 
-    this._httpclient.get('http://localhost:3000/NoticeBoard/ViewNotice')
+    this._httpclient.get('https://zyclyx-app.herokuapp.com/NoticeBoard/ViewNotice')
     .subscribe(
       (res)=>{
         console.log(res +"res is")

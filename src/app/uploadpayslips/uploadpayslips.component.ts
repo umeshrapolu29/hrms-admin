@@ -39,7 +39,7 @@ export class UploadpayslipsComponent implements OnInit {
 
   ngOnInit() {
 
-    this._httpclient.get('http://localhost:3000/Payslips/getEmployeeNames')
+    this._httpclient.get('https://zyclyx-app.herokuapp.com/Payslips/getEmployeeNames')
     .subscribe(
       (res)=>
       {

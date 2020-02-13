@@ -39,7 +39,7 @@ export class LeaverequestComponent implements OnInit {
     
   ngOnInit() {
     console.log("gud")
-    this._httpclient.get('http://localhost:3000/LeaveRequest/getAdmins')
+    this._httpclient.get('https://zyclyx-app.herokuapp.com/LeaveRequest/getAdmins')
     .subscribe(
       (res)=>{
         console.log(res)
