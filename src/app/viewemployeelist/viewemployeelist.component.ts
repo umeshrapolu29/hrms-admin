@@ -44,7 +44,7 @@ export class ViewemployeelistComponent implements OnInit {
 
   ngOnInit() {
    
-    this._httpclient.get('https://zyclyx-app.herokuapp.com/TestAdmin/getUsersList')
+    this._httpclient.get('http://localhost:3000/Admin/getUsersList')
     .subscribe(
       (res:any[])=>{
      
