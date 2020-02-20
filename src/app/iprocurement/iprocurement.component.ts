@@ -123,6 +123,7 @@ export class IprocurementComponent implements OnInit {
             this.photo=res[0].photo
            
             console.log(this.photo)
+            
          }
    
        )

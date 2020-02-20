@@ -94,7 +94,7 @@ export class UploadpayslipsComponent implements OnInit {
   {
     let  senddata1 = new FormData();
     //senddata.fullid= this.fullid
-    senddata1.append('imageproduct', this.filesToUpload[0], this.filesToUpload[0].name);
+    senddata1.append('imageproduct', this.filesToUpload[0]);
     console.log(File+" file")
     senddata1.append('month',this.empData.month);
     senddata1.append('year',this.empData.year);

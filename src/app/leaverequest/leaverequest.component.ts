@@ -47,7 +47,7 @@ export class LeaverequestComponent implements OnInit {
         this.ename=this.myArray[0].name
         console.log(this.myArray[0].name +"name is")
         this.ename=res[0].name
-        this.ename1=res[1].name
+        //this.ename1=res[1].name
         console.log(this.ename)
         //this.name2=res[2].name
         console.log("hey");

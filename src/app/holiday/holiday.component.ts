@@ -71,6 +71,7 @@ export class HolidayComponent implements OnInit {
     this._auth.addholiday(this.addholidaydata)
     .subscribe(
       res => {
+        console.log("inside hollyday");
          console.log(res +"res is ")
       //   if(localStorage.getItem('token')=="undefined")
       //   {

@@ -27,6 +27,7 @@ noticedata={
     this._httpclient.get('http://localhost:3000/NoticeBoard/ViewNotice')
     .subscribe(
       (res)=>{
+        
         console.log(res +"res is")
         console.log(res["title"]);
         console.log(res["description"]);
