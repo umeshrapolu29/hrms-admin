@@ -44,11 +44,11 @@ export class LeaverequestComponent implements OnInit {
       (res)=>{
         console.log(res)
         this.myArray=res
-        this.ename=this.myArray[0].name
-        console.log(this.myArray[0].name +"name is")
-        this.ename=res[0].name
-        //this.ename1=res[1].name
-        console.log(this.ename)
+        // this.ename=this.myArray[0].name
+        // console.log(this.myArray[0].name +"name is")
+        // this.ename=res[0].name
+        
+        // console.log(this.ename)
         //this.name2=res[2].name
         console.log("hey");
       }
@@ -110,7 +110,7 @@ export class LeaverequestComponent implements OnInit {
     this._auth.sendstatus(senddata)
     .subscribe((res)=>{
       console.log("senddata")
-      console.log(res)
+      console.log(res+"res is")
     
       console.log(this.empData)
 

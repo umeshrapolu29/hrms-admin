@@ -38,6 +38,7 @@ import { MatInputModule, MatNativeDateModule, MatMenuModule, MatRadioModule } fr
 import {MatIconModule} from '@angular/material/icon';
 import { DilogeComponent } from './diloge/diloge.component';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -69,7 +70,8 @@ import { DilogeComponent } from './diloge/diloge.component';
     AppComponent,
     AdminLayoutComponent,
     SigninComponent,
-    DilogeComponent
+    DilogeComponent,
+ 
     // FileSelectDirective,
     // FileDropDirective    
    ],

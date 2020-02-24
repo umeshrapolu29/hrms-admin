@@ -26,6 +26,7 @@ import { FileuploadComponent } from 'app/fileupload/fileupload.component';
 import { ViewemployeelistComponent } from 'app/viewemployeelist/viewemployeelist.component';
 import { DetailsComponent } from 'app/details/details.component';
 import { HomepageComponent } from 'app/homepage/homepage.component';
+import { TestingComponent } from 'app/testing/testing.component';
 
 
 
@@ -98,5 +99,6 @@ export const AdminLayoutRoutes: Routes = [
     {path:'viewemployeelist',component:ViewemployeelistComponent},
     {path:'details',component:DetailsComponent},
     {path:'homepage',component:HomepageComponent},
+    {path:'testing',component:TestingComponent},
   
 ];

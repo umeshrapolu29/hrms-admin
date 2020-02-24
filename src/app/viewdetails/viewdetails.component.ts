@@ -19,7 +19,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./viewdetails.component.scss']
 })
 export class ViewdetailsComponent  {
-  imageproduct:any;
+  file:any;
   empData = { 
     first_name:'',
     last_name:'',
@@ -152,10 +152,10 @@ export class ViewdetailsComponent  {
     console.log(this.empData.DOJ +"id is")
     const payload = new FormData();
     const file: File = this.filesToUpload[0];
-    payload.append('imageproduct', this.filesToUpload[0], this.filesToUpload[0].name);
+    payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
     console.log(File+" file")
-    payload.append('first_name',this.empData.first_name);
-    payload.append('last_name',this.empData.last_name);
+    payload.append('firstname',this.empData.first_name);
+    payload.append('lastname',this.empData.last_name);
     payload.append('email',this.empData.email);
     payload.append('password', this.empData.password);
     payload.append('DOJ',this.empData.DOJ);
@@ -164,6 +164,7 @@ export class ViewdetailsComponent  {
     payload.append('DOB',this.empData.DOB),
     payload.append('token',this.empData.token)
     payload.append('id',this.empData.id)
+    console.log("hello inside");
  
    
     this._auth.uploadSheet(payload)

@@ -27,6 +27,7 @@ import{ViewattendanceComponent} from '../../viewattendance/viewattendance.compon
 import{AddholidayComponent} from '../../addholiday/addholiday.component';
 import{FileuploadComponent} from '../../fileupload/fileupload.component';
 import{ ViewemployeelistComponent} from '../../viewemployeelist/viewemployeelist.component';
+
 import{DetailsComponent} from '../../details/details.component';
 import {
   MatButtonModule,
@@ -38,6 +39,7 @@ import {
 } from '@angular/material';
 import { from } from 'rxjs';
 import { HomepageComponent } from 'app/homepage/homepage.component';
+import { TestingComponent } from 'app/testing/testing.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -79,6 +81,7 @@ import { HomepageComponent } from 'app/homepage/homepage.component';
     ViewemployeelistComponent,
     DetailsComponent,
     HomepageComponent,
+    TestingComponent
   ]
 })
 

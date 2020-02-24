@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -19,7 +19,7 @@ class ImageSnippet {
 
 })
 export class AddEmployeeComponent implements OnInit {
-  imageproduct:any;
+  file:any;
   empData = { 
     first_name:'',
     last_name:'',
@@ -65,27 +65,31 @@ export class AddEmployeeComponent implements OnInit {
   }
   
   addemployee() {
+   
     
-
+    console.log("inside ts")
     const payload = new FormData();
-    ///const file: File = this.filesToUpload[0];
-    payload.append('imageproduct', this.filesToUpload[0], this.filesToUpload[0].name);
+    const file: File = this.filesToUpload[0];
+    console.log(file+"file at ts")
+   
+    payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
     console.log(File+" file")
-    payload.append('first_name',this.empData.first_name);
-    payload.append('last_name',this.empData.last_name);
+    payload.append('firstname',this.empData.first_name);
+    payload.append('lastname',this.empData.last_name);
     payload.append('email',this.empData.email);
     payload.append('password', this.empData.password);
     payload.append('DOJ',this.empData.DOJ);
     payload.append('phonenumber',this.empData.phonenumber),
-    payload.append('gender',this.empData.gender),
+     payload.append('gender',this.empData.gender),
     payload.append('DOB',this.empData.DOB),
-    payload.append('token',this.empData.token)
-    payload.append('id',this.empData.id)
+    // payload.append('token',this.empData.token)
+   //payload.append('id',this.empData.id)
  
-   
+   console.log(payload+"payload");
     this._auth.uploadSheet(payload)
       .subscribe(
         res => {
+          console.log("hello registarrtion");
           console.log(res)
           console.log(this.empData )
           console.log(this.empData.id )

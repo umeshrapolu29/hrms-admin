@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http } from '@angular/http';
 import {Response} from '@angular/http';
 import { Router } from '@angular/router';
 import{Headers} from '@angular/http'
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/map'
 })
 export class AuthService {
   private _loginUrl = "http://localhost:3000/Admin/login";
-  private _addemployeeUrl = "http://localhost:3000/Admin/uploads";
+  private _addemployeeUrl = "http://localhost:3002/user/upload";
   private _addnoticeUrl = "http://localhost:3000/NoticeBoard/AddNotice";
 
   private _getemployeeUrl= "http://localhost:3000/Users/getUsers";
@@ -19,7 +20,7 @@ export class AuthService {
   private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
 
-  constructor(private http: HttpClient,
+  constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
 
     loginUser(loginUserData){
@@ -47,15 +48,18 @@ addemployee(empData)
 addnotice(noticedata)
 {
  console.log('values passing')
-  return this.http.post<any>(this._addnoticeUrl , noticedata)
+  return this.http1.post(this._addnoticeUrl , noticedata)
 }
 uploadSheet(payload)
 {
-  // return this.http.post<any>(this._uploadUrl, upload)
-  const headers=new HttpHeaders();
+   //return this.http.post<any>(this._uploadUrl, upload)
+  // const headers=new HttpHeaders();
 
-  return this.http.post("http://localhost:3000/Admin/uploads",payload,
-  {headers:headers});
+  // return this.http.post("http://localhost:3002/user/upload",payload,
+  // {headers:headers});
+  console.log(payload)
+  console.log(this._addemployeeUrl+" url")
+  return this.http1.post(this._addemployeeUrl , payload)
 }
 
 getemployee()

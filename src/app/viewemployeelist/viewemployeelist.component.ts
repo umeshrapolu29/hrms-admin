@@ -43,6 +43,17 @@ export class ViewemployeelistComponent implements OnInit {
     private _router: Router, private _httpclient:HttpClient) { }
 
   ngOnInit() {
+    console.log("inside")
+    
+    this._httpclient.get('http://localhost:3001/user/getpostdata')
+    .subscribe(
+      (res)=>
+      {
+        console.log('===>', res)
+      
+  
+      }
+    )
    
     this._httpclient.get('http://localhost:3000/Admin/getUsersList')
     .subscribe(
