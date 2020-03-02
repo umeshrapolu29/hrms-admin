@@ -32,7 +32,7 @@
 																 <mat-form-field>
 																	<mat-label>Employee</mat-label>
 																		<mat-select name="name"[(ngModel)]=" empData.name">																			
-																		<mat-option value="{{hero.name}}" *ngFor="let hero of myArray">{{hero.name}}</mat-option>
+																		<mat-option value="{{hero.email}}" *ngFor="let hero of myArray">{{hero.firstname}}</mat-option>
 																	 <!-- <mat-option value="Lokshma">Lokshma</mat-option>
 																		<mat-option value="Sampath">Sampath</mat-option>
 																		<mat-option value="Umesh">Umesh</mat-option>
@@ -71,6 +71,7 @@
 																						 <mat-label> Select Year</mat-label>
 																						 <mat-select [(value)]="selected2"  name="year" [(ngModel)]="empData.year">
 																							 <mat-option>None</mat-option>
+																							 <mat-option value="2020">2020</mat-option>
 																							 <mat-option value="2019">2019</mat-option>
 																							 <mat-option value="2018">2018</mat-option>
 																							 <mat-option value="2017">2017</mat-option>
@@ -166,7 +167,7 @@
 																									</div>
 																								</div>
 																							</div>
-																						 <button class="text-danger actionIcons" (click)="openDialog()"><i class="fa fa-trash-alt "></i></button>
+																						 <!-- <button class="text-danger actionIcons" (click)="openDialog()"><i class="fa fa-trash-alt "></i></button> -->
 																						 </td>
 																		 
 																	 </tr>  

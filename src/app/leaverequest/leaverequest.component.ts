@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { send } from 'q';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-leaverequest',
@@ -15,6 +17,11 @@ export class LeaverequestComponent implements OnInit {
   ename2:string='';
   fullid:any;
   empName:any;
+  array:any;
+  array1:any;
+  array2:any;
+  array3:any;
+  array4:any;
 
   empData={
     status:'',
@@ -34,16 +41,20 @@ export class LeaverequestComponent implements OnInit {
   myArray:any;
 
   constructor(private _auth: AuthService,
-    private _router: Router, private _httpclient:HttpClient) { }
+    private _router: Router, private _httpclient:HttpClient,private http1: Http) { }
     
     
   ngOnInit() {
     console.log("gud")
-    this._httpclient.get('http://localhost:3000/LeaveRequest/getAdmins')
+    this.http1.get('http://localhost:3002/user/getleaveemployee')
     .subscribe(
       (res)=>{
         console.log(res)
         this.myArray=res
+        var jsonObj = JSON.parse(this.myArray._body);
+        console.log(jsonObj)
+        this.array=jsonObj.data
+        console.log( this.array)
         // this.ename=this.myArray[0].name
         // console.log(this.myArray[0].name +"name is")
         // this.ename=res[0].name
@@ -53,43 +64,41 @@ export class LeaverequestComponent implements OnInit {
         console.log("hey");
       }
     )
-    // this._httpclient.get('http://localhost:3000/LeaveRequest/getLeaveData')
-    // .subscribe(
-    //   (res)=>{
-    //     console.log("heklo")
-    //     console.log(res)
-    //     this.Ename=res["name"]
-    //     this.reason=res["reason"]
-    //     this.fullid=res["fullid"]
-    //     this.fromdays=res["fromdays"]
-    //     this.todays=res["todays"]
-    //     this.reqtype=res["reqtype"]
-    //   //  console.log(this.reqtype)
-    //     console.log("datat"+this.fullid);
-    //   }
-    // )
+    
   }
   leaveapplication()
   {
+    console.log("inside application")
     const leavedata=new FormData()
     leavedata.append('name',this.empData.name)
+    console.log("inside getleavedata");
     console.log(this.empData)
     this._auth.leaveappliaction(leavedata)
     .subscribe((res)=>{
       
       console.log(res)
-      //this.myArray=res
+      this.array1=res
+      var jsonObj = JSON.parse(this.array1._body);
+      console.log(jsonObj)
+      this.array2=jsonObj.data;
+      console.log(this.array2)
+      this.array3=this.array2[0].reason
+      console.log(this.array3)
+      localStorage.setItem('email',this.array2[0].requestto)
+      localStorage.setItem('id',this.array2[0]._id)
+     
 
-      console.log(res["reason"])
-      this.reason=res["reason"]
-      console.log(this.reason)
-      this.Ename=res["name"]
-       this.reason=res["reason"]
-           this.fullid=res["fullid"]
-           console.log(this.fullid+"fullid is")
-           this.fromdays=res["fromdays"]
-          this.todays=res["todays"]
-           this.reqtype=res["reqtype"]
+    
+      this.reason=this.array2[0].reason
+      
+      this.Ename=this.array2[0].name
+
+    
+         
+          
+           this.fromdays=this.array2[0].fromdate
+          this.todays=this.array2[0].todate
+           this.reqtype=this.array2[0].reqtype
 
     }
     )
@@ -100,19 +109,31 @@ export class LeaverequestComponent implements OnInit {
 
     
     var id=this.fullid
-    //console.log(id+"id is")
-    //console.log("datat....2"+this.fullid);
+   
     let  senddata = new FormData();
-    //senddata.fullid= this.fullid
+   
     senddata.append('status',this.empData.status);
-    senddata.append('fullid',this.fullid);
-    //console.log(senddata+"senddata")
+    senddata.append('requestto', localStorage.getItem('id'));
+    console.log( localStorage.getItem('id')+"senddata")
     this._auth.sendstatus(senddata)
     .subscribe((res)=>{
-      console.log("senddata")
-      console.log(res+"res is")
+      
+      console.log(res)
+      this.array4=res
+      var jsonObj = JSON.parse(this.array4._body);
+      console.log(jsonObj)
+      this.array4=jsonObj.msg;
+      console.log( this.array4)
+      if(this.array4=="leavestatus Update"){
+        Swal.fire('','Response Updated Successful','success')
+          this._router.navigate(['/homepage'])
+      }
+      else{
+        Swal.fire('','Response Updated Failed','error')
+        this._router.navigate(['/homepage'])
+      }
     
-      console.log(this.empData)
+   
 
     }
     )

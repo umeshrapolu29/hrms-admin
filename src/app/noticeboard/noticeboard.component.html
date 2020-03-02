@@ -35,7 +35,7 @@
                           </mat-form-field>                        
                           <table class="example-full-width" cellspacing="0"><tr>
                             <td><mat-form-field class="example-full-width">
-                              <input matInput type="date" placeholder="Date">
+                              <input matInput type="date" placeholder="Date" name="date" [(ngModel)]="noticedata.date">
                             </mat-form-field></td>
                             <td class="float-right"><mat-form-field class="example-full-width">
                                 <input matInput  name="title" [(ngModel)]="noticedata.title" placeholder="Title">
@@ -47,7 +47,10 @@
                             </mat-form-field>                           
                           </p>                        
                          <label>Attachments : </label>
-                         <input class="ml-3" type="file">
+                         <input class="ml-3" type="file" name="file"  [(ngModel)]="file"
+                         #uploadImage="ngModel"
+                         (change)="fileChangeEvent($event)" 
+                         #fileInput class="uploadFile img">
                         </form>                        
                     </div>
                     <div class="modal-footer">
@@ -96,11 +99,11 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <tr  >
+                    <tr *ngFor="let hero of array" >
                       <td>1</td>
-                      <td>{{title}}</td>
-                      <td>{{description}}</td>
-                      <td>{{date | date:'yyyy-MM-dd'}}</td>
+                      <td>{{hero.title}}</td>
+                      <td>{{hero.description}}</td>
+                      <td>{{hero.date | date:'yyyy-MM-dd'}}</td>
                                       
                                                   
                     </tr> 

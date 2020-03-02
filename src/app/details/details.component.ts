@@ -3,7 +3,8 @@ import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 //import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http,Response,Headers} from '@angular/http';
+
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-details',
@@ -31,11 +32,42 @@ export class DetailsComponent implements OnInit {
   photo:string;
   gender:string;
   id:number; 
- 
+  array:any;
+  leavedata={
+   
+    email:localStorage.getItem('email1')
+  }
 
 
 
   ngOnInit() {
+    this.http.post(`http://localhost:3002/user/getuserdata`,
+    {
+      email:this.leavedata.email
+    })
+    .subscribe(
+      res=>{
+        //console.log("hello")
+        console.log("inside view details");
+        console.log(this.leavedata.email)
+        console.log(res);
+        this.array=res;
+        var jsonObj = JSON.parse(this.array._body);
+            console.log(jsonObj)
+            this.photo=jsonObj.data.file
+            console.log(this.photo)
+         this.email=jsonObj.data.email
+        
+          this.name=jsonObj.data.name
+          this.id=jsonObj.data._id
+          this.DOJ=jsonObj.data.DOJ
+          this.DOB=jsonObj.data.DOB
+          this.phone=jsonObj.data.phonenumber
+        this.gender=jsonObj.data.gender
+        this.photo=jsonObj.data.photo
+    
+      }
+    )
     console.log(this.empData.fullid +"fulli is");
     const viewemployee  = new FormData();
     ///const file: File = this.filesToUpload[0];

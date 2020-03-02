@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Http,Response,Headers} from '@angular/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -19,6 +20,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./viewdetails.component.scss']
 })
 export class ViewdetailsComponent  {
+  array:any;
   file:any;
   empData = { 
     first_name:'',
@@ -90,26 +92,31 @@ export class ViewdetailsComponent  {
   ngOnInit() {
     
     
-    this._httpclient.get('http://localhost:3000/Payslips/getEmployeeNames')
+    this.http.get('http://localhost:3002/user/getallemployeenames')
     .subscribe(
       (res)=>
       {
         console.log('===>', res)
         this.myArray=res;
-        this.name = this.myArray[0].name;
+        this.myArray=res
+        var jsonObj = JSON.parse(this.myArray._body);
+        console.log(jsonObj)
+        this.myArray=jsonObj.data;
+        console.log(this.myArray)
+        // this.name = this.myArray[0].name;
 
-        console.log('res==>', this.name)
-        this.name=res[1].name
-        // this.name2=res[2].name
-        // this.name2=res[3].name
-        console.log( this.name)
+        // console.log('res==>', this.name)
+        // this.name=res[1].name
+        // // this.name2=res[2].name
+        // // this.name2=res[3].name
+        // console.log( this.name)
 
       }
     )
 
    
       }
-      viewemployee()
+      viewemployee(selected:any)
   {
    console.log('inside of function')
     //console.log(this.viewemployee1)
@@ -117,34 +124,10 @@ export class ViewdetailsComponent  {
     ///const file: File = this.filesToUpload[0];
   
     viewemployee.append('fullid',this.empData.fullid);
-    localStorage.setItem('fulli',this.empData.fullid)
+    localStorage.setItem('email1',selected.email)
+    
+    this._router.navigate(['/details'])
    
-    this._auth.viewemployee(viewemployee)
-    .subscribe(
-      (res)=>{
-      
-
-        
-
-        console.log("sampath")
-        console.log(res);
-
-        
-      
-
-        this.email=res[0].email
-        console.log(this.email)
-         this.name=res[0].name
-         this.id=res[0].fullid
-         this.DOJ=res[0].DOJ
-         this.DOB=res[0].DOB
-         this.phone=res[0].phone
-         this.gender=res[0].gender
-         this.photo=res[0].photo
-         console.log(res[0].photo)
-      }
-
-    )
   }
   addemployee() {
     
@@ -171,22 +154,20 @@ export class ViewdetailsComponent  {
       .subscribe(
         res => {
           console.log(res)
-          console.log(this.empData )
-          console.log(this.empData.id )
-          if (localStorage.getItem('token') == "undefined") {
-            this._router.navigate(['/signin'])
-          }
-          else {
-            this._router.navigate(['/homepage'])
-          }
-        },
-        err => {
-          if (err instanceof HttpErrorResponse) {
-            if (err.status === 401) {
-              this._router.navigate(['/viewnotice'])
+          this.array=res;
+          var jsonObj = JSON.parse(this.array._body);
+              console.log(jsonObj.msg)
+
+            if(jsonObj.msg=="uploaded Successfull")
+            {
+              Swal.fire('','uploaded Successful','success')
+              this._router.navigate(['/homepage'])
             }
-          }
-        }
+            else{
+              Swal.fire('','uploaded failed','error')
+            }
+    
+         }
       )
   }
 

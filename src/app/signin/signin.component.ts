@@ -40,6 +40,7 @@ export class SigninComponent implements OnInit {
   
   loginUser() {
     console.log(this.loginUserData)
+    this._router.navigate(['/homepage'])
    
    
     this._auth.loginUser(this.loginUserData)

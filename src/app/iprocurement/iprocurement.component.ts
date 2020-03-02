@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-iprocurement',
@@ -34,6 +36,8 @@ export class IprocurementComponent implements OnInit {
   Ename3:string='';
   fullid3:string='';
   myArray:any;
+  array:any;
+  array2:any
 
   photo:string;
   empData = { 
@@ -44,61 +48,23 @@ export class IprocurementComponent implements OnInit {
   }
  
   constructor(private _auth: AuthService,
-    private _router: Router, private _httpclient:HttpClient) { }
+    private _router: Router, private _httpclient:HttpClient,private http1:Http,) { }
 
   ngOnInit() {
-    this._httpclient.get('http://localhost:3000/IProcurement/getDataAdmin')
+    this.http1.get('http://localhost:3002/user/getusernamesiprocurement')
     .subscribe(
       (res)=>{
         console.log("heklo")
         console.log(res)
-        this.myArray=res;
-        this.item = this.myArray[0].item;
-        this.fullid=this.myArray[0].fullid;
-        console.log(this.item)
-         this.item=res[0].item
-         this.description=res[0].description
-         this.amount=res[0].amount
-     this.Ename=res[0].employee
-         this.fullid=res[0].fullid
-         this.tid=res[0].tid
-         this.item1=res[1].item
-         this.description1=res[1].description
-         this.amount1=res[1].amount
-     this.Ename1=res[1].employee
-         this.fullid1=res[1].fullid
-         this.tid1=res[1].tid
-         this.item2=res[2].item
-         this.description2=res[2].description
-         this.amount2=res[2].amount
-     this.Ename2=res[2].employee
-         this.fullid2=res[2].fullid
-         this.tid2=res[2].tid
-         this.item3=res[3].item
-         this.description3=res[3].description
-         this.amount3=res[3].amount
-     this.Ename3=res[3].employee
-         this.fullid3=res[3].fullid
-         this.tid3=res[3].tid
-       //  console.log(this.reqtype)
-      //   console.log("datat"+this.fullid);
+        this.array=res;
+        var jsonObj = JSON.parse(this.array._body);
+        console.log(jsonObj.data)
+        this.array=jsonObj.data;
+        
       }
     )
   }
-  // searchid(){
-  //   let  sendid = new FormData();
-  //   //senddata.fullid= this.fullid
-  //   sendid.append('tid',this.empData.tid);
-  //   //sendid.append('fullid',this.tid);
-  //   //console.log(sendid+"senddata")
-  //   this._auth.searchid(sendid)
-  //   .subscribe((res)=>{
-  //     console.log("iprocurement")
-  //     console.log(res+"res is")
-  //     //console.log(this.empData)
-  //     }
-  //   ) 
-  // }
+ 
   searchname()
   {
     
@@ -128,21 +94,40 @@ export class IprocurementComponent implements OnInit {
    
        )
      }
-     sendstatus(){
-      var id=this.tid
-      console.log(this.tid+"id111 is")
-      console.log(this.fullid+"fullid is")
+     sendstatus(selected:any){
+       console.log("hello11")
+       console.log(selected.TID)
+   
+     
       //console.log("datat....2"+this.fullid);
       let  senddata1 = new FormData();
       //senddata.fullid= this.fullid
-      senddata1.append('status',this.empData.status);
-      senddata1.append('tid',this.tid);
-      senddata1.append('fullid',this.fullid);
-      //console.log(senddata+"senddata")
+   
+      senddata1.append('astatus',this.empData.status);
+      senddata1.append('TID',selected.TID);
+   
+      console.log(senddata1+"senddata")
       this._auth.sendstatusipro(senddata1)
       .subscribe((res)=>{
         console.log(res)
         console.log(this.empData)
+        this.array2=res;
+     
+        var jsonObj = JSON.parse( this.array2._body);
+        console.log(jsonObj.msg)
+        this.array2=res;
+      
+        var jsonObj = JSON.parse( this.array2._body);
+        console.log(jsonObj.msg)
+        if(jsonObj.msg=="data retrived"){
+          Swal.fire('','Response send  Successfully','success')
+          this._router.navigate(['/homepage'])
+
+        }
+        else{
+          Swal.fire('','Response  Failed','error')
+          this._router.navigate(['/homepage'])
+        }
   
       }
       )

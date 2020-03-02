@@ -33,7 +33,7 @@
                                     <mat-label>Holiday Type</mat-label>
                                       <mat-select [(value)]="holidaytype"  name="holidaytype" [(ngModel)]="addholidaydata.holidaytype">
                                       <mat-option>None</mat-option>
-                                      <mat-option value="Holiday">National Holiday</mat-option>
+                                      <mat-option value="NationalHoliday">National Holiday</mat-option>
                                       <mat-option value="OptionalHoliday">Optional Holiday</mat-option>                                      
                                       </mat-select>
                                     </mat-form-field> 
@@ -52,11 +52,11 @@
                                          <div class="col-lg-6">                                            
                                              
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Day">
+                                                <input matInput placeholder="Day" name="dayofweek"  [(ngModel)]="addholidaydata.dayofweek" >
                                               </mat-form-field>    
                                             </div> 
                                            </div>
-                                         <a href="#" class="btn blue btn-block rounded grtBtn" (click)="addholiday()" > <i class="far fa-check-square mr-2"></i>save</a>
+                                         <a  class="btn blue btn-block rounded grtBtn" (click)="addholiday()" > <i class="far fa-check-square mr-2"></i>save</a>
                                </div>
                              </div>
                 </div>
@@ -70,7 +70,7 @@
                                           <mat-label>Holiday Type</mat-label>
                                             <mat-select [(value)]="holidayType" name="holidayType" [(ngModel)]="leavedata.holidayType">
                                      
-                                            <mat-option value="Holiday">National Holiday</mat-option>
+                                            <mat-option value="NationalHoliday">National Holiday</mat-option>
                                             <mat-option value="OptionalHoliday">Optional Holiday</mat-option>                                      
                                             </mat-select>
                                           </mat-form-field>
@@ -78,10 +78,10 @@
                                           </div> 
                  
                                    <div class="col lg-6 ">
-                                       <div class="input-group mb-3 justify-content-end">
+                                       <div class="input-group mb-3 justify-content-end" >
                                            <input type="text" class=" border search text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
-                                           <div class="input-group-append">
-                                             <button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
+                                           <div class="input-group-append" style="margin-top: -38px;">
+                                             <button class="btn bg-primary btn-sm p-1" type="button" id="button-addon2">Go</button>
                                            </div>
                                          </div>
                                    </div>
@@ -91,17 +91,17 @@
                                    <thead>
                                      <tr class="table-fields tabHead font-weight-bolder">
                                        <!-- <th><b>S.no</b></th> -->
-                                       <th>S NO</th>
-                <th>Date</th>
-                <th>Occasion</th>
-                <th>Day</th>
+                                       <th>Holiday Type</th>
+                                      <th>Date</th>
+                                      <th>Occasion</th>
+                                      <th>Day</th>
                                    </tr>
                                    </thead>
                                    <tbody>                                 
                                      <tr>
                                        <!-- <td>1</td> -->
-                                       <tr *ngFor="let hero of myArray">
-                                          <td>{{hero.id}}</td>
+                                       <tr *ngFor="let hero of array1">
+                                          <td>{{hero.holidaytype}}</td>
                                           <td>{{hero.date}}</td>
                                           <td>{{hero.reason}}</td>
                                           <td>{{hero.dayofweek}}</td>
@@ -134,62 +134,4 @@
                              </div>
                 </div>
             </div>
-<!-- <div class="page-content-wrapper " style="margin-left: -237px;">
-    <div class="page-content bgLogo" style="margin-right: -232px;">
-      <h3>
-    Holiday
-    </h3>
-<div class="float-right">
-  <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
-</div>
-  <div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <i class="fa fa-home"></i>
-            <a >Home</a>
-           <a><i class="fa fa-angle-right"></i>Holiday</a> 
-        </li>      
-</div>
-<div class="row">
 
-    <div class="row">
-                
-        <div class="col-lg-6 mb-4">
-    <select class="custom-select ml-3" id="inputGroupSelect01"name="holidayType" [(ngModel)]="leavedata.holidayType" placeholder="--select--">
-        <option value="" selected>--Select-- </option>
-        <option value="Holiday"> Holiday</option>
-        <option value="OptionalHoliday">Optional Holiday</option>      
-      </select>
-    </div> 
-    <div class="col-lg-6 sccessBtn"> <button type="button" class="btn btn-success sccessBtn p-2" (click)="holidaytype()" >submit</button>
-    </div>
-     </div>
-    <div class="col-md-12">
-        <div class="portlet box blue">
-          <div class="tittle">
-            <div class="caption text-white p-2">
-                <i class="fas fa-edit mr-2"></i>Holiday
-          </div>
-          </div>
-          <div class="portlet-body">
-            <form>
-              <table class="table text-center">              
-                <tr>
-                <th>S NO</th>
-                <th>Date</th>
-                <th>Occasion</th>
-                <th>Day</th>
-              </tr>
-              <tr *ngFor="let hero of myArray">
-                <td>{{hero.id}}</td>
-                <td>{{hero.date}}</td>
-                <td>{{hero.reason}}</td>
-                <td>{{hero.dayofweek}}</td>
-            </tr>         
-               </table>
-            </form>
-          </div>
-        </div>
-    </div>
-</div>
-</div> -->

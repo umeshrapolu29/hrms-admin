@@ -4,6 +4,8 @@ import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DilogeComponent } from 'app/diloge/diloge.component';
+import { Http } from '@angular/http';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-uploadpayslips',
@@ -22,6 +24,7 @@ export class UploadpayslipsComponent implements OnInit {
   name2:string='';
   name3:string='';
   myArray:any;
+  myArray1:any;
   empData={
     file:'',
     month:'',
@@ -35,55 +38,26 @@ export class UploadpayslipsComponent implements OnInit {
   public filesToUpload: Array<File> = [];
   dialog: any;
   constructor(private _auth: AuthService,
-    private _router: Router, private _httpclient:HttpClient) { }
+    private _router: Router, private _httpclient:HttpClient,private http1: Http) { }
 
   ngOnInit() {
 
-    this._httpclient.get('http://localhost:3000/Payslips/getEmployeeNames')
+    this.http1.get('http://localhost:3002/user/getallemployeenames')
     .subscribe(
       (res)=>
       {
         console.log(res)
         this.myArray=res;
-        //this.name = this.myArray[0].name;
-
-        // console.log('res==>', this.name)
-        // this.name1=res[1].name
-        // this.name2=res[2].name
-        // this.name2=res[3].name
-        // console.log( this.name)
+        var jsonObj = JSON.parse(this.myArray._body);
+        console.log(jsonObj)
+        this.myArray=jsonObj.data;
+        console.log( this.myArray)
+    
 
       }
     )
     
-    // this._httpclient.get('http://localhost:3000/Payslips/getEmployeeNames')
-    // .subscribe(
-    //   (res)=>{
-    // }
-    // )
-   
-      //   this.Ename=res["name"]
-      //   this.reason=res["reason"]
-      //   this.fullid=res["fullid"]
-      //   this.fromdays=res["fromdays"]
-      //   this.todays=res["todays"]
-      //   this.reqtype=res["reqtype"]
-      // //  console.log(this.reqtype)
-      //   console.log("datat"+this.fullid);
-      
-
-    //  $(document).ready(function(){
-    //    $(".bt").on('click', function(){
-    //      $(".cover").show();
-    //      $(".pop").show();
-        
-    //    });
-    //    $("#close").on('click', function(){
-    //      $(".cover").hide();
-    //      $(".pop").hide();
-        
-    //    });
-    //  });
+ 
   }
   
   fileChangeEvent(fileInput: any) {
@@ -94,20 +68,32 @@ export class UploadpayslipsComponent implements OnInit {
   {
     let  senddata1 = new FormData();
     //senddata.fullid= this.fullid
-    senddata1.append('imageproduct', this.filesToUpload[0]);
+    senddata1.append('file', this.filesToUpload[0]);
     console.log(File+" file")
     senddata1.append('month',this.empData.month);
     senddata1.append('year',this.empData.year);
-   senddata1.append('name',this.empData.name);
+   senddata1.append('email',this.empData.name);
    console.log(this.empData.month)
     //console.log(senddata+"senddata")
     //console.log(this.senddata1)
     this._auth.uploadpayslips(senddata1)
     .subscribe((res)=>{
       console.log(res)
-      this.myArray=res[0]
-      //alert(this.myArray)
-      console.log(this.empData)
+      this.myArray1=res
+      var jsonObj = JSON.parse(this.myArray1._body);
+      console.log(jsonObj)
+      this.myArray1=jsonObj.msg;
+      console.log(this.myArray1)
+
+      if(this.myArray1=="get names details"){
+        Swal.fire('','Payslip Uploaded  Successful','success')
+        this._router.navigate(['/homepage'])
+      }
+      else{
+        Swal.fire('','Payslip Uploaded failed','error')
+        this._router.navigate(['/homepage'])
+      }
+     
 
     }
     )

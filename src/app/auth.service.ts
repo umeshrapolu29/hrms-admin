@@ -13,12 +13,17 @@ import 'rxjs/add/operator/map'
 export class AuthService {
   private _loginUrl = "http://localhost:3000/Admin/login";
   private _addemployeeUrl = "http://localhost:3002/user/upload";
-  private _addnoticeUrl = "http://localhost:3000/NoticeBoard/AddNotice";
+  private _addnoticeUrl = "http://localhost:3002/user/addnotice";
+  private _getleavedataUrl = "http://localhost:3002/user/getleavedata";
+  private _getleaveupdateUrl = "http://localhost:3002/user/leaveupdate";
 
   private _getemployeeUrl= "http://localhost:3000/Users/getUsers";
-  private _addholidayUrl="http://localhost:3000/Holiday/AddHoliday";
+  private _addholidayUrl="http://localhost:3002/user/addholiday";
+  private _viewholidayUrl="http://localhost:3002/user/viewholiday";
   private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
+  private _sendstatusiproUrl="http://localhost:3002/user/updatestatusiprocurement";
+  private _uploadpayslipsUrl="http://localhost:3002/user/uploadpayslips";
 
   constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
@@ -41,7 +46,7 @@ addemployee(empData)
 {
   console.log(empData)
   console.log(this._addemployeeUrl+" url")
-  return this.http.post<any>(this._addemployeeUrl , empData)
+  return this.http1.post(this._addemployeeUrl , empData)
 
 
 } 
@@ -52,11 +57,7 @@ addnotice(noticedata)
 }
 uploadSheet(payload)
 {
-   //return this.http.post<any>(this._uploadUrl, upload)
-  // const headers=new HttpHeaders();
-
-  // return this.http.post("http://localhost:3002/user/upload",payload,
-  // {headers:headers});
+   
   console.log(payload)
   console.log(this._addemployeeUrl+" url")
   return this.http1.post(this._addemployeeUrl , payload)
@@ -70,7 +71,7 @@ getemployee()
 }
 addholiday(addholidaydata)
 {
-  return this.http.post<any>(this._addholidayUrl ,addholidaydata )
+  return this.http1.post(this._addholidayUrl ,addholidaydata )
 }
 viewemployee(viewemployee)
 {
@@ -81,9 +82,10 @@ viewemployee(viewemployee)
 }
 holidaytype(holidaytype1)
 {
-  const headers=new HttpHeaders()
-   return this.http.post("http://localhost:3000/Holiday/ViewHoliday",holidaytype1,
-   {headers:headers})
+  // const headers=new HttpHeaders()
+  //  return this.http.post("http://localhost:3002/user/viewholiday",holidaytype1,
+  //  {headers:headers})
+  return this.http1.post(this._viewholidayUrl ,holidaytype1 )
 }
 
 getdetails(getdetails)
@@ -102,10 +104,11 @@ getdetails(getdetails)
 }
 sendstatus(senddata)
 {
-  console.log(senddata)
-  const headers=new HttpHeaders();
-  return this.http.post("http://localhost:3000/LeaveRequest/updateStatus",senddata,
-  {headers:headers});
+  // console.log(senddata)
+  // const headers=new HttpHeaders();
+  // return this.http.post("http://localhost:3002/user/leaveupdate",senddata,
+  // {headers:headers});
+  return this.http1.post(this._getleaveupdateUrl , senddata)
 }
 searchid(searchid)
 {
@@ -132,24 +135,23 @@ viewemployee1(viewemployee)
 sendstatusipro(senddata1)
 {
   //console.log(senddata)
-  const headers=new HttpHeaders();
-  return this.http.post("http://localhost:3000/IProcurement/adminUpdate",senddata1,
-  {headers:headers});
+  return this.http1.post(this._sendstatusiproUrl ,senddata1 )
+ 
 }
 uploadpayslips(senddata1)
 {
   //console.log(senddata)
-  const headers=new HttpHeaders();
-  return this.http.post("http://localhost:3000/Payslips/request",senddata1,
-  {headers:headers});
+  return this.http1.post(this._uploadpayslipsUrl ,senddata1 )
+
 }
 leaveappliaction(leavedata)
 {
-  const headers=new HttpHeaders()
-   return this.http.post("http://localhost:3000/LeaveRequest/getLeaveData",leavedata,
-   {
-     headers:headers
-   })
+  // const headers=new HttpHeaders()
+  //  return this.http.post("http://localhost:3002/user/getleavedata",leavedata,
+  //  {
+  //    headers:headers
+  //  })
+  return this.http1.post(this._getleavedataUrl , leavedata)
 }
 } 
 

@@ -67,7 +67,7 @@ export class AddEmployeeComponent implements OnInit {
   addemployee() {
    
     
-    console.log("inside ts")
+    console.log("inside tsrrtt")
     const payload = new FormData();
     const file: File = this.filesToUpload[0];
     console.log(file+"file at ts")
