@@ -38,7 +38,8 @@ export class NavbarComponent implements OnInit {
      
     }
     logoutUser(){
-        localStorage.removeItem('token')
+        console.log("inside");
+     
     this._router.navigate(['/signin'])
     }
 

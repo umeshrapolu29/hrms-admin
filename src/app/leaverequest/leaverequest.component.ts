@@ -71,6 +71,7 @@ export class LeaverequestComponent implements OnInit {
     console.log("inside application")
     const leavedata=new FormData()
     leavedata.append('name',this.empData.name)
+     localStorage.setItem('levname',this.empData.name)
     console.log("inside getleavedata");
     console.log(this.empData)
     this._auth.leaveappliaction(leavedata)
@@ -114,6 +115,7 @@ export class LeaverequestComponent implements OnInit {
    
     senddata.append('status',this.empData.status);
     senddata.append('requestto', localStorage.getItem('id'));
+    senddata.append('name', localStorage.getItem('levname'));
     console.log( localStorage.getItem('id')+"senddata")
     this._auth.sendstatus(senddata)
     .subscribe((res)=>{

@@ -59,7 +59,8 @@ export class DetailsComponent implements OnInit {
          this.email=jsonObj.data.email
         
           this.name=jsonObj.data.name
-          this.id=jsonObj.data._id
+          this.id=jsonObj.data.fullid
+          console.log(this.id+"id is")
           this.DOJ=jsonObj.data.DOJ
           this.DOB=jsonObj.data.DOB
           this.phone=jsonObj.data.phonenumber

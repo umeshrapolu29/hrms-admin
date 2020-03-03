@@ -7,12 +7,15 @@
 
 .bg-icon {
     background: #2d2d2d;
-    color: rgb(177, 177, 177);
+    color: #f44336;
     box-shadow:inset 0px 2px 5px 0px black;
 }
-.bg-icon i:hover{
-    color:#f44336;
+.fa-power-off{
+    color: red;
 }
+/* .bg-icon i:hover{
+    color:#f44336;
+} */
 .logo img{
     height:26px;
      width:125px;

@@ -37,6 +37,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatInputModule, MatNativeDateModule, MatMenuModule, MatRadioModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import { DilogeComponent } from './diloge/diloge.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { DilogeComponent } from './diloge/diloge.component';
     MatToolbarModule,
     CommonModule,
     FileUploadModule,
+    NgxPaginationModule,
     
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'

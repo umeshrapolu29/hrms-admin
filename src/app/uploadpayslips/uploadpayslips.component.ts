@@ -64,12 +64,14 @@ export class UploadpayslipsComponent implements OnInit {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     // this.fileName = this.filesToUpload[0].name;
   }
-  uploadpayslips()
+  uploadpayslips(selected:any)
   {
     let  senddata1 = new FormData();
     //senddata.fullid= this.fullid
     senddata1.append('file', this.filesToUpload[0]);
     console.log(File+" file")
+    // localStorage.setItem('uploadpayslipname',selected.firstname)
+    // console.log(selected.firstname+"name is")
     senddata1.append('month',this.empData.month);
     senddata1.append('year',this.empData.year);
    senddata1.append('email',this.empData.name);

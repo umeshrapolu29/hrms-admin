@@ -24,6 +24,7 @@
         </div>
       </nav>      
       <!-- Modal -->
+      <form class="form" #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
@@ -33,10 +34,11 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+           
             <div class="modal-body">          
-              <mat-form-field class="example-full-width ">
+              <!-- <mat-form-field class="example-full-width ">
                     <input matInput class="font-weight-bold text-dark" placeholder="Employee Id" disabled value="ZYX_2019_128">
-                  </mat-form-field>
+                  </mat-form-field> -->
               <br><div class="container mr-4 text-center">
                     <div class="row">
                         <div class="col-lg-2 imgUp rounded">
@@ -46,8 +48,9 @@
                               [(ngModel)]="file"
                               #uploadImage="ngModel"
                               (change)="fileChangeEvent($event)" 
-                              #fileInpu class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                              #fileInpu class="uploadFile img" value="Upload Photo"  style="width: 0px;height: 0px;overflow: hidden;">
                          </label>
+                         
                      </div><!-- col-2 -->
                      <!-- <i class="fa fa-plus imgAdd"></i> -->
                   </div><!-- row -->
@@ -56,14 +59,37 @@
                         <mat-form-field>
                           <input matInput name="first_name" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name"  placeholder="First Name">
+                          [(ngModel)]=" empData.first_name" #firstname="ngModel"
+                           pattern="[a-zA-Z\s]+"  
+                           placeholder="First Name" required>
+                           <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
+                             <div *ngIf="firstname.hasError('required')">
+                              Please enter First Name
+                             </div>
+                             <div *ngIf="firstname.hasError('pattern')">
+                              please enter alphabets only.
+            
+                            </div>
+              
+                           </mat-error>
                         
                         </mat-form-field></div>
                         <div class="col-lg-6">
                                 <mat-form-field>
                                   <input matInput   name="last_name"
                                   Autocomplete="off" 
-                                  [(ngModel)]=" empData.last_name" placeholder="Last Name">
+                                  [(ngModel)]=" empData.last_name" 
+                                  #lastname="ngModel" 
+                                  pattern="[a-zA-Z\s]+"
+                                  placeholder="Last Name" required>
+                                  <mat-error *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                                    <div *ngIf="lastname.hasError('required')">
+                                      Please enter Last Name
+                                    </div>
+                                    <div *ngIf="lastname.hasError('pattern')">
+                                      please enter alphabets only.
+                                    </div>
+                                  </mat-error>
                                 </mat-form-field></div>
                  </div>
                 <div class="row">
@@ -71,13 +97,38 @@
                           <mat-form-field>
                              <input type="email" name="email" 
                              Autocomplete="off" 
-                             [(ngModel)]=" empData.email" matInput placeholder="email">
+                             [(ngModel)]=" empData.email" matInput 
+                             #email="ngModel"
+                             pattern="(\W|^)[\w.+\-]*@zyclyx\.com(\W|$)"
+                             placeholder="Email" required>
+                             <mat-error *ngIf="email.invalid &&(email.dirty || email.touched)">
+                              <div *ngIf="email.hasError('required')">
+                                Please enter Email Id
+                              </div>
+                              <div *ngIf="email.hasError('pattern')">
+                                Please enter Zyclyx Email Id
+              
+                              </div>
+                              
+                            </mat-error>
                              </mat-form-field></div>
                              <div class="col-lg-6">
                               <mat-form-field>
                              <input matInput  name="phonenumber" 
                              Autocomplete="off" 
-                             [(ngModel)]=" empData.phonenumber"placeholder="phone Number">
+                             [(ngModel)]=" empData.phonenumber"
+                             #phoneno ="ngModel"
+                              pattern="[0-9]{10,10}"
+                              placeholder="Phone Number" required>
+                              <mat-error *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                                <div *ngIf="phoneno.hasError('required')">
+                                  Please enter Mobile Number
+                                </div>
+                                
+                                <div *ngIf="phoneno.hasError('pattern')" >
+                                  Please enter valid mobile number
+                                </div>
+                              </mat-error>
                              </mat-form-field></div>
                    </div>
                    <div class="row mb-3">
@@ -85,13 +136,28 @@
                         <mat-form-field>
                            <input type="date" name="DOB" 
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.DOB"  matInput placeholder="DOB">
+                           [(ngModel)]=" empData.DOB"  
+                           #Dob="ngModel"
+                           matInput 
+                           placeholder="DOB" required>
+                           <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                             <div *ngIf="Dob.hasError('required')">
+                              please enter Date of Birth
+                             </div>
+
+                           </mat-error>
                            </mat-form-field></div>
                            <div class="col-lg-6">
                             <mat-form-field>
                            <input type="date"  name="DOJ"
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.DOJ" matInput placeholder="DOJ">
+                           [(ngModel)]=" empData.DOJ" matInput
+                           #Doj="ngModel" placeholder="DOJ" required>
+                           <mat-error *ngIf="Doj.invalid && (Doj.dirty || Doj.touched)">
+                              <div *ngIf="Doj.hasError('required')">
+                               please enter Date of Joining
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                  </div>
                  <div class="row">
@@ -112,24 +178,38 @@
                         <mat-form-field>
                            <input type="password"  	name="password" 
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.password" matInput placeholder="password">
+                           [(ngModel)]=" empData.password" #password="ngModel"
+                           matInput placeholder="password" required>
+                           <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                              <div *ngIf="password.hasError('required')">
+                                Please enter Password 
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                            <div class="col-lg-6">
                             <mat-form-field>
                            <input type="password" name="cnf_pswd" 
                            Autocomplete="off"
-                           [(ngModel)]=" empData.cnf_pswd" matInput placeholder="confirm password">
+                           [(ngModel)]=" empData.cnf_pswd"
+                           #cnfPwd="ngModel" matInput placeholder="confirm password" required>
+                           <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
+                              <div *ngIf="cnfPwd.hasError('required')">
+                                Please enter confirm Password 
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                  </div>
                   </div><!-- container -->           
             </div>
             <div class="modal-footer">
               <button type="reset" class="btn btn-info btn-sm rounded" data-dismiss="modal">Close</button>
-              <button type="button" (click)="addemployee()" class="btn btn-success btn-sm rounded">Add</button>
+              <button type="button" (click)="addemployee()" [disabled]="regForm.invalid" class="btn btn-success btn-sm rounded">Add</button>
             </div>
+         
           </div>
         </div>
       </div>
+    </form>
 <div class="container" style="margin-left: 30px;">
 <div class="row">
 	
@@ -145,255 +225,19 @@
     </div>
  
 </div>
-<!-- <div class="col-3">
-<div class="card text-center rounded shadow p-0" style="width: 15rem;">
-  <img src="assets/img/photo.jpg" class="card-img-top rounded-circle sideImg" width="150px" height="150px" alt="...">
-  <div class="card-body">
-    <h5 class="card-title font-weight-bold">Mariyam shaik</h5>
-    <p class="card-text">IT Trainee</p>
-    <p class="card-text"><i class="fas fa-user text-info mr-2"></i>ZYX_2019_129</p>
-    <p class="card-text mr-3"><i class="fas fa-phone text-info mr-2"></i>8976542310</p>
 
-    <a  routerLink="/details" class="btn-sm btn-primary rounded shadow text-white"><i class="fas fa-arrow-right text-white mr-2"></i>View Details</a>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="col-3">
-<div class="card text-center rounded shadow p-0" style="width: 15rem;">
-  <img src="assets/img/photo.jpg" class="card-img-top rounded-circle sideImg" width="150px" height="150px" alt="...">
-  <div class="card-body">
-    <h5 class="card-title font-weight-bold">Bhegam Sana</h5>
-    <p class="card-text">IT Trainee</p>
-    <p class="card-text"><i class="fas fa-user text-info mr-2"></i>ZYX_2019_130</p>
-    <p class="card-text mr-3"><i class="fas fa-phone text-info mr-2"></i>6259874315</p>
-
-    <a  routerLink="/details" class="btn-sm btn-primary rounded shadow text-white"><i class="fas fa-arrow-right text-white mr-2"></i>View Details</a>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="col-3">
-<div class="card text-center rounded shadow p-0" style="width: 15rem;">
-  <img src="assets/img/photo.jpg" class="card-img-top rounded-circle sideImg" width="150px" height="150px" alt="...">
-  <div class="card-body">
-    <h5 class="card-title font-weight-bold">Sana Bhegam</h5>
-    <p class="card-text">IT Trainee</p>
-    <p class="card-text"><i class="fas fa-user text-info mr-2"></i>ZYX_2019_131</p>
-    <p class="card-text mr-3"><i class="fas fa-phone text-info mr-2"></i>6987315649</p>
-
-    <a  routerLink="/details" class="btn-sm btn-primary shadow rounded text-white"><i class="fas fa-arrow-right text-white mr-2"></i>View Details</a>
-    </div>
-  </div>
-</div> -->
 </div>
+
 </div>
-<!-- 
-<div class=" container mt-4 viewData">
-        <div class="input-field search_field">
-           
-                 <input class="ml-2" id="icon_search" type="search" name="fullid" [(ngModel)]=" empData.fullid" placeholder="search " > 
-                <p class=" btn btn-sm bg-primary " (click)="viewemployee()" routerLink="/viewdetails">Go</p>                    
-            
-              </div>             
 
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card m-2" style="width: 16rem;">
-                <img src="{{photo}}" class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text"><i class="fa fa-briefcase mr-2" aria-hidden="true"></i>Developer</p>
-                </div>
-                <hr>
-                <div class="row text-center">
-                    <div class="col-sm border-right">
-                        <h2 class="mb-0">2</h2>
-                        <p>Attendence</p>
-                    </div>
-                    <div class="col-sm border-right">
-                        <h2 class="mb-0">2/2</h2>
-                        <p>Leave</p>
-                    </div>
-                    <div class="col-sm">
-                        <h2 class="mb-0">2</h2>
-                        <p>Optional Leaves</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-9">
-            <div class="card my-2" style="width: 50rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <i class="fas fa-user-tie fa-4x mb-4"></i>
-                            <h4>Employee Details</h4>
-                        </div>
+  <!-- <div class="card card1" *ngFor="let hero of myArray| paginate: {itemsPerPage:2, currentPage:page}">
+    <div class="card-body">
+      <div class=""><img src="{{hero.file}}" class="rounded" width="200px" height="200px"> </div>
 
+      <p class="sty8">{{hero.firstname|uppercase}}</p>
+      <button type="button" class="btn btn-primary sty7" (click)="request(hero)" value="Requested"
+        #id1>ADDFRIEND</button>
 
-                        <div class="col-sm-8">
-                            <table class="table table-hover table-borderless border-left">
-                                <tbody>
-
-                                  
-
-
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone</td>
-                                        <td>{{phone}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DOB</td>
-                                        <td>{{DOB}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>{{gender}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email-1</td>
-                                        <td>{{email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email-2</td>
-                                        <td>{{email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>B.Group</td>
-                                        <td>B +ve</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Local Address</td>
-                                        <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Perminant Address</td>
-                                        <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card my-2" style="width: 50rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <i class="fas fa-user-graduate fa-4x mb-4"></i>
-                            <h4>Education Details</h4>
-                        </div>
-
-
-                        <div class="col-sm-8">
-                            <table class="table table-borderless border-left">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Qualification</th>
-                                        <th scope="col">Institution Name</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>SSC</td>
-                                        <td>Govt. High School</td>
-                                    </tr>
-                                    <tr>
-                                        <td>+2</td>
-                                        <td>Ekashila Jr. College</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Degree</td>
-                                        <td>Gurunanak Institute of Technical Campus</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card my-2" style="width: 50rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <i class="fas fa-briefcase fa-4x mb-4"></i>
-                            <h4>Company Details</h4>
-                        </div>
-
-
-                        <div class="col-sm-8">
-                            <table class="table table-borderless border-left">
-
-                                <tbody>
-                                    <tr>
-                                        <td>{{email}}</td>
-                                        <td>{{email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{email}}</td>
-                                        <td>ALL</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Designation</td>
-                                        <td>Developer</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of Joining</td>
-                                        <td>{{DOJ}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Salary ( $ )</td>
-                                        <td>40,000PM</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card my-2" style="width: 50rem;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <i class="fas fa-university fa-4x mb-4"></i>
-                            <h4>Bank Details</h4>
-                        </div>
-                        <div class="col-sm-8">
-                            <table class="table table-borderless border-left">
-
-                                <tbody>
-                                    <tr>
-                                        <td>Account Holder Name </td>
-                                        <td>kiran</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Account Number </td>
-                                        <td>2121321313</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bank Name</td>
-                                        <td>ICICI</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PAN Number</td>
-                                        <td>215415421</td>
-                                    </tr>
-                                    <tr>
-                                        <td>IFSC Code</td>
-                                        <td>214215413215</td>
-                                    </tr>ng serve -por
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-            </div>
-            </div>
-            </div>
-            -->
+    </div>
+  </div>
+  <pagination-controls (pageChange)="page=$event"></pagination-controls> -->

@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class AuthService {
-  private _loginUrl = "http://localhost:3000/Admin/login";
+  private _loginUrl = "http://localhost:3002/user/adminlogin";
   private _addemployeeUrl = "http://localhost:3002/user/upload";
   private _addnoticeUrl = "http://localhost:3002/user/addnotice";
   private _getleavedataUrl = "http://localhost:3002/user/getleavedata";
@@ -24,12 +24,13 @@ export class AuthService {
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
   private _sendstatusiproUrl="http://localhost:3002/user/updatestatusiprocurement";
   private _uploadpayslipsUrl="http://localhost:3002/user/uploadpayslips";
+  private _attendenceUrl="http://localhost:3002/user/attendence";
 
   constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
 
     loginUser(loginUserData){
-      return this.http.post<any>(this._loginUrl, loginUserData)
+      return this.http1.post(this._loginUrl, loginUserData)
     }
     getToken() {
       return localStorage.getItem('token')
@@ -146,12 +147,13 @@ uploadpayslips(senddata1)
 }
 leaveappliaction(leavedata)
 {
-  // const headers=new HttpHeaders()
-  //  return this.http.post("http://localhost:3002/user/getleavedata",leavedata,
-  //  {
-  //    headers:headers
-  //  })
+
   return this.http1.post(this._getleavedataUrl , leavedata)
+}
+attendence(leavedata)
+{
+
+  return this.http1.post(this._attendenceUrl , leavedata)
 }
 } 
 
