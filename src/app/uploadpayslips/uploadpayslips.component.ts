@@ -64,7 +64,7 @@ export class UploadpayslipsComponent implements OnInit {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     // this.fileName = this.filesToUpload[0].name;
   }
-  uploadpayslips(selected:any)
+  uploadpayslips()
   {
     let  senddata1 = new FormData();
     //senddata.fullid= this.fullid
