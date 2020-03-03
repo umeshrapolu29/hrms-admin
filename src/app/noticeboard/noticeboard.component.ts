@@ -19,6 +19,7 @@ date:string='';
   array:any;
   array1:any;
   array4:any;
+  file:any;
 noticedata={
   title:'',
   description:'',
