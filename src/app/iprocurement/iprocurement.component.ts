@@ -51,7 +51,7 @@ export class IprocurementComponent implements OnInit {
     private _router: Router, private _httpclient:HttpClient,private http1:Http,) { }
 
   ngOnInit() {
-    this.http1.get('http://localhost:3002/user/getusernamesiprocurement')
+    this.http1.get(' https://hrmsbackend.herokuapp.com/user/getusernamesiprocurement')
     .subscribe(
       (res)=>{
         console.log("heklo")

@@ -46,7 +46,7 @@ export class LeaverequestComponent implements OnInit {
     
   ngOnInit() {
     console.log("gud")
-    this.http1.get('http://localhost:3002/user/getleaveemployee')
+    this.http1.get(' https://hrmsbackend.herokuapp.com/user/getleaveemployee')
     .subscribe(
       (res)=>{
         console.log(res)

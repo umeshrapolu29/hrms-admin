@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.post(`http://localhost:3002/user/getuserdata`,
+    this.http.post(` https://hrmsbackend.herokuapp.com/user/getuserdata`,
     {
       email:this.leavedata.email
     })

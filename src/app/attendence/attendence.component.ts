@@ -23,7 +23,7 @@ export class AttendenceComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.get('http://localhost:3002/user/getallemployeenames')
+    this.http.get(' https://hrmsbackend.herokuapp.com/user/getallemployeenames')
     .subscribe(
       (res)=>
       {
