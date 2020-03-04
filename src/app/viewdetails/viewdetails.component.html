@@ -203,8 +203,9 @@
             </div>
             <div class="modal-footer">
               <button type="reset" class="btn btn-info btn-sm rounded" data-dismiss="modal">Close</button>
-              <button type="button" (click)="addemployee()" [disabled]="regForm.invalid" class="btn btn-success btn-sm rounded">Add</button>
+              <button type="button"  data-dismiss="modal" (click)="addemployee()" class="btn btn-success btn-sm rounded" [disabled]="regForm.invalid">Add</button>
             </div>
+            <!-- [disabled]="regForm.invalid" -->
          
           </div>
         </div>

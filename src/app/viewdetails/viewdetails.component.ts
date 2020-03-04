@@ -160,7 +160,7 @@ export class ViewdetailsComponent  {
 
             if(jsonObj.msg=="uploaded Successfull")
             {
-              Swal.fire('','uploaded Successful','success')
+              // Swal.fire('','uploaded Successful','success')
               this._router.navigate(['/homepage'])
             }
             else{
