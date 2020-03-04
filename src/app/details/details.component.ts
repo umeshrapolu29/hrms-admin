@@ -26,6 +26,7 @@ export class DetailsComponent implements OnInit {
   found:boolean=false;
   image:String='';
   name:string;
+  name1:string;
   DOJ:string;
   DOB:string;
   phone:string;
@@ -58,7 +59,11 @@ export class DetailsComponent implements OnInit {
             console.log(this.photo)
          this.email=jsonObj.data.email
         
-          this.name=jsonObj.data.name
+          // this.name=jsonObj.data.name
+          this.name=jsonObj.data.firstname
+      this.name1=jsonObj.data.lastname
+      this.name=this.name+' '+(this.name1)
+
           this.id=jsonObj.data.fullid
           console.log(this.id+"id is")
           this.DOJ=jsonObj.data.DOJ
