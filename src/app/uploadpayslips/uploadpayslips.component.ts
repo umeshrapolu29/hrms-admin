@@ -99,14 +99,5 @@ export class UploadpayslipsComponent implements OnInit {
 
     }
     )
-  }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DilogeComponent, {
-   
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-     
-    });
-  }
+}
 }
