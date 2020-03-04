@@ -40,6 +40,7 @@ export class IprocurementComponent implements OnInit {
   myArray:any;
   array:any;
   array1:any;
+  empName:any;
   array2:any
 
   photo:string;
