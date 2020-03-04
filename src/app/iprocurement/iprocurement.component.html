@@ -14,19 +14,19 @@
       </li>
     </ul>
   </div>
-  <!-- <div class="card">       
+  <div class="card">       
     <div class="card-body">
   <mat-form-field class="">
       <mat-label>Select Employee </mat-label>
-        <mat-select [(value)]="empName" name="name"[(ngModel)]=" empData.name">
+        <mat-select [(value)]="empName" name="name"[(ngModel)]=" empData1.name">
         
-        <mat-option value="{{hero.employeename}}" *ngFor="let hero of array">{{hero.employeename}}</mat-option>
+        <mat-option value="{{hero.TID}}" *ngFor="let hero of array">{{hero.employeename}}</mat-option>
                 
         </mat-select>
       </mat-form-field>    
-      <button type="button"  class="btn btn-sm btn-success selectEmp" (click)="leaveapplication()">submit</button>       
+      <button type="button"  class="btn btn-sm btn-success selectEmp" (click)="getiprocurementdata()">submit</button>       
 </div>
-</div> -->
+</div>
 
   <div class="card">
     <div class="card-body">
@@ -61,6 +61,7 @@
           <tr class="table-fields font-weight-bolder">
             <th><b>Name</b></th>
             <th><b> Item Name</b></th>
+            <th><b> Item Id</b></th>
             <th><b>Description</b></th>
             <th><b>Amount ( <span class="fa fa-inr"></span> )</b></th>
             <th><b>Approval Status</b></th>
@@ -69,18 +70,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let hero of array">
-            <td>{{hero.employeename}}</td>
-            <td>{{hero.item}}</td>
-            <td>{{hero.description}}</td>
-            <td>{{hero.amount}}</td>
+          <tr>
+            <td>{{name1}}</td>
+            <td>{{item1}}</td>
+            <td>{{tid}}</td>
+            <td>{{description1}}</td>
+            <td>{{amount1}}</td>
             <td class="">
               <input type="radio" value="Approved" [(ngModel)]=" empData.status" name="check" class="">Approved
               <input type="radio" value="Denied" [(ngModel)]=" empData.status" name="check" class="ml-3">Denied
             </td>
             <td>
               <button class=" actionIcons"><i class="fas fa-cloud-upload-alt mr-2"
-                  (click)="sendstatus(hero)"></i>Update</button>
+                  (click)="sendstatus()"></i>Update</button>
             </td>
           </tr>
         </tbody>

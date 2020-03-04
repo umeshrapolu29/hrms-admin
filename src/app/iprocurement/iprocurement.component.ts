@@ -11,7 +11,9 @@ import Swal from 'sweetalert2'
   styleUrls: ['./iprocurement.component.scss']
 })
 export class IprocurementComponent implements OnInit {
+ name1:String='';
   item:string='';
+
   description:string='';
   amount:string='';
   tid:string='';
@@ -37,6 +39,7 @@ export class IprocurementComponent implements OnInit {
   fullid3:string='';
   myArray:any;
   array:any;
+  array1:any;
   array2:any
 
   photo:string;
@@ -45,6 +48,11 @@ export class IprocurementComponent implements OnInit {
     status:'',
     
  
+  }
+  empData1={
+    status:'',
+    name:'',
+  
   }
  
   constructor(private _auth: AuthService,
@@ -60,6 +68,7 @@ export class IprocurementComponent implements OnInit {
         var jsonObj = JSON.parse(this.array._body);
         console.log(jsonObj.data)
         this.array=jsonObj.data;
+       
         
       }
     )
@@ -94,9 +103,35 @@ export class IprocurementComponent implements OnInit {
    
        )
      }
-     sendstatus(selected:any){
+     getiprocurementdata(){
+      console.log("inside application")
+      const leavedata=new FormData()
+      leavedata.append('tid',this.empData1.name)
+      console.log(this.empData1.name);
+      this._auth.getiprocurementdata(leavedata).subscribe((res)=>{
+        console.log(res);
+        this.array1=res
+        var jsonObj = JSON.parse(this.array1._body);
+        console.log(jsonObj)
+        this.array2=jsonObj.data;
+        console.log(this.array2)
+        this.name1= this.array2.employeename;
+        this.item1= this.array2.item;
+        this.description1= this.array2.description;
+        this.amount1= this.array2.amount;
+        this.tid= this.array2.TID;
+        localStorage.setItem('iproid',this.array2.TID)
+        console.log( this.amount1 )
+
+      })
+
+      
+
+      console.log("inside getleavedata");
+     }
+     sendstatus(){
        console.log("hello11")
-       console.log(selected.TID)
+     
    
      
       //console.log("datat....2"+this.fullid);
@@ -104,7 +139,7 @@ export class IprocurementComponent implements OnInit {
       //senddata.fullid= this.fullid
    
       senddata1.append('astatus',this.empData.status);
-      senddata1.append('TID',selected.TID);
+      senddata1.append('TID',localStorage.getItem('iproid'));
    
       console.log(senddata1+"senddata")
       this._auth.sendstatusipro(senddata1)

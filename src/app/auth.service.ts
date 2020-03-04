@@ -42,6 +42,7 @@ export class AuthService {
   private _sendstatusiproUrl=" https://hrmsbackend.herokuapp.com/user/updatestatusiprocurement";
   private _uploadpayslipsUrl=" https://hrmsbackend.herokuapp.com/user/uploadpayslips";
   private _attendenceUrl=" https://hrmsbackend.herokuapp.com/user/attendence";
+  private _getiprocurementdataUrl=" https://hrmsbackend.herokuapp.com/user/getiprocurementdata";
 
   constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
@@ -171,6 +172,11 @@ attendence(leavedata)
 {
 
   return this.http1.post(this._attendenceUrl , leavedata)
+}
+getiprocurementdata(iprocurementdata)
+{
+
+  return this.http1.post(this._getiprocurementdataUrl , iprocurementdata)
 }
 } 
 
