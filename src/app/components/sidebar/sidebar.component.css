@@ -73,7 +73,7 @@ color:#0177bc;
     align-items: center;
     justify-content: center;
     border: 1px solid white;
-    background-color: #fff;
+    background-color: #1d1c1c;
     border-radius: 50% !important;
     margin: 0 auto;
     /* box-shadow: 0 0 10px -4px; */
@@ -83,7 +83,7 @@ color:#0177bc;
     left: -2px;
 }
 .imgBlock img{
-    width: 100px;
+    width: 70px;
 }
  .sidebar-wrapper{
     position: relative;
