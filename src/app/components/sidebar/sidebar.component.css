@@ -9,6 +9,9 @@
     background: #2d2d2d;
     color: #f44336;
     box-shadow:inset 0px 2px 5px 0px black;
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
 }
 .fa-power-off{
     color: red;
@@ -53,13 +56,34 @@ color:#0177bc;
 .fa-circle{
     font-size: 10px;
 }
-.sideImg{
+/* .sideImg::after{
+    content: '';
+    position: absolute;
+    background: #000;
     height: 100px;
     width: 100px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px -4px;
-    z-index: 1000;
-
+    z-index: 999;
+} */
+.imgBlock{
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    background-color: #fff;
+    border-radius: 50% !important;
+    margin: 0 auto;
+    /* box-shadow: 0 0 10px -4px; */
+    /* z-index: 1000; */
+    position: relative;
+    top: 19px;
+    left: -2px;
+}
+.imgBlock img{
+    width: 100px;
 }
  .sidebar-wrapper{
     position: relative;
@@ -70,6 +94,9 @@ color:#0177bc;
     padding-bottom:0px;
 
 } 
+.adminName{
+    padding-top: 2rem;
+}
  .card-header p{
     font-size: 16px;
   }
