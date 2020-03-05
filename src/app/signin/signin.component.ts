@@ -51,7 +51,7 @@ export class SigninComponent implements OnInit {
         // console.log(res.token)
         if( this.array4=="login successfull")
         {
-          Swal.fire('','Login Successfully','success')
+          
           this._router.navigate(['/homepage'])
          
         }
