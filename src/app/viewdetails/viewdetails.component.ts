@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { Http,Response,Headers} from '@angular/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { MatPaginator } from '@angular/material';
 
 
 @Component({
@@ -20,6 +21,8 @@ import Swal from 'sweetalert2'
   styleUrls: ['./viewdetails.component.scss']
 })
 export class ViewdetailsComponent  {
+  searchText : string;
+
   array:any;
   file:any;
   empData = { 
@@ -88,11 +91,12 @@ export class ViewdetailsComponent  {
       this.filesToUpload = <Array<File>>fileInput.target.files;
       // this.fileName = this.filesToUpload[0].name;
     }
+    
    
   ngOnInit() {
     
     
-    this.http.get('http://localhost:3002/user/getallemployeenames')
+    this.http.get('https://hrmsbackend.herokuapp.com/user/getallemployeenames')
     .subscribe(
       (res)=>
       {
@@ -110,8 +114,10 @@ export class ViewdetailsComponent  {
         // // this.name2=res[2].name
         // // this.name2=res[3].name
         // console.log( this.name)
+        
 
       }
+      
     )
 
    

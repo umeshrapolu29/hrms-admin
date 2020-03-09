@@ -26,6 +26,7 @@ export class LeaverequestComponent implements OnInit {
   empData={
     status:'',
     name:'',
+    reason:'',
   
   }
 
@@ -46,7 +47,7 @@ export class LeaverequestComponent implements OnInit {
     
   ngOnInit() {
     console.log("gud")
-    this.http1.get('http://localhost:3002/user/getleaveemployee')
+    this.http1.get('https://hrmsbackend.herokuapp.com/user/getleaveemployee')
     .subscribe(
       (res)=>{
         console.log(res)
@@ -103,7 +104,7 @@ export class LeaverequestComponent implements OnInit {
     }
     )
   }
-  senddata()
+  senddata(selected:any)
   {
     
 
@@ -113,6 +114,9 @@ export class LeaverequestComponent implements OnInit {
     let  senddata = new FormData();
    
     senddata.append('status',this.empData.status);
+    senddata.append('reason',this.empData.reason);
+    senddata.append('name', this.Ename);
+    console.log( this.Ename+"name is")
     senddata.append('requestto', localStorage.getItem('id'));
     console.log( localStorage.getItem('id')+"senddata")
     this._auth.sendstatus(senddata)

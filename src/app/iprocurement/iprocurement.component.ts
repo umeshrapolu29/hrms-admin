@@ -12,6 +12,7 @@ import Swal from 'sweetalert2'
 })
 export class IprocurementComponent implements OnInit {
   item:string='';
+  name1:string='';
   description:string='';
   amount:string='';
   tid:string='';
@@ -38,6 +39,7 @@ export class IprocurementComponent implements OnInit {
   myArray:any;
   array:any;
   array2:any
+  array1:any;
 
   photo:string;
   empData = { 
@@ -46,12 +48,17 @@ export class IprocurementComponent implements OnInit {
     
  
   }
+  empData1={
+    status:'',
+    name:'',
+  
+  }
  
   constructor(private _auth: AuthService,
     private _router: Router, private _httpclient:HttpClient,private http1:Http,) { }
 
   ngOnInit() {
-    this.http1.get('http://localhost:3002/user/getusernamesiprocurement')
+    this.http1.get('https://hrmsbackend.herokuapp.com/user/getusernamesiprocurement')
     .subscribe(
       (res)=>{
         console.log("heklo")
@@ -94,9 +101,36 @@ export class IprocurementComponent implements OnInit {
    
        )
      }
+     getiprocurementdata(){
+      console.log("inside application")
+      const leavedata=new FormData()
+      leavedata.append('tid',this.empData1.name)
+      console.log(this.empData1.name);
+      this._auth.getiprocurementdata(leavedata).subscribe((res)=>{
+        console.log(res);
+        this.array1=res
+        var jsonObj = JSON.parse(this.array1._body);
+        console.log(jsonObj)
+        this.array2=jsonObj.data;
+        console.log(this.array2)
+        this.name1= this.array2.employeename;
+        this.item1= this.array2.item;
+        this.description1= this.array2.description;
+        this.amount1= this.array2.amount;
+        this.tid= this.array2.TID;
+        localStorage.setItem('iproid',this.array2.TID)
+        console.log( this.amount1 )
+
+      })
+
+      
+
+      console.log("inside getleavedata");
+     }
      sendstatus(selected:any){
-       console.log("hello11")
+       console.log("hello11222")
        console.log(selected.TID)
+       console.log(selected.employeename+"name is");
    
      
       //console.log("datat....2"+this.fullid);
@@ -105,6 +139,7 @@ export class IprocurementComponent implements OnInit {
    
       senddata1.append('astatus',this.empData.status);
       senddata1.append('TID',selected.TID);
+      senddata1.append('name',selected.employeename);
    
       console.log(senddata1+"senddata")
       this._auth.sendstatusipro(senddata1)

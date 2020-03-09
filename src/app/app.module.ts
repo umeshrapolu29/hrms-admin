@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule,Pipe } from '@angular/core';
 // import { FileSelectDirective, FileDropDirective, FileUploadModule,FileUploader  } from 'ng2-file-upload';
 import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,9 +34,14 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatInputModule, MatNativeDateModule, MatMenuModule, MatRadioModule } from '@angular/material';
+import { MatInputModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatCardModule, MatSelectModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import { DilogeComponent } from './diloge/diloge.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import{Ng2SearchPipeModule} from 'ng2-search-filter';
+import { FilterPipe } from './employees/employee-filter.pipe';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+
 
 
 @NgModule({
@@ -58,9 +63,15 @@ import { DilogeComponent } from './diloge/diloge.component';
     MatMenuModule,
     MatRadioModule,
     MatIconModule,
+    MatSelectModule,
     MatToolbarModule,
+    
     CommonModule,
     FileUploadModule,
+    NgxPaginationModule,
+    MatCardModule,
+    Ng2SearchPipeModule,
+    
     
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
@@ -71,6 +82,8 @@ import { DilogeComponent } from './diloge/diloge.component';
     AdminLayoutComponent,
     SigninComponent,
     DilogeComponent,
+    FilterPipe,
+    ForgetpasswordComponent,
  
     // FileSelectDirective,
     // FileDropDirective    

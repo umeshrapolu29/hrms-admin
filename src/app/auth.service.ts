@@ -11,19 +11,37 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class AuthService {
-  private _loginUrl = "http://localhost:3000/Admin/login";
-  private _addemployeeUrl = "http://localhost:3002/user/upload";
-  private _addnoticeUrl = "http://localhost:3002/user/addnotice";
-  private _getleavedataUrl = "http://localhost:3002/user/getleavedata";
-  private _getleaveupdateUrl = "http://localhost:3002/user/leaveupdate";
+  // private _loginUrl = "http://localhost:3000/Admin/login";
+  // private _addemployeeUrl = "http://localhost:3002/user/upload";
+  // private _addnoticeUrl = "http://localhost:3002/user/addnotice";
+  // private _getleavedataUrl = "http://localhost:3002/user/getleavedata";
+  // private _getleaveupdateUrl = "http://localhost:3002/user/leaveupdate";
 
-  private _getemployeeUrl= "http://localhost:3000/Users/getUsers";
-  private _addholidayUrl="http://localhost:3002/user/addholiday";
-  private _viewholidayUrl="http://localhost:3002/user/viewholiday";
+  // private _getemployeeUrl= "http://localhost:3000/Users/getUsers";
+  // private _addholidayUrl="http://localhost:3002/user/addholiday";
+  // private _viewholidayUrl="http://localhost:3002/user/viewholiday";
+  // private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
+  // private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
+  // private _sendstatusiproUrl="http://localhost:3002/user/updatestatusiprocurement";
+  // private _uploadpayslipsUrl="http://localhost:3002/user/uploadpayslips";
+  // private _attendenceUrl="http://localhost:3002/user/attendence";
+  
+  private _loginUrl = " https://hrmsbackend.herokuapp.com/user/adminlogin";
+  private _addemployeeUrl = "https://hrmsbackend.herokuapp.com/user/upload";
+  private _addnoticeUrl = " https://hrmsbackend.herokuapp.com/user/addnotice";
+  private _getleavedataUrl = " https://hrmsbackend.herokuapp.com/user/getleavedata";
+  private _getleaveupdateUrl = "https://hrmsbackend.herokuapp.com/user/leaveupdate";
+
+  private _getemployeeUrl= "https://hrmsbackend.herokuapp.com/Users/getUsers";
+  private _addholidayUrl=" https://hrmsbackend.herokuapp.com/user/addholiday";
+  private _viewholidayUrl=" https://hrmsbackend.herokuapp.com/user/viewholiday";
   private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
-  private _sendstatusiproUrl="http://localhost:3002/user/updatestatusiprocurement";
-  private _uploadpayslipsUrl="http://localhost:3002/user/uploadpayslips";
+  private _sendstatusiproUrl=" https://hrmsbackend.herokuapp.com/user/updatestatusiprocurement";
+  private _uploadpayslipsUrl=" https://hrmsbackend.herokuapp.com/user/uploadpayslips";
+  private _attendenceUrl=" https://hrmsbackend.herokuapp.com/user/attendence";
+  private _getiprocurementdataUrl=" https://hrmsbackend.herokuapp.com/user/getiprocurementdata";
+
 
   constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
@@ -146,12 +164,18 @@ uploadpayslips(senddata1)
 }
 leaveappliaction(leavedata)
 {
-  // const headers=new HttpHeaders()
-  //  return this.http.post("http://localhost:3002/user/getleavedata",leavedata,
-  //  {
-  //    headers:headers
-  //  })
+
   return this.http1.post(this._getleavedataUrl , leavedata)
+}
+attendence(leavedata)
+{
+
+  return this.http1.post(this._attendenceUrl , leavedata)
+}
+getiprocurementdata(iprocurementdata)
+{
+
+  return this.http1.post(this._getiprocurementdataUrl , iprocurementdata)
 }
 } 
 

@@ -12,7 +12,7 @@ export class TestingComponent implements OnInit {
 
   ngOnInit() {
     console.log("he;lo")
-    this.http.get('http://localhost:3002/user/viewnotice'
+    this.http.get('https://hrmsbackend.herokuapp.com/user/viewnotice'
     )
     .subscribe(
       (res)=>{

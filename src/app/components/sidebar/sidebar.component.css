@@ -53,10 +53,35 @@ color:#0177bc;
 .sideImg{
     height: 100px;
     width: 100px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     box-shadow: 0 0 10px -4px;
     z-index: 1000;
 
+}
+.imgBlock{
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    background-color: #1d1c1c;
+    border-radius: 50% !important;
+    margin: 0 auto;
+    /* box-shadow: 0 0 10px -4px; */
+    /* z-index: 1000; */
+    position: relative;
+    top: 19px;
+    left: -2px;
+}
+.imgBlock img{
+    width: 70px;
+    height: auto;
+}
+.adminName{
+    margin-top:20px;
 }
  .sidebar-wrapper{
     position: relative;

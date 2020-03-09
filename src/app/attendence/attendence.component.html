@@ -21,7 +21,7 @@
 				  <hr class="bg-primary">
 				 <div class="row">
 				  <div class="col lg-6">
-					<div class="btn-group border-primary ">
+					<!-- <div class="btn-group border-primary ">
 						<span class="font-weight-bolder">Show</span>  &nbsp; <button class="btn btnShow btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                         
 							 </button>&nbsp;<span class="font-weight-bolder">entries</span>
 							 <div class="dropdown-menu ">
@@ -30,15 +30,15 @@
 								 <a class="dropdown-item" href="#">50</a>
 								 <a class="dropdown-item" href="#">100</a>                           
 							 </div>
-						   </div>
+						   </div> -->
 				</div>
 				  <div class="col lg-6 ">
-					  <div class="input-group mb-3 justify-content-end">
+					  <!-- <div class="input-group mb-3 justify-content-end">
 						  <input type="text" class=" border search text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
 						  <div class="input-group-append">
 							<button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
 						  </div>
-						</div>
+						</div> -->
 				  </div>           
 				  </div>
 					<table class="table table-striped table-hover tabel-responsive" id="myTable">
@@ -46,26 +46,26 @@
 					<tr class="table-fields font-weight-bolder">
 					  <th><b>Employee ID</b></th>
 					  <th><b>Name</b></th>
-					  <th><b>InTime</b></th>
-					  <th><b>OutTime</b></th>
+				
 					  <th><b>Reason</b></th>
 						 <th><b>Action</b></th> 
 						 <th></th>
 				  </tr>
 				  </thead>
 				  <tbody>
-					<tr>
-					  <td>524323</td>
-					  <td>lokshma</td>
-					  <td>9:30 AM</td>
-					  <td>6:30 PM</td>
+					<tr *ngFor="let hero of myArray">
+					  <td>{{hero.fullid}}</td>
+					  <td>{{hero.firstname}}</td>
+			
 					  <td>Forgot ID card </td>
-					  <td class=""> 
-						 <input type="radio" name="check">Approved
-						 <input type="radio" name="check" class="ml-4">Denied
+					  <td > 
+						 <!-- <input type="radio" name="status" value="Present"  [(ngModel)]="leavedata.status">Present
+						 <input type="radio" name="status" value="Absent" [(ngModel)]="leavedata.status" class="ml-4">Absent -->
+						 <input type="radio"  name={{hero.fullid}} value="Approved" [(ngModel)]="leavedata.status" >Approved
+						 <input type="radio" name={{hero.fullid}} value="Denied" [(ngModel)]="leavedata.status"  >Denied
 						</td>
 						<td>
-						 <button class=" actionIcons"><i class="fas fa-cloud-upload-alt mr-2"> </i>Update</button>
+						 <button class=" actionIcons" (click)="addattendence(hero)"><i class="fas fa-cloud-upload-alt mr-2"> </i>Update</button>
 						 </td>                                               
 					</tr> 
 				   </tbody>
@@ -85,81 +85,5 @@
 				  </nav>
 				</div>        
 			</div>
-			<button type="submit"  (click)="addholiday()"   class="btn green p-2 mr-2"><i class="fa fa-check" ></i> Submit</button>
+			<!-- <button type="submit"  (click)="addholiday()"   class="btn green p-2 mr-2"><i class="fa fa-check" ></i> Submit</button> -->
 
-<!-- <div class="container bg-light bgLogo">
-	<div class="row">
-		<div class="col-md-12">	
-				
-					<div class="col-md form-group">
-					<h3 class="">Date  17-Jul-2019</h3>
-				</div>
-				<div class="float-right">
-					<img src="/assets/img/black logo.png" height="50px" width="200px" class="">
-				  </div>
-				<div class="page-bar">
-						<ul class="page-breadcrumb">
-						  <li>
-							<i class="fa fa-home"></i>
-							<a >Home</a>							
-						  </li>			 
-				  
-						</ul>				  
-					  </div>				
-			<hr>
-			<div class="portlet box blue">
-					
-				<div class="portlet-title">
-					<div class="caption">
-						<i class="fa fa-edit"></i>Attendence
-					</div>
-				</div>
-				<div class="portlet-body form">
-						<button type="submit" class="btn green update-btn"  onclick="M.toast({html: 'Upload Successfully...'})"><i class="fa fa-upload"></i> Update
-						</button>
-				<table class="table table-striped table-bordered table-hover" >
-					<thead>
-						<tr>
-							<th>Employee Id</th>
-								<th>Name</th>
-								<th>Status</th>
-								<th class="col4">Type of Leave</th>
-								<th class="col5">Reason</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>12345</td>
-								<td>
-									lokshma
-								</td>
-								<td>
-									 <div class="checkbox-btn">
-										<input type="checkbox" name="col4" checked="checked">
-										<div>
-											<span class="slide"></span>
-										</div>
-									</div> 									     
-								</td>
-								<td>
-									<select class="form-control leaveType">
-									<option value="sick">--select--</option>
-									<option value="sick">sick</option>
-									<option value="casual">casual</option>
-									<option value="half day">half day</option>
-									<option value="maternity">maternity</option>
-									<option value="unpaid">unpaid</option>
-									<option value="others">others</option>
-								</select>										
-								</td>
-								<td>
-									<input type="text" placeholder="Reason" class="validate">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>		
-	</div>
-</div>
-</div> -->

@@ -42,7 +42,7 @@ export class UploadpayslipsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http1.get('http://localhost:3002/user/getallemployeenames')
+    this.http1.get('https://hrmsbackend.herokuapp.com/user/getallemployeenames')
     .subscribe(
       (res)=>
       {
