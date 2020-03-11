@@ -22,6 +22,7 @@ export class AdminregistrationComponent implements OnInit {
 
   }
   array4:any;
+  file:any;
   public emoployeeData: FormGroup
   public filesToUpload: Array<File> = [];
   constructor(private _auth: AuthService,
