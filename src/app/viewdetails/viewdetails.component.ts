@@ -24,6 +24,7 @@ export class ViewdetailsComponent  {
   searchText : string;
 
   array:any;
+  img:any;
   file:any;
   empData = { 
     first_name:'',
@@ -56,6 +57,8 @@ export class ViewdetailsComponent  {
   gender:string;
   id:number;
   myArray:any;
+ 
+  fullImagePath: string;
   getdetails={};
  
 
@@ -107,14 +110,7 @@ export class ViewdetailsComponent  {
         console.log(jsonObj)
         this.myArray=jsonObj.data;
         console.log(this.myArray)
-        // this.name = this.myArray[0].name;
-
-        // console.log('res==>', this.name)
-        // this.name=res[1].name
-        // // this.name2=res[2].name
-        // // this.name2=res[3].name
-        // console.log( this.name)
-        
+       
 
       }
       
@@ -141,8 +137,17 @@ export class ViewdetailsComponent  {
     console.log(this.empData.DOJ +"id is")
     const payload = new FormData();
     const file: File = this.filesToUpload[0];
-    payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
-    console.log(File+" file")
+     this.img=this.filesToUpload[0]
+     console.log( this.img+"img is")
+     
+    this.fullImagePath = '//assets//img//logo.png';
+    console.log(  this.fullImagePath+"img is");
+
+    if(this.img==null){
+      console.log("inside if condition")
+      payload.append('file',  this.fullImagePath);
+  
+    // console.log(File+" file")
     payload.append('firstname',this.empData.first_name);
     payload.append('lastname',this.empData.last_name);
     payload.append('email',this.empData.email);
@@ -175,6 +180,43 @@ export class ViewdetailsComponent  {
     
          }
       )
+        }else{
+          console.log("inside else block")
+          payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
+          // console.log(File+" file")
+          payload.append('firstname',this.empData.first_name);
+          payload.append('lastname',this.empData.last_name);
+          payload.append('email',this.empData.email);
+          payload.append('password', this.empData.password);
+          payload.append('DOJ',this.empData.DOJ);
+          payload.append('phonenumber',this.empData.phonenumber),
+          payload.append('gender',this.empData.gender),
+          payload.append('DOB',this.empData.DOB),
+          payload.append('token',this.empData.token)
+          payload.append('id',this.empData.id)
+          console.log("hello inside");
+       
+         
+          this._auth.uploadSheet(payload)
+            .subscribe(
+              res => {
+                console.log(res)
+                this.array=res;
+                var jsonObj = JSON.parse(this.array._body);
+                    console.log(jsonObj.msg)
+      
+                  if(jsonObj.msg=="uploaded Successfull")
+                  {
+                    Swal.fire('','uploaded Successful','success')
+                    this._router.navigate(['/homepage'])
+                  }
+                  else{
+                    Swal.fire('','uploaded failed','error')
+                  }
+          
+               }
+            )
+        }
   }
 
   priview(){   

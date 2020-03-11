@@ -19,6 +19,7 @@ date:string='';
   array:any;
   array1:any;
   array4:any;
+  img:any;
   file:any
 noticedata={
   title:'',
@@ -36,6 +37,7 @@ public filesToUpload: Array<File> = [];
       this.filesToUpload = <Array<File>>fileInput.target.files;
  
     }
+   
    
 
   ngOnInit() {
@@ -56,10 +58,14 @@ public filesToUpload: Array<File> = [];
   }
   
   addnotice(){
+
+    this.img=this.filesToUpload[0]
+    console.log( this.img+"img is")
     const payload = new FormData();
     const file: File = this.filesToUpload[0];
-    payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
-    console.log(File+" file")
+    if(this.img==null){
+      console.log("inside if condition")
+
 
    
     payload.append('title',this.noticedata.title);
@@ -91,6 +97,42 @@ public filesToUpload: Array<File> = [];
       },
      
     )
+    }else{
+      payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
+      console.log(File+" file")
+  
+     
+      payload.append('title',this.noticedata.title);
+      payload.append('description',this.noticedata.description);
+      payload.append('date',this.noticedata.date);
+      console.log(this.noticedata.date+"DATE IS")
+    
+  
+      console.log(this.noticedata)
+      this._auth.addnotice(payload)
+      
+      .subscribe(
+        res => {
+           console.log(res)
+           this.array4=res
+           var jsonObj = JSON.parse(this.array4._body);
+           console.log(jsonObj)
+           this.array4=jsonObj.msg;
+           console.log( this.array4)
+           if(this.array4=="addnotice data"){
+             Swal.fire('','Notice added Successful','success')
+               this._router.navigate(['/homepage'])
+           }
+           else{
+             Swal.fire('','Notice added Failed','error')
+             this._router.navigate(['/homepage'])
+           }
+         
+        },
+       
+      )
+
+    }
   }
 
 }

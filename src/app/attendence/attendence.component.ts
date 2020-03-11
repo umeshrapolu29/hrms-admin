@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   selector: 'app-attendence',
   templateUrl: './attendence.component.html',
   styleUrls: ['./attendence.component.scss']
+
 })
 export class AttendenceComponent implements OnInit {
   myArray:any;
@@ -45,6 +46,9 @@ export class AttendenceComponent implements OnInit {
       }
     )
   }
+//   onSelectionChange(entry) {
+//     this.selectedEntry = entry;
+// }
   addattendence(){
     const attendence= new FormData()
     // console.log(this.leavedata.holidayType+"type")

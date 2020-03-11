@@ -61,8 +61,8 @@
 					  <td > 
 						 <!-- <input type="radio" name="status" value="Present"  [(ngModel)]="leavedata.status">Present
 						 <input type="radio" name="status" value="Absent" [(ngModel)]="leavedata.status" class="ml-4">Absent -->
-						 <input type="radio"  name={{hero.fullid}} value="Approved" [(ngModel)]="leavedata.status" >Approved
-						 <input type="radio" name={{hero.fullid}} value="Denied" [(ngModel)]="leavedata.status"  >Denied
+						 <input type="radio"  name="{{hero.fullid}}" value="Present" (change)="onSelectionChange(entry)"   >Present
+						 <input type="radio" name="{{hero.fullid}}" value="Absent" (change)="onSelectionChange(entry)"   >Absent
 						</td>
 						<td>
 						 <button class=" actionIcons" (click)="addattendence(hero)"><i class="fas fa-cloud-upload-alt mr-2"> </i>Update</button>
