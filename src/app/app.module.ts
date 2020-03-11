@@ -41,6 +41,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import{Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FilterPipe } from './employees/employee-filter.pipe';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
 
 
 
@@ -84,6 +85,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
     DilogeComponent,
     FilterPipe,
     ForgetpasswordComponent,
+    AdminregistrationComponent,
  
     // FileSelectDirective,
     // FileDropDirective    

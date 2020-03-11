@@ -1,0 +1,77 @@
+<div class="registration-box">
+  <div class="card logo py-2 shadow-lg">
+    <div class="card-title text-center">
+      <h2 class="mb-0"><b>ADMIN REGISTRATION</b></h2>
+      <h5 class="text-success font-weight-bolder">Login with your Credentials</h5>
+     
+    </div>
+  <div class="card-body" style="border-radius: 5px;">
+    <div class="row">
+      <div class="col-lg-4  text-center ">
+        <!-- <input type="file" class="input-group admin-img"> -->
+        <div class="">
+            <div class="imgUp">
+              <div class="imagePreview"></div>
+              <label class="btn btn-info btn-sm btnpriview" (click)="priview()">
+                  Upload<input type="file"  name="file" 
+                  [(ngModel)]="file"
+                  #uploadImage="ngModel"
+                  (change)="fileChangeEvent($event)" 
+                  #fileInpu class="uploadFile img" value="Upload Photo"  style="width: 0px;height: 0px;overflow: hidden;">
+             </label>
+             
+         </div><!-- col-2 -->
+         <!-- <i class="fa fa-plus imgAdd"></i> -->
+      </div>
+
+        </div>
+      <div class="col-lg-8 border-left">
+    <form>
+
+        <div class="input-group flex-nowrap mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter name" name="email" aria-label="Username" aria-describedby="addon-wrapping" [(ngModel)]="loginUserData.email">
+          </div>
+
+      <div class="input-group flex-nowrap mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope"></i></span>
+    </div>
+    <input type="email" class="form-control" placeholder="Enter email" name="email" aria-label="Username" aria-describedby="addon-wrapping" [(ngModel)]="loginUserData.email">
+  </div>
+  
+  <div class="row">
+  <div class="input-group col pr-0 flex-nowrap mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping"><i class="fa fa-key"></i></span>
+    </div>
+    <input type="password" class="form-control" placeholder="Password"  aria-label="Username" aria-describedby="addon-wrapping" name="password"  [(ngModel)]="loginUserData.password" >
+  </div>
+
+  <div class="input-group col pl-0 flex-nowrap">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping"><i class="fa fa-key"></i></span>
+      </div>
+      <input type="password" class="form-control" placeholder="Confirm Password"  aria-label="Username" aria-describedby="addon-wrapping" name="password"  [(ngModel)]="loginUserData.password" >
+    </div>
+  </div>
+
+  <div class="login">
+    <button type="button" class="btn btn-block my-4" (click)=" loginUser()">Submit</button>
+  </div>
+  
+   
+ 
+  
+    </form>
+    </div>
+    
+  </div>
+  </div>
+  
+  
+  </div>
+     </div>
+  

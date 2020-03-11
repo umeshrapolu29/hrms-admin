@@ -1,0 +1,35 @@
+.registration-box{
+    width: 650px;
+    margin: 0 auto;
+}
+.admin-img{
+    
+}
+.imagePreview {
+    width: 185px;
+    height: 180px;
+    background-position: center center;
+    border-radius: 4px !important;
+    overflow: hidden;
+  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color:#fff;
+    background-size: cover;
+  background-repeat:no-repeat;
+    display: inline-block;
+//   box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+//   position: relative;
+//   left:100px;
+}
+.btnpriview
+{
+    left: -1px;
+    top: -15px;
+    width: 185px;   
+    // margin: -5px 98px auto;
+  border-radius:0px;
+//   box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2); 
+}
+.imgUp
+{
+  margin-bottom:15px;
+}
