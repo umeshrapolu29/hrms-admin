@@ -27,7 +27,7 @@ export class AuthService {
   // private _attendenceUrl="http://localhost:3002/user/attendence";
   
   private _loginUrl = " https://hrmsbackend.herokuapp.com/user/adminlogin";
-  private _addemployeeUrl = "http://localhost:3000/user/upload";
+  private _addemployeeUrl = "https://hrmsbackend.herokuapp.com/user/upload";
   private _addnoticeUrl = " https://hrmsbackend.herokuapp.com/user/addnotice";
   private _getleavedataUrl = " https://hrmsbackend.herokuapp.com/user/getleavedata";
   private _getleaveupdateUrl = "https://hrmsbackend.herokuapp.com/user/leaveupdate";
