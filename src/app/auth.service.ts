@@ -41,13 +41,14 @@ export class AuthService {
   private _uploadpayslipsUrl=" https://hrmsbackend.herokuapp.com/user/uploadpayslips";
   private _attendenceUrl=" https://hrmsbackend.herokuapp.com/user/attendence";
   private _getiprocurementdataUrl=" https://hrmsbackend.herokuapp.com/user/getiprocurementdata";
+  private _adminregisterUrl=" http://localhost:3000/user/admin";
 
 
   constructor(private http: HttpClient,private http1:Http,
     private _router: Router) { }
 
     loginUser(loginUserData){
-      return this.http.post<any>(this._loginUrl, loginUserData)
+      return this.http1.post(this._loginUrl, loginUserData)
     }
     getToken() {
       return localStorage.getItem('token')
@@ -176,6 +177,11 @@ getiprocurementdata(iprocurementdata)
 {
 
   return this.http1.post(this._getiprocurementdataUrl , iprocurementdata)
+}
+adminregister(adminregisterdata)
+{
+
+  return this.http1.post(this._adminregisterUrl , adminregisterdata)
 }
 } 
 
