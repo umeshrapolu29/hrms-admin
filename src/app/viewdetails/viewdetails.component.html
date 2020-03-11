@@ -16,7 +16,7 @@
                       
           <!-- </div>  //    -->
                  <input class="ml-2" id="icon_search" type="search" name="fullid" [(ngModel)]="searchText" placeholder="search" > 
-                <p class=" btn btn-sm bg-primary " (click)="viewemployee()" routerLink="/viewdetails">Go</p>
+                <!-- <p class=" btn btn-sm bg-primary " (click)="viewemployee()" routerLink="/viewdetails">Go</p> -->
                      
             
               </div>
@@ -26,19 +26,19 @@
       <!-- Modal -->
       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
+          <div class="modal-content overflow-auto">
             <div class="modal-header">
               <h5 class="modal-title font-weight-bold report" id="exampleModalScrollableTitle">Add employee Details </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form class="form" #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+            <form class="form" #regForm="ngForm" >
             <div class="modal-body">          
               <mat-form-field class="example-full-width ">
                     <input matInput class="font-weight-bold text-dark" placeholder="Employee Id" disabled value="ZYX_2019_128">
                   </mat-form-field>
-              <br><div class="container mr-4 text-center">
+                  <br><div class="container mr-4 text-center">
                     <div class="row">
                         <div class="col-lg-2 imgUp rounded">
                           <div class="imagePreview"></div>
@@ -47,8 +47,9 @@
                               [(ngModel)]="file"
                               #uploadImage="ngModel"
                               (change)="fileChangeEvent($event)" 
-                              #fileInpu class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                              #fileInpu class="uploadFile img" value="Upload Photo"  style="width: 0px;height: 0px;overflow: hidden;">
                          </label>
+                         
                      </div><!-- col-2 -->
                      <!-- <i class="fa fa-plus imgAdd"></i> -->
                   </div><!-- row -->
@@ -57,14 +58,37 @@
                         <mat-form-field>
                           <input matInput name="first_name" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name"  placeholder="First Name">
+                          [(ngModel)]=" empData.first_name" #firstname="ngModel"
+                           pattern="[a-zA-Z\s]+"  
+                           placeholder="First Name" required>
+                           <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
+                             <div *ngIf="firstname.hasError('required')">
+                              Please enter First Name
+                             </div>
+                             <div *ngIf="firstname.hasError('pattern')">
+                              please enter alphabets only.
+            
+                            </div>
+              
+                           </mat-error>
                         
                         </mat-form-field></div>
                         <div class="col-lg-6">
                                 <mat-form-field>
                                   <input matInput   name="last_name"
                                   Autocomplete="off" 
-                                  [(ngModel)]=" empData.last_name" placeholder="Last Name">
+                                  [(ngModel)]=" empData.last_name" 
+                                  #lastname="ngModel" 
+                                  pattern="[a-zA-Z\s]+"
+                                  placeholder="Last Name" required>
+                                  <mat-error *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                                    <div *ngIf="lastname.hasError('required')">
+                                      Please enter Last Name
+                                    </div>
+                                    <div *ngIf="lastname.hasError('pattern')">
+                                      please enter alphabets only.
+                                    </div>
+                                  </mat-error>
                                 </mat-form-field></div>
                  </div>
                 <div class="row">
@@ -72,13 +96,38 @@
                           <mat-form-field>
                              <input type="email" name="email" 
                              Autocomplete="off" 
-                             [(ngModel)]=" empData.email" matInput placeholder="email">
+                             [(ngModel)]=" empData.email" matInput 
+                             #email="ngModel"
+                             pattern="(\W|^)[\w.+\-]*@zyclyx\.com(\W|$)"
+                             placeholder="Email" required>
+                             <mat-error *ngIf="email.invalid &&(email.dirty || email.touched)">
+                              <div *ngIf="email.hasError('required')">
+                                Please enter Email Id
+                              </div>
+                              <div *ngIf="email.hasError('pattern')">
+                                Please enter Zyclyx Email Id
+              
+                              </div>
+                              
+                            </mat-error>
                              </mat-form-field></div>
                              <div class="col-lg-6">
                               <mat-form-field>
                              <input matInput  name="phonenumber" 
                              Autocomplete="off" 
-                             [(ngModel)]=" empData.phonenumber"placeholder="phone Number">
+                             [(ngModel)]=" empData.phonenumber"
+                             #phoneno ="ngModel"
+                              pattern="[0-9]{10,10}"
+                              placeholder="Phone Number" required>
+                              <mat-error *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                                <div *ngIf="phoneno.hasError('required')">
+                                  Please enter Mobile Number
+                                </div>
+                                
+                                <div *ngIf="phoneno.hasError('pattern')" >
+                                  Please enter valid mobile number
+                                </div>
+                              </mat-error>
                              </mat-form-field></div>
                    </div>
                    <div class="row mb-3">
@@ -86,13 +135,28 @@
                         <mat-form-field>
                            <input type="date" name="DOB" 
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.DOB"  matInput placeholder="DOB">
+                           [(ngModel)]=" empData.DOB"  
+                           #Dob="ngModel"
+                           matInput 
+                           placeholder="DOB" required>
+                           <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                             <div *ngIf="Dob.hasError('required')">
+                              please enter Date of Birth
+                             </div>
+
+                           </mat-error>
                            </mat-form-field></div>
                            <div class="col-lg-6">
                             <mat-form-field>
                            <input type="date"  name="DOJ"
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.DOJ" matInput placeholder="DOJ">
+                           [(ngModel)]=" empData.DOJ" matInput
+                           #Doj="ngModel" placeholder="DOJ" required>
+                           <mat-error *ngIf="Doj.invalid && (Doj.dirty || Doj.touched)">
+                              <div *ngIf="Doj.hasError('required')">
+                               please enter Date of Joining
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                  </div>
                  <div class="row">
@@ -113,20 +177,32 @@
                         <mat-form-field>
                            <input type="password"  	name="password" 
                            Autocomplete="off" 
-                           [(ngModel)]=" empData.password" matInput placeholder="password">
+                           [(ngModel)]=" empData.password" #password="ngModel"
+                           matInput placeholder="password" required>
+                           <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                              <div *ngIf="password.hasError('required')">
+                                Please enter Password 
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                            <div class="col-lg-6">
                             <mat-form-field>
                            <input type="password" name="cnf_pswd" 
                            Autocomplete="off"
-                           [(ngModel)]=" empData.cnf_pswd" matInput placeholder="confirm password">
+                           [(ngModel)]=" empData.cnf_pswd"
+                           #cnfPwd="ngModel" matInput placeholder="confirm password" required>
+                           <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
+                              <div *ngIf="cnfPwd.hasError('required')">
+                                Please enter confirm Password 
+                              </div>
+                              </mat-error>
                            </mat-form-field></div>
                  </div>
                   </div><!-- container -->           
             </div>
             <div class="modal-footer">
               <button type="reset" class="btn btn-info btn-sm rounded" data-dismiss="modal">Close</button>
-              <button type="button" (click)="addemployee()" class="btn btn-success btn-sm rounded">Add</button>
+              <button type="button" (click)="addemployee()" class="btn btn-success btn-sm rounded" data-dismiss="modal">Add</button>
             </div>
             </form>
           </div>

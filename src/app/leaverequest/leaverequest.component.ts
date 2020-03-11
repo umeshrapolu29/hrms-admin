@@ -15,6 +15,7 @@ export class LeaverequestComponent implements OnInit {
   ename:string='';
   ename1:string='';
   ename2:string='';
+  file:any;
   fullid:any;
   empName:any;
   array:any;
@@ -104,7 +105,7 @@ export class LeaverequestComponent implements OnInit {
     }
     )
   }
-  senddata(selected:any)
+  senddata()
   {
     
 
