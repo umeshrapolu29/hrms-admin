@@ -119,6 +119,8 @@ export class LeaverequestComponent implements OnInit {
     senddata.append('name', this.Ename);
     console.log( this.Ename+"name is")
     senddata.append('requestto', localStorage.getItem('id'));
+    senddata.append('email', localStorage.getItem('email'));
+    console.log(localStorage.getItem('email')+"email is")
     console.log( localStorage.getItem('id')+"senddata")
     this._auth.sendstatus(senddata)
     .subscribe((res)=>{
@@ -129,6 +131,7 @@ export class LeaverequestComponent implements OnInit {
       console.log(jsonObj)
       this.array4=jsonObj.msg;
       console.log( this.array4)
+      // console.log( this.array4.requestto)
       if(this.array4=="leavestatus Update"){
         Swal.fire('','Response Updated Successful','success')
           this._router.navigate(['/homepage'])
