@@ -44,7 +44,7 @@ export class AuthService {
   private _adminregisterUrl=" https://hrmsbackend.herokuapp.com/user/admin";
   private _resetpasswordUrl = " https://hrmsbackend.herokuapp.com/user/adminresetpassword";
   private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/adminforgetpassword";
-  private _deleteuserUrl = "  http://localhost:3001/user/deleteuser";
+  private _deleteuserUrl = "  https://hrmsbackend.herokuapp.com/user/deleteuser";
 
 
   constructor(private http: HttpClient,private http1:Http,
