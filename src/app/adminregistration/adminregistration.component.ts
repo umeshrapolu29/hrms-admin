@@ -23,6 +23,8 @@ export class AdminregistrationComponent implements OnInit {
   }
   array4:any;
   file:any;
+  img:any;
+  fullImagePath: string;
   public emoployeeData: FormGroup
   public filesToUpload: Array<File> = [];
   constructor(private _auth: AuthService,
@@ -41,8 +43,14 @@ export class AdminregistrationComponent implements OnInit {
     console.log("inside  block")
     console.log(this.loginUserData)
     const payload = new FormData();
-          payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
-           console.log(File+" file")
+    this.img=this.filesToUpload[0]
+    console.log( this.img+"img is")
+    
+   this.fullImagePath = '//assets//img//logo.png';
+   console.log(  this.fullImagePath+"img is");
+   if(this.img==null){
+    console.log("inside if condition")
+    payload.append('file',  this.fullImagePath);
           payload.append('firstname',this.loginUserData.name);
     
           payload.append('email',this.loginUserData.email);
@@ -67,8 +75,38 @@ export class AdminregistrationComponent implements OnInit {
 
           
           })
+        }
+        else{
+          payload.append('file', this.filesToUpload[0], this.filesToUpload[0].name);
+          console.log(File+" file")
+         payload.append('firstname',this.loginUserData.name);
+   
+         payload.append('email',this.loginUserData.email);
+         payload.append('password', this.loginUserData.password);
+         this._auth.adminregister(payload).subscribe((res)=>{
+           console.log(res);
+           this.array4=res
+       var jsonObj = JSON.parse(this.array4._body);
+       console.log(jsonObj)
+       this.array4=jsonObj.msg;
+       console.log( this.array4)
+       if( this.array4=="admin register successfully")
+       {
+         Swal.fire('','Registration successfully','success')
+         this._router.navigate(['/signin'])
+        
+       }
+       else{
+         Swal.fire('','Login Failed','error')
+         this._router.navigate(['/registration'])
+       }
 
-  }
+         
+         })
+       }
+        }
+
+  
 
 
 
