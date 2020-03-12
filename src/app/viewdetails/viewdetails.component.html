@@ -212,15 +212,21 @@
 <div class="container" style="margin-left: 30px;">
 <div class="row">
 	
-<div class="card text-center rounded shadow p-0 mr-2" style="width: 15rem;" *ngFor="let hero of myArray">
+<div class="card text-center rounded shadow p-0 mr-2" style="width: 18rem;" *ngFor="let hero of myArray">
   <img src="{{hero.file}}" class="card-img-top rounded-circle sideImg" width="150px" height="150px" alt="...">
-  <div class="card-body">
-    <h5 class="card-title font-weight-bold">{{hero.firstname}}</h5>
-    <p class="card-text">IT Trainee</p>
-    <p class="card-text"><i class="fas fa-user text-info mr-2"></i>{{hero.email}}</p>
+  <div class="card-body p-0">
+  
+    <h5 class="card-title font-weight-bold mb-0">{{hero.firstname}}</h5>
+    <p class="card-text m-0">IT Trainee</p>
+    <div class="text-left details my-3">
+   
+    <p class="card-text m-0"><i class="fas fa-user text-info mr-2"></i>{{hero.email}}</p>
     <p class="card-text mr-3"><i class="fas fa-phone text-info mr-2"></i>{{hero.phonenumber}}</p>
+    </div>
+    <div>
 
-    <a  class="btn-sm btn-primary  rounded shadow text-white" (click)="viewemployee(hero)"><i class="fas fa-arrow-right text-white mr-2"></i>View Details</a>
+    <a  class="btn-sm btn-primary  rounded text-white" (click)="viewemployee(hero)"><i class="fas fa-arrow-right text-white mr-2"></i>Details</a>
+    <a  class="btn-sm btn-danger  rounded  text-white" (click)="viewemployee1(hero)"><i class="fas fa-trash text-white mr-2"></i>Delete</a></div>
     </div>
  
 </div>

@@ -1,11 +1,23 @@
+.card{
+  height: 310px;
+}
 .sideImg{
     height: 100px;
     width: 100px;
+    margin: 0 auto;
     margin-top: 20px;
     box-shadow: 0 0 10px -4px;
     z-index: 1000;
-    margin-left:70px;
+    // margin-left:70px;
+    margin-bottom: 1rem;
 
+}
+.details{
+  margin: 0 auto;
+  width: 15rem;
+}
+.btn-primary{
+  margin-right: 10px;
 }
 .fas{
     color:#0177bc;
