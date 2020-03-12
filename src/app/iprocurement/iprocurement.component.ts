@@ -114,6 +114,8 @@ export class IprocurementComponent implements OnInit {
         console.log(jsonObj)
         this.array2=jsonObj.data;
         console.log(this.array2)
+        console.log(this.array2.email)
+        localStorage.setItem('iproemail',this.array2.email)
         this.name1= this.array2.employeename;
         this.item1= this.array2.item;
         this.description1= this.array2.description;
@@ -141,6 +143,7 @@ export class IprocurementComponent implements OnInit {
       senddata1.append('astatus',this.empData.status);
       senddata1.append('TID',selected.TID);
       senddata1.append('name',selected.employeename);
+      senddata1.append('iproemail', localStorage.getItem('iproemail'));
    
       console.log(senddata1+"senddata")
       this._auth.sendstatusipro(senddata1)
