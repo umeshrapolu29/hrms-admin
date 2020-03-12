@@ -15,7 +15,8 @@ export class ForgetpasswordComponent implements OnInit {
   constructor(private auth: AuthService,
     private _router: Router, private _httpclient:HttpClient,private http1:Http,) { }
   array:any;
-  logindata={
+
+  logindata1={
   
   
     email:''
@@ -27,9 +28,9 @@ export class ForgetpasswordComponent implements OnInit {
     console.log("forgotemail")
     const payload = new FormData();
   
-    payload.append('fmail',this.logindata.email);
-    localStorage.setItem('ffmail',this.logindata.email)
-    console.log(this.logindata.email+"email is")
+    payload.append('fmail',this.logindata1.email);
+    localStorage.setItem('ffmail',this.logindata1.email)
+    console.log(this.logindata1.email+"email is")
     this.auth.forgotpassword(payload).subscribe(res=>{
       console.log(res)
       this.array=res;
