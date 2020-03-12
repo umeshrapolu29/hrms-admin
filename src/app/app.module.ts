@@ -42,6 +42,8 @@ import{Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FilterPipe } from './employees/employee-filter.pipe';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 
@@ -86,6 +88,8 @@ import { AdminregistrationComponent } from './adminregistration/adminregistratio
     FilterPipe,
     ForgetpasswordComponent,
     AdminregistrationComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
  
     // FileSelectDirective,
     // FileDropDirective    
