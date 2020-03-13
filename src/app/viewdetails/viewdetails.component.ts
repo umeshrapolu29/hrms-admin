@@ -37,6 +37,7 @@ export class ViewdetailsComponent  {
     DOB:'', 
     fullid:'',
     cnf_pswd:'',
+    resgination:'',
     
     //confirmpassword: '',
     token: localStorage.getItem('token'),
@@ -158,7 +159,8 @@ export class ViewdetailsComponent  {
     payload.append('DOB',this.empData.DOB),
     payload.append('token',this.empData.token)
     payload.append('id',this.empData.id)
-    console.log("hello inside");
+    payload.append('resgination',this.empData.resgination)
+    console.log(this.empData.resgination);
  
    
     this._auth.uploadSheet(payload)
