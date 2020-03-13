@@ -31,7 +31,7 @@
 																 </div>
 																 <mat-form-field>
 																	<mat-label>Employee</mat-label>
-																		<mat-select name="name"[(ngModel)]=" empData.name">																			
+																		<mat-select  [(value)]="selected" name="name"[(ngModel)]=" empData.name">																			
 																		<mat-option value="{{hero.email}}" *ngFor="let hero of myArray">{{hero.firstname}}</mat-option>
 																	 <!-- <mat-option value="Lokshma">Lokshma</mat-option>
 																		<mat-option value="Sampath">Sampath</mat-option>
@@ -120,7 +120,7 @@
 																	 <table class="table table-striped table-hover  tabel-responsive" id="myTable">
 																 <thead>
 																	 <tr class="table-fields tabHead font-weight-bolder">
-																		 <th><b>Emp Id</b></th>
+																		 
 																		 <th><b>Name</b></th>
 																		 <th><b>Month</b></th>
 																			<th><b>Year</b></th> 
@@ -131,8 +131,8 @@
 																 <tbody>
 															 
 																	 <tr>
-																		 <td>101654</td>
-																		 <td>{{EmployeeName}}</td>
+																	
+																		 <td>{{selected}}</td>
 																		 <td>{{selected1}}</td>
 																		 <td>{{selected2}}</td>
 																		 <td>
@@ -187,7 +187,7 @@
 																	 </tr> -->																	
 																		 </tbody>
 																</table>															 
-																<div class="form-group text-right float-left">
+																<!-- <div class="form-group text-right float-left">
 																		 <span id="load_notification"></span>
 																		<input type="checkbox" onchange="ToggleEmailNotification('notice_notification');return false;"
 																					 class="make-switch" name="notice_notification" checked
@@ -206,7 +206,7 @@
 																			 <a class="page-link" href="#">Next</a>
 																		 </li>
 																	 </ul>
-																 </nav>									 
+																 </nav>									  -->
 															 </div>														 
 													 </div>
 							</div>

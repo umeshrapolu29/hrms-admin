@@ -13,6 +13,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./noticeboard.component.scss']
 })
 export class NoticeboardComponent implements OnInit {
+  mydate=Date.now();
 title:string='';
 description:string='';
 date:string='';
@@ -133,6 +134,15 @@ public filesToUpload: Array<File> = [];
       )
 
     }
+  }
+  removenotice(selected:any){
+
+    const viewemployee1  = new FormData();
+    // viewemployee1.append('id',selected._id);
+    console.log(selected._id+"id is")
+    this._auth.deletenotice(viewemployee1).subscribe((res)=>{
+      console.log(res)
+    })
   }
 
 }

@@ -33,19 +33,27 @@
                           <mat-form-field class="example-full-width">
                             <input matInput class="Company text-dark font-weight-bold" placeholder="Company" disabled value="ZYCLYX Technologies">
                           </mat-form-field>                        
-                          <table class="example-full-width" cellspacing="0"><tr>
-                            <td><mat-form-field class="example-full-width">
-                              <input matInput type="date" placeholder="Date" name="date" [(ngModel)]="noticedata.date">
-                            </mat-form-field></td>
-                            <td class="float-right"><mat-form-field class="example-full-width">
+                         
+                          <div class="row">
+                        
+                              <fieldset disabled class="col">                                
+                               
+                                      <mat-form-field>
+                                          <input class="font-weight-bolder text-dark date" matInput type="date" id="disabledTextInput"  placeholder="Applied Date"  name="" value="{{mydate | date:'yyyy-MM-dd'}}" >
+                                           </mat-form-field>
+                                   <!-- <input type="text" id="disabledTextInput" class="form-control"><b>{{date | date:'yyyy-MM-dd'}}</b> -->
+                              
+                                  </fieldset>
+                           <mat-form-field class="example-full-width col">
                                 <input matInput  name="title" [(ngModel)]="noticedata.title" placeholder="Title">
-                              </mat-form-field></td>
-                          </tr></table>                        
-                          <p>
-                            <mat-form-field class="example-full-width">
-                              <textarea matInput name="description"  [(ngModel)]="noticedata.description" placeholder="Description"></textarea>
-                            </mat-form-field>                           
-                          </p>                        
+                              </mat-form-field>
+                            </div>                    
+                          <mat-form-field class="example-full-width mb-3">
+                              <mat-label>Message</mat-label>
+                              <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+                              <!-- <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint> -->
+                              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                            </mat-form-field>                      
                          <label>Attachments : </label>
                          <input class="ml-3" type="file" name="file"  [(ngModel)]="file"
                          #uploadImage="ngModel"
@@ -96,7 +104,7 @@
                       <th> Description</th>
                      
                       <th> Date</th>      
-                      <th> View Notice</th>                   
+                      <th></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -130,14 +138,16 @@
                             </div>
                           </div>
                         </div>
+                        <button class="actionIcons delete" data-toggle="modal" (click)="removenotice(hero)"  ><i class="fas fa-trash text-danger"></i></button>
 
                         </td>
+
                                       
                                                   
                     </tr> 
                    </tbody>
                  </table>
-                 <nav aria-label="Page navigation example">
+                 <!-- <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end font-weight-bold ">
                       <li class="page-item disabled border">
                         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -149,7 +159,7 @@
                         <a class="page-link" href="#">Next</a>
                       </li>
                     </ul>
-                  </nav>
+                  </nav> -->
                 </div>        
             </div>
 

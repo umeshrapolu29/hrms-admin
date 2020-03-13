@@ -45,6 +45,8 @@ export class AuthService {
   private _resetpasswordUrl = " https://hrmsbackend.herokuapp.com/user/adminresetpassword";
   private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/adminforgetpassword";
   private _deleteuserUrl = "  https://hrmsbackend.herokuapp.com/user/deleteuser";
+  private _deletenoticeUrl = "  http://localhost:3001/user/removenotice";
+
 
 
   constructor(private http: HttpClient,private http1:Http,
@@ -200,6 +202,11 @@ deleteuser(getiprodata)
 {
   
   return this.http1.post(this._deleteuserUrl, getiprodata)
+}
+deletenotice(getiprodata)
+{
+  
+  return this.http1.post(this._deletenoticeUrl, getiprodata)
 }
 } 
 
