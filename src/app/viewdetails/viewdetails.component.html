@@ -199,6 +199,8 @@
 
                      </div>
                  </div>
+
+
                  <div class="row mt-3">
                         <div class="col-lg-6">
                         <mat-form-field>
@@ -225,6 +227,37 @@
                               </mat-error>
                            </mat-form-field></div>
                  </div>
+
+                 <div class="row mt-3">
+                  <div class="col-lg-6">
+                  <mat-form-field>
+                     <input type="password"  	name="password" 
+                     Autocomplete="off" 
+                     [(ngModel)]=" empData.password" #password="ngModel"
+                     matInput placeholder="password" required>
+                     <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.hasError('required')">
+                          Please enter Password 
+                        </div>
+                        </mat-error>
+                     </mat-form-field></div>
+                     <div class="col-lg-6">
+                      <mat-form-field>
+                     <input type="password" name="cnf_pswd" 
+                     Autocomplete="off"
+                     [(ngModel)]=" empData.cnf_pswd"
+                     #cnfPwd="ngModel" matInput placeholder="confirm password" required>
+                     <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
+                        <div *ngIf="cnfPwd.hasError('required')">
+                          Please enter confirm Password 
+                        </div>
+                        </mat-error>
+                     </mat-form-field></div>
+           </div>
+
+
+
+
                   </div><!-- container -->           
             </div>
             <div class="modal-footer">

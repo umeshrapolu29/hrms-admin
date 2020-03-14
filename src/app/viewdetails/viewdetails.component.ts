@@ -127,7 +127,7 @@ export class ViewdetailsComponent  {
     ///const file: File = this.filesToUpload[0];
   
     viewemployee.append('fullid',this.empData.fullid);
-    localStorage.setItem('email1',selected.email)
+    localStorage.setItem('viewdetailsemail1',selected.email)
     
     this._router.navigate(['/details'])
    

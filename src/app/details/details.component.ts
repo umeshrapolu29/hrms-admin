@@ -22,6 +22,13 @@ export class DetailsComponent implements OnInit {
    
   
   }
+  educationaldata={
+    tenth:'',
+    intermediate:'',
+    degree:'',
+    pg:''
+
+  }
   email:String='';
   found:boolean=false;
   image:String='';
@@ -33,6 +40,11 @@ export class DetailsComponent implements OnInit {
   gender:string;
   id:number; 
   array:any;
+  array2:any;
+  school:string='';
+  collegeOne:string='';
+  collegeTwo:String='';
+  pg:String='';
   leavedata={
    
     email:localStorage.getItem('email1')
@@ -41,6 +53,24 @@ export class DetailsComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.http.post('http://localhost:3001/user/geteducationaldetails',{
+      
+        empname:localStorage.getItem('viewdetailsemail1')
+      }).subscribe((res)=>{
+          console.log(res);
+          this.array2=res;
+          var educationDetails = JSON.parse(this.array2._body);              
+            this.school=educationDetails.data.tenth         
+            this.collegeOne=educationDetails.data.intermediate
+            this.collegeTwo=educationDetails.data.degree
+            console.table(educationDetails)
+      })
+
+    
+
+
+
     this.http.post(`https://hrmsbackend.herokuapp.com/user/getuserdata`,
     {
       email:this.leavedata.email
@@ -102,6 +132,20 @@ export class DetailsComponent implements OnInit {
     )
     
   
+  }
+  educationaldetails(){
+    const educationaldetails= new FormData()
+    console.log(this.educationaldata+"data")
+    // console.log(this.leavedata.holidayType+"type")
+    educationaldetails.append('tenth',this.educationaldata.tenth)
+    educationaldetails.append('intermediate',this.educationaldata.intermediate)
+    educationaldetails.append('degree',this.educationaldata.degree)
+    educationaldetails.append('pg',this.educationaldata.pg)
+    educationaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
+    this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
+      console.log(res);
+    })
+
   }
 
 }
