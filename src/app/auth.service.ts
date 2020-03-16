@@ -48,6 +48,7 @@ export class AuthService {
   private _deletenoticeUrl = "  https://hrmsbackend.herokuapp.com/removenotice";
   private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
   private _bankdetailsUrl = "   https://hrmsbackend.herokuapp.com/user/bankdetails";
+  private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
 
 
 
@@ -219,6 +220,11 @@ bankdetails(getiprodata)
 {
   
   return this.http1.post(this._bankdetailsUrl, getiprodata)
+}
+personaldetails(getiprodata)
+{
+  
+  return this.http1.post(this._personaldetailsUrl, getiprodata)
 }
 } 
 

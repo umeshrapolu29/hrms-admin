@@ -39,6 +39,15 @@ export class DetailsComponent implements OnInit {
     branch:'',
 
   }
+  personaldetailsdata={
+    primaryemail:'',
+    secondaryemail:'',
+    primaryphone:'',
+    secondaryphone:'',
+    guardian:'',
+    guardiannumber:'',
+
+  }
   email:String='';
   found:boolean=false;
   image:String='';
@@ -64,6 +73,15 @@ export class DetailsComponent implements OnInit {
   branch:String=''
   ifsccode:String=''
   lastname:String=''
+  primaryemail:String='';
+  secondaryemail:String='';
+  primaryphone:String=''
+  secondaryphone:String=''
+  guardian:String=''
+  guardianphone:String='';
+  personaldetailsarray:any
+  personaldetails1:any;
+
   leavedata={
    
     email:localStorage.getItem('email1')
@@ -246,6 +264,58 @@ export class DetailsComponent implements OnInit {
           console.table(bankdetails)
     })
 
+  }
+  personaldetails(){
+    const personaldetails= new FormData()
+    console.log(this.educationaldata+"data")
+    // console.log(this.leavedata.holidayType+"type")
+    personaldetails.append('primaryemailid',this.personaldetailsdata.primaryemail)
+    personaldetails.append('secondaryemailid',this.personaldetailsdata.secondaryemail)
+    personaldetails.append('primaryphone',this.personaldetailsdata.primaryphone)
+    personaldetails.append('secondaryphone',this.personaldetailsdata.secondaryphone)
+    personaldetails.append('gaurdain',this.personaldetailsdata.guardian)
+    personaldetails.append('gaurdainnumber',this.personaldetailsdata.guardiannumber)
+    personaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
+    console.log(this.personaldetailsdata.primaryphone,this.personaldetailsdata.secondaryphone)
+    this._auth.personaldetails(personaldetails).subscribe((res)=>{
+      console.log(res);
+      console.log("hello")
+     
+      this.array2=res;
+    
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
+
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
+    })
+  }
+  viewpersonaldetails(){
+    this.http.post('https://hrmsbackend.herokuapp.com/user/getpersonaldetails',{
+      
+      empname:localStorage.getItem('viewdetailsemail1')
+    }).subscribe((res)=>{
+      console.log("personal details");
+      console.log(localStorage.getItem('viewdetailsemail1'))
+        console.log(res);
+        this.personaldetailsarray=res;
+        console.table(personaldetails1)
+        var personaldetails1 = JSON.parse(this.personaldetailsarray._body);              
+          this.primaryemail=personaldetails1.data.primaryemailid         
+          this.secondaryemail=personaldetails1.data.secondaryemailid
+          this.primaryphone=personaldetails1.data.primaryphone
+          this.secondaryphone=personaldetails1.data.secondaryphone         
+          this.guardian=personaldetails1.data.gaurdain
+          this.guardianphone=personaldetails1.data.gaurdainnumber
+          console.log( this.ifsccode);
+          console.table(personaldetails1)
+    })
   }
 
 }
