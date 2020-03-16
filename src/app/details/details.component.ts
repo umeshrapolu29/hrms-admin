@@ -191,9 +191,10 @@ export class DetailsComponent implements OnInit {
     bankdetails.append('empname',localStorage.getItem('viewdetailsemail1'))
     this._auth.bankdetails(bankdetails).subscribe((res)=>{
       console.log(res);
+      this.array2=res;
       var jsonObj = JSON.parse( this.array2._body);
       console.log(jsonObj.msg)
-      this.array2=res;
+  
     
       var jsonObj = JSON.parse( this.array2._body);
       console.log(jsonObj.msg)
@@ -229,7 +230,7 @@ export class DetailsComponent implements OnInit {
   viewbankdetails(){
     this.http.post(' https://hrmsbackend.herokuapp.com/user/getbankdetails',{
       
-      empname:localStorage.getItem('email')
+      empname:localStorage.getItem('viewdetailsemail1')
     }).subscribe((res)=>{
       console.log("bank details");
         console.log(res);
