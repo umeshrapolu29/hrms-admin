@@ -21,6 +21,7 @@ export class UploadpayslipsComponent implements OnInit {
   file1:any;
   Yes:any;
   success:any;
+  selected:any;
   name2:string='';
   name3:string='';
   myArray:any;
