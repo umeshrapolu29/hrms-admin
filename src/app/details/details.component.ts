@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Http } from '@angular/http';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-details',
@@ -178,6 +179,25 @@ export class DetailsComponent implements OnInit {
     educationaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
     this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
       console.log(res);
+      this.array2=res;
+     
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      this.array2=res;
+    
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
+
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
+
+
     })
 
   }
@@ -195,6 +215,21 @@ export class DetailsComponent implements OnInit {
     bankdetails.append('empname',localStorage.getItem('viewdetailsemail1'))
     this._auth.bankdetails(bankdetails).subscribe((res)=>{
       console.log(res);
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      this.array2=res;
+    
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
+
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
     })
 
   }
