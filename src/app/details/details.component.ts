@@ -29,6 +29,15 @@ export class DetailsComponent implements OnInit {
     pg:''
 
   }
+  bankdata={
+    accountholder:'',
+    accountnumber:'',
+    bankname:'',
+    pannumber:'',
+    ifsccode:'',
+    branch:'',
+
+  }
   email:String='';
   found:boolean=false;
   image:String='';
@@ -41,10 +50,18 @@ export class DetailsComponent implements OnInit {
   id:number; 
   array:any;
   array2:any;
+  bankdetailsarray:any;
+  bankdetails:any;
   school:string='';
   collegeOne:string='';
   collegeTwo:String='';
   pg:String='';
+  accountholder:String=''
+  accountnumber:String=''
+  bankname:String=''
+  pannumber:String=''
+  branch:String=''
+  ifsccode:String=''
   leavedata={
    
     email:localStorage.getItem('email1')
@@ -54,7 +71,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.post('http://localhost:3001/user/geteducationaldetails',{
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/geteducationaldetails',{
       
         empname:localStorage.getItem('viewdetailsemail1')
       }).subscribe((res)=>{
@@ -65,6 +82,23 @@ export class DetailsComponent implements OnInit {
             this.collegeOne=educationDetails.data.intermediate
             this.collegeTwo=educationDetails.data.degree
             console.table(educationDetails)
+      })
+      this.http.post(' https://hrmsbackend.herokuapp.com/user/getbankdetails',{
+      
+        empname:localStorage.getItem('viewdetailsemail1')
+      }).subscribe((res)=>{
+        console.log("bank details");
+          console.log(res);
+          this.bankdetailsarray=res;
+          var bankdetails = JSON.parse(this.bankdetailsarray._body);              
+            this.accountholder=bankdetails.data.Accountholdername         
+            this.accountnumber=bankdetails.data.Accountnumber
+            this.bankname=bankdetails.data.Bankname
+            this.pannumber=bankdetails.data.pannumber         
+            this.branch=bankdetails.data.branch
+            this.ifsccode=bankdetails.data.IFSCcode
+            console.log( this.ifsccode);
+            console.table(bankdetails)
       })
 
     
@@ -143,6 +177,23 @@ export class DetailsComponent implements OnInit {
     educationaldetails.append('pg',this.educationaldata.pg)
     educationaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
     this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
+      console.log(res);
+    })
+
+  }
+  dankdetails(){
+    console.log("inside bankdetails");
+    const bankdetails= new FormData()
+    console.log(this.educationaldata+"data")
+    // console.log(this.leavedata.holidayType+"type")
+    bankdetails.append('Accountholdername',this.bankdata.accountholder)
+    bankdetails.append('Accountnumber',this.bankdata.accountnumber)
+    bankdetails.append('Bankname',this.bankdata.bankname)
+    bankdetails.append('pannumber',this.bankdata.pannumber)
+    bankdetails.append('IFSCcode',this.bankdata.ifsccode)
+    bankdetails.append('branch',this.bankdata.branch)
+    bankdetails.append('empname',localStorage.getItem('viewdetailsemail1'))
+    this._auth.bankdetails(bankdetails).subscribe((res)=>{
       console.log(res);
     })
 

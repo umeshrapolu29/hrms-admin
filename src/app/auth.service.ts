@@ -45,8 +45,9 @@ export class AuthService {
   private _resetpasswordUrl = " https://hrmsbackend.herokuapp.com/user/adminresetpassword";
   private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/adminforgetpassword";
   private _deleteuserUrl = "  https://hrmsbackend.herokuapp.com/user/deleteuser";
-  private _deletenoticeUrl = "  http://localhost:3001/user/removenotice";
-  private _educationaldetailsUrl = "  http://localhost:3001/user/educationdetails";
+  private _deletenoticeUrl = "  https://hrmsbackend.herokuapp.com/removenotice";
+  private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
+  private _bankdetailsUrl = "   https://hrmsbackend.herokuapp.com/user/bankdetails";
 
 
 
@@ -213,6 +214,11 @@ educationaldetails(getiprodata)
 {
   
   return this.http1.post(this._educationaldetailsUrl, getiprodata)
+}
+bankdetails(getiprodata)
+{
+  
+  return this.http1.post(this._bankdetailsUrl, getiprodata)
 }
 } 
 
