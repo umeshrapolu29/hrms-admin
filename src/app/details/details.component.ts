@@ -72,43 +72,14 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.post(' https://hrmsbackend.herokuapp.com/user/geteducationaldetails',{
-      
-        empname:localStorage.getItem('viewdetailsemail1')
-      }).subscribe((res)=>{
-          console.log(res);
-          this.array2=res;
-          var educationDetails = JSON.parse(this.array2._body);              
-            this.school=educationDetails.data.tenth         
-            this.collegeOne=educationDetails.data.intermediate
-            this.collegeTwo=educationDetails.data.degree
-            console.table(educationDetails)
-      })
-      this.http.post(' https://hrmsbackend.herokuapp.com/user/getbankdetails',{
-      
-        empname:localStorage.getItem('viewdetailsemail1')
-      }).subscribe((res)=>{
-        console.log("bank details");
-          console.log(res);
-          this.bankdetailsarray=res;
-          var bankdetails = JSON.parse(this.bankdetailsarray._body);              
-            this.accountholder=bankdetails.data.Accountholdername         
-            this.accountnumber=bankdetails.data.Accountnumber
-            this.bankname=bankdetails.data.Bankname
-            this.pannumber=bankdetails.data.pannumber         
-            this.branch=bankdetails.data.branch
-            this.ifsccode=bankdetails.data.IFSCcode
-            console.log( this.ifsccode);
-            console.table(bankdetails)
-      })
-
+     
     
 
 
 
     this.http.post(`https://hrmsbackend.herokuapp.com/user/getuserdata`,
     {
-      email:this.leavedata.email
+      email:localStorage.getItem('viewdetailsemail1')
     })
     .subscribe(
       res=>{
@@ -118,12 +89,13 @@ export class DetailsComponent implements OnInit {
         console.log(res);
         this.array=res;
         var jsonObj = JSON.parse(this.array._body);
-            console.log(jsonObj)
+            console.table(jsonObj)
             this.photo=jsonObj.data.file
             console.log(this.photo)
          this.email=jsonObj.data.email
         
           this.name=jsonObj.data.name
+          console.log(this.name+"name is")
           this.id=jsonObj.data.fullid
           console.log(this.id+"id is")
           this.DOJ=jsonObj.data.DOJ
@@ -230,6 +202,43 @@ export class DetailsComponent implements OnInit {
         Swal.fire('','Failed to updated','error')
         this._router.navigate(['/homepage'])
       }
+    })
+
+  }
+  vieweducationdetails(){
+    console.log("inside employee details");
+    
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/geteducationaldetails',{
+      
+        empname:localStorage.getItem('viewdetailsemail1')
+      }).subscribe((res)=>{
+          console.log(res);
+          this.array2=res;
+          var educationDetails = JSON.parse(this.array2._body);              
+            this.school=educationDetails.data.tenth         
+            this.collegeOne=educationDetails.data.intermediate
+            this.collegeTwo=educationDetails.data.degree
+            console.table(educationDetails)
+      })
+
+  }
+  viewbankdetails(){
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/getbankdetails',{
+      
+      empname:localStorage.getItem('email')
+    }).subscribe((res)=>{
+      console.log("bank details");
+        console.log(res);
+        this.bankdetailsarray=res;
+        var bankdetails = JSON.parse(this.bankdetailsarray._body);              
+          this.accountholder=bankdetails.data.Accountholdername         
+          this.accountnumber=bankdetails.data.Accountnumber
+          this.bankname=bankdetails.data.Bankname
+          this.pannumber=bankdetails.data.pannumber         
+          this.branch=bankdetails.data.branch
+          this.ifsccode=bankdetails.data.IFSCcode
+          console.log( this.ifsccode);
+          console.table(bankdetails)
     })
 
   }
