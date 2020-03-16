@@ -63,6 +63,7 @@ export class DetailsComponent implements OnInit {
   pannumber:String=''
   branch:String=''
   ifsccode:String=''
+  lastname:String=''
   leavedata={
    
     email:localStorage.getItem('email1')
@@ -94,7 +95,9 @@ export class DetailsComponent implements OnInit {
             console.log(this.photo)
          this.email=jsonObj.data.email
         
-          this.name=jsonObj.data.name
+          this.name=jsonObj.data.firstname
+          this.lastname=jsonObj.data.lastname
+          this.name=this.name+" "+ this.lastname
           console.log(this.name+"name is")
           this.id=jsonObj.data.fullid
           console.log(this.id+"id is")
@@ -118,15 +121,16 @@ export class DetailsComponent implements OnInit {
 
         
 
-        //console.log("sampath")
-        console.log(res);
+        console.log("sampath")
+        console.table(res);
 
         
       
 
         this.email=res[0].email
         console.log(this.email)
-         this.name=res[0].name
+         this.name=res[0].firstname;
+         console.log(this.name)
          this.id=res[0].fullid
          this.DOJ=res[0].DOJ
          this.DOB=res[0].DOB
