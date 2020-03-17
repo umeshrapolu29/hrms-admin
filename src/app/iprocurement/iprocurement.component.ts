@@ -130,10 +130,10 @@ export class IprocurementComponent implements OnInit {
 
       console.log("inside getleavedata");
      }
-     sendstatus(selected:any){
-       console.log("hello11222")
-       console.log(selected.TID)
-       console.log(selected.employeename+"name is");
+     sendstatus(){
+      //  console.log("hello11222")
+      //  console.log(selected.TID)
+      //  console.log(selected.employeename+"name is");
    
      
       //console.log("datat....2"+this.fullid);
@@ -141,8 +141,8 @@ export class IprocurementComponent implements OnInit {
       //senddata.fullid= this.fullid
    
       senddata1.append('astatus',this.empData.status);
-      senddata1.append('TID',selected.TID);
-      senddata1.append('name',selected.employeename);
+      // senddata1.append('TID',selected.TID);
+      // senddata1.append('name',selected.employeename);
       senddata1.append('iproemail', localStorage.getItem('iproemail'));
    
       console.log(senddata1+"senddata")
