@@ -231,25 +231,25 @@
                  <div class="row mt-3">
                   <div class="col-lg-6">
                   <mat-form-field>
-                     <input type="text"  	name="password" 
+                     <input type="text"  	name="reportmanager" 
                      Autocomplete="off" 
-                     [(ngModel)]=" empData.password" #password="ngModel"
-                     matInput placeholder="password" required>
+                     [(ngModel)]=" empData.reportmanager" #password="ngModel"
+                     matInput placeholder="Reporter Manager" required>
                      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
                         <div *ngIf="password.hasError('required')">
-                          Please enter Password 
+                          Please enter Report Manager 
                         </div>
                         </mat-error>
                      </mat-form-field></div>
                      <div class="col-lg-6">
                       <mat-form-field>
-                     <input type="password" name="cnf_pswd" 
+                     <input type="text" name="nextimmadiatemanager" 
                      Autocomplete="off"
-                     [(ngModel)]=" empData.cnf_pswd"
-                     #cnfPwd="ngModel" matInput placeholder="confirm password" required>
+                     [(ngModel)]=" empData.nextimmadiatemanager"
+                     #cnfPwd="ngModel" matInput placeholder="Next immediate manager" required>
                      <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
                         <div *ngIf="cnfPwd.hasError('required')">
-                          Please enter confirm Password 
+                          Please enter Next Immediate Manager 
                         </div>
                         </mat-error>
                      </mat-form-field></div>

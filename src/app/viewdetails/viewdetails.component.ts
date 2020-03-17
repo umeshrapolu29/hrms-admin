@@ -38,6 +38,8 @@ export class ViewdetailsComponent  {
     fullid:'',
     cnf_pswd:'',
     resgination:'',
+    reportmanager:'',
+    nextimmadiatemanager:'',
     
     //confirmpassword: '',
     token: localStorage.getItem('token'),
@@ -160,6 +162,8 @@ export class ViewdetailsComponent  {
     payload.append('token',this.empData.token)
     payload.append('id',this.empData.id)
     payload.append('resgination',this.empData.resgination)
+    payload.append('reportmanager',this.empData.reportmanager)
+    payload.append('nextimmediatemanager',this.empData.nextimmadiatemanager)
     console.log(this.empData.resgination);
  
    
