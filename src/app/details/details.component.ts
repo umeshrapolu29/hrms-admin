@@ -57,6 +57,10 @@ export class DetailsComponent implements OnInit {
   phone:string;
   photo:string;
   gender:string;
+  reportingmanager:string;
+  nexttoreportingmanager:string;
+  hrmanager:String;
+
   id:number; 
   array:any;
   array2:any;
@@ -121,6 +125,9 @@ export class DetailsComponent implements OnInit {
           console.log(this.id+"id is")
           this.DOJ=jsonObj.data.DOJ
           this.DOB=jsonObj.data.DOB
+          this.reportingmanager=jsonObj.data.reportmanager
+          this.nexttoreportingmanager=jsonObj.data.immediatereportmanager
+          this.hrmanager=jsonObj.data.HRmanager
           this.phone=jsonObj.data.phonenumber
         this.gender=jsonObj.data.gender
         this.photo=jsonObj.data.photo
