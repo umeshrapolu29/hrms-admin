@@ -122,6 +122,7 @@ export class IprocurementComponent implements OnInit {
         this.amount1= this.array2.amount;
         this.tid= this.array2.TID;
         localStorage.setItem('iproid',this.array2.TID)
+        localStorage.setItem('iproname',this.name1)
         console.log( this.amount1 )
 
       })
@@ -144,6 +145,8 @@ export class IprocurementComponent implements OnInit {
       // senddata1.append('TID',selected.TID);
       // senddata1.append('name',selected.employeename);
       senddata1.append('iproemail', localStorage.getItem('iproemail'));
+      senddata1.append('TID', localStorage.getItem('iproid'));
+      senddata1.append('name', localStorage.getItem('iproname'));
    
       console.log(senddata1+"senddata")
       this._auth.sendstatusipro(senddata1)
