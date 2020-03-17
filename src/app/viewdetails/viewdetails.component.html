@@ -234,7 +234,7 @@
                      <input type="text"  	name="reportmanager" 
                      Autocomplete="off" 
                      [(ngModel)]=" empData.reportmanager" #password="ngModel"
-                     matInput placeholder="Reporter Manager" required>
+                     matInput placeholder="Reporting Manager" required>
                      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
                         <div *ngIf="password.hasError('required')">
                           Please enter Report Manager 
@@ -246,7 +246,7 @@
                      <input type="text" name="nextimmadiatemanager" 
                      Autocomplete="off"
                      [(ngModel)]=" empData.nextimmadiatemanager"
-                     #cnfPwd="ngModel" matInput placeholder="Next immediate manager" required>
+                     #cnfPwd="ngModel" matInput placeholder="Next to reporting manager" required>
                      <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
                         <div *ngIf="cnfPwd.hasError('required')">
                           Please enter Next Immediate Manager 
@@ -254,6 +254,32 @@
                         </mat-error>
                      </mat-form-field></div>
            </div>
+           <div class="row mt-3">
+            <div class="col-lg-6">
+            <mat-form-field>
+               <input type="text"  	name="hrmanager" 
+               Autocomplete="off"  
+               [(ngModel)]=" empData.hrmanager" #password="ngModel"
+               matInput placeholder="HR Manager" required>
+               <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <div *ngIf="password.hasError('required')">
+                    Please enter HR Manager 
+                  </div>
+                  </mat-error>
+               </mat-form-field></div>
+               <!-- <div class="col-lg-6">
+                <mat-form-field>
+               <input type="text" name="nextimmadiatemanager" 
+               Autocomplete="off"
+               [(ngModel)]=" empData.nextimmadiatemanager"
+               #cnfPwd="ngModel" matInput placeholder="Next to reporting manager" required>
+               <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
+                  <div *ngIf="cnfPwd.hasError('required')">
+                    Please enter Next Immediate Manager 
+                  </div>
+                  </mat-error>
+               </mat-form-field></div> -->
+     </div>
 
 
 

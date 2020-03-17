@@ -40,6 +40,7 @@ export class ViewdetailsComponent  {
     resgination:'',
     reportmanager:'',
     nextimmadiatemanager:'',
+    hrmanager:'',
     
     //confirmpassword: '',
     token: localStorage.getItem('token'),
@@ -164,6 +165,7 @@ export class ViewdetailsComponent  {
     payload.append('resgination',this.empData.resgination)
     payload.append('reportmanager',this.empData.reportmanager)
     payload.append('nextimmediatemanager',this.empData.nextimmadiatemanager)
+    payload.append('hrmanager',this.empData.hrmanager)
     console.log(this.empData.resgination);
  
    
