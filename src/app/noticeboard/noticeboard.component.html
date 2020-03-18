@@ -36,14 +36,33 @@
                          
                           <div class="row">
                         
-                              <fieldset disabled class="col">                                
+                              <!-- <div class="col">                                
                                
-                                      <mat-form-field>
-                                          <input class="font-weight-bolder text-dark date" matInput type="date" id="disabledTextInput" name="date" [(ngModel)]="noticedata.date"  placeholder="Applied Date"  name="" value="{{mydate | date:'yyyy-MM-dd'}}" >
-                                           </mat-form-field>
-                                   <!-- <input type="text" id="disabledTextInput" class="form-control"><b>{{date | date:'yyyy-MM-dd'}}</b> -->
+                                    
+                                           <input type="date" name="date" 
+                                           Autocomplete="off" 
+                                           [(ngModel)]="noticedata.date" 
+                                           #Dob="ngModel"
+                                           matInput 
+                                           placeholder="DOB" required>
+                            
                               
-                                  </fieldset>
+                                          </div> -->
+                                          <div class="col-lg-6">
+                                            <mat-form-field>
+                                               <input type="date" name="date" 
+                                               Autocomplete="off" 
+                                               [(ngModel)]="noticedata.date" 
+                                               #Dob="ngModel"
+                                               matInput 
+                                               placeholder="Date" required>
+                                               <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                                                 <div *ngIf="Dob.hasError('required')">
+                                                  please enter Date
+                                                 </div>
+                    
+                                               </mat-error>
+                                               </mat-form-field></div>
                            <mat-form-field class="example-full-width col">
                                 <input matInput  name="title" [(ngModel)]="noticedata.title" placeholder="Title">
                               </mat-form-field>

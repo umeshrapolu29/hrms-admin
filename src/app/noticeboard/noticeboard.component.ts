@@ -14,6 +14,8 @@ import Swal from 'sweetalert2'
 })
 export class NoticeboardComponent implements OnInit {
   mydate=Date.now();
+
+
 title:string='';
 description:string='';
 date:string='';
@@ -42,6 +44,9 @@ public filesToUpload: Array<File> = [];
    
 
   ngOnInit() {
+    var date= Date.now()
+    console.log(date+"date is")
+ 
 
     this.http1.get('https://hrmsbackend.herokuapp.com/user/viewnotice')
     .subscribe(
