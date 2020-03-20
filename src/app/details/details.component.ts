@@ -69,6 +69,7 @@ export class DetailsComponent implements OnInit {
   school:string='';
   collegeOne:string='';
   collegeTwo:String='';
+  collegeThree:String='';
   pg:String='';
   accountholder:String=''
   accountnumber:String=''
@@ -248,6 +249,7 @@ export class DetailsComponent implements OnInit {
             this.school=educationDetails.data.tenth         
             this.collegeOne=educationDetails.data.intermediate
             this.collegeTwo=educationDetails.data.degree
+            this.collegeThree=educationDetails.data.pg
             console.table(educationDetails)
       })
 
