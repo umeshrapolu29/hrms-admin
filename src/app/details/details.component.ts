@@ -60,6 +60,7 @@ export class DetailsComponent implements OnInit {
   reportingmanager:string;
   nexttoreportingmanager:string;
   hrmanager:String;
+  viewprofile:any;
 
   id:number; 
   array:any;
@@ -324,6 +325,33 @@ export class DetailsComponent implements OnInit {
           this.guardianphone=personaldetails1.data.gaurdainnumber
           console.log( this.ifsccode);
           console.table(personaldetails1)
+    })
+  }
+  viewprofiledetails(){
+    console.log("inside viewprofile");
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/getprofiledetails',{
+      
+      empname:localStorage.getItem('viewdetailsemail1')
+    }).subscribe((res)=>{
+      console.log("personal details");
+        console.log(res);
+        this.viewprofile=res;
+        var jsonObj = JSON.parse(this.viewprofile._body);
+        console.log(jsonObj.data);
+        this.email=jsonObj.data.email
+    
+        // this.name=jsonObj.data.name
+        this.name=jsonObj.data.fullname
+        // this.lastname=jsonObj.data.lastname
+        // this.name=this.name+" "+ this.lastname
+        this.phone=jsonObj.data.phone;
+        this.gender=jsonObj.data.gender;
+      // this.id=localStorage.getItem('fid')
+        this.DOJ=jsonObj.data.DOJ
+        this.DOB=jsonObj.data.DOB
+        this.reportingmanager=jsonObj.data.reportingmanager
+        this.nexttoreportingmanager=jsonObj.data.nextreportingmanager
+        this.hrmanager=jsonObj.data.hrmanager
     })
   }
 
