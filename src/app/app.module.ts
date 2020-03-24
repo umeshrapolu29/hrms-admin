@@ -15,6 +15,8 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -74,6 +76,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     NgxPaginationModule,
     MatCardModule,
     Ng2SearchPipeModule,
+    MatDialogModule,
+    MatSnackBarModule,
     
     
     AgmCoreModule.forRoot({
@@ -93,6 +97,10 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
  
     // FileSelectDirective,
     // FileDropDirective    
+   ],
+   entryComponents:
+   [
+     DilogeComponent,
    ],
   providers: [AuthGuard,AuthService, {
     provide: HTTP_INTERCEPTORS,

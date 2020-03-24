@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { Http,Response,Headers} from '@angular/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { DilogeComponent } from 'app/diloge/diloge.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import Swal from 'sweetalert2'
 import { MatPaginator } from '@angular/material';
 
@@ -93,10 +96,27 @@ export class ViewdetailsComponent  {
   public emoployeeData: FormGroup
   public filesToUpload: Array<File> = [];
   constructor(private _auth: AuthService,
-    private _router: Router, private _httpclient:HttpClient,private http: Http) { }
+    private _router: Router, private _httpclient:HttpClient,private http: Http,public dialog: MatDialog,private _snackBar: MatSnackBar) { }
+    openSnackBar() {      
+      this._snackBar.open("Details saved successfully!!", "", { 
+       duration: 5000,
+       });  
+   }
     fileChangeEvent(fileInput: any) {
       this.filesToUpload = <Array<File>>fileInput.target.files;
       // this.fileName = this.filesToUpload[0].name;
+    }
+    openDialog(): void {
+      
+      const dialogRef = this.dialog.open(DilogeComponent, {
+        
+     
+      });
+      
+    
+      dialogRef.afterClosed().subscribe(result => {
+       
+      });
     }
     
    
@@ -230,22 +250,24 @@ export class ViewdetailsComponent  {
 
  const viewemployee1  = new FormData();
  viewemployee1.append('id',selected._id);
+ console.log("inside details");
  console.log(selected._id+"id is")
- this._auth.deleteuser(viewemployee1).subscribe((res)=>{
-   console.log(res);
-   this.array=res;
-   var jsonObj = JSON.parse(this.array._body);
-       console.log(jsonObj.msg)
+ localStorage.setItem('deletedid',selected._id)
+//  this._auth.deleteuser(viewemployee1).subscribe((res)=>{
+//    console.log(res);
+//    this.array=res;
+//    var jsonObj = JSON.parse(this.array._body);
+//        console.log(jsonObj.msg)
 
-     if(jsonObj.msg=="data Retrived")
-     {
-       Swal.fire('','deleted Successful','success')
-       this._router.navigate(['/homepage'])
-     }
-     else{
-       Swal.fire('','uploaded failed','error')
-     }
- })
+//      if(jsonObj.msg=="data Retrived")
+//      {
+//        Swal.fire('','deleted Successful','success')
+//        this._router.navigate(['/homepage'])
+//      }
+//      else{
+//        Swal.fire('','uploaded failed','error')
+//      }
+//  })
 
   }
 
@@ -278,16 +300,9 @@ export class ViewdetailsComponent  {
   }  
   alert(){
     alert("Added auccessfully");
-  }   
+  }  
+  
+ 
+  
+  
 }
-/*   console.log(data);
-        console.log(data[0].email);
-        
-
-          if(data.length){
-
-       
-               this.email=data[0].email;
-               this.found=true;
-
-             console.log(this.email+"email is");*/
