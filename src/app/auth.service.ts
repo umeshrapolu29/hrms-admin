@@ -38,7 +38,7 @@ export class AuthService {
   private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";
   private _sendstatusiproUrl=" https://hrmsbackend.herokuapp.com/user/updatestatusiprocurement";
-  private _uploadpayslipsUrl=" http://localhost:3001/user/uploadpayslips";
+  private _uploadpayslipsUrl="https://hrmsbackend.herokuapp.com/user/uploadpayslips";
   private _attendenceUrl=" https://hrmsbackend.herokuapp.com/user/attendence";
   private _getiprocurementdataUrl=" https://hrmsbackend.herokuapp.com/user/getiprocurementdata";
   private _adminregisterUrl=" https://hrmsbackend.herokuapp.com/user/admin";
