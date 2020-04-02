@@ -65,7 +65,7 @@ export class LeaverequestComponent implements OnInit {
     
   ngOnInit() {
     // this.leavedataarray1[0]="umesh"
-    console.log(this.leavedataarray1.push("hi")+"array isss")
+    // console.log(this.leavedataarray1.push("hi")+"array isss")
     
     console.log("gud")
     this.http1.get('https://hrmsbackend.herokuapp.com/user/getleaveemployee')
