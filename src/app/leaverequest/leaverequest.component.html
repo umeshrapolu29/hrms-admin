@@ -170,15 +170,15 @@
                <mat-form-field *ngIf="empData.status=='Denied'" >
               <mat-label >Denied Reason</mat-label>
               <mat-select   [(value)]="leaverequest" name="reason" [(ngModel)]=" empData.reason" >
-                <option value= "Due to Less Staffing">
+                <mat-option value= "Due to Less Staffing">
                Less Staffing
-                </option>
-                <option value= "No Leave Balance">
+                </mat-option>
+                <mat-option value= "No Leave Balance">
                     No Leave Balance
-                      </option>
-                      <option value= "Option Holiday already utilized">
+                      </mat-option>
+                      <mat-option value= "Option Holiday already utilized">
                           Option Holiday already utilized
-                            </option>
+                            </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
