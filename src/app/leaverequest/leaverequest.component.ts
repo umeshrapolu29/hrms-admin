@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { send } from 'q';
 import Swal from 'sweetalert2'
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-leaverequest',
@@ -12,9 +13,17 @@ import Swal from 'sweetalert2'
   styleUrls: ['./leaverequest.component.scss']
 })
 export class LeaverequestComponent implements OnInit {
+ leavedataarray1:Array<String>;
+  
   ename:string='';
   ename1:string='';
   ename2:string='';
+  arr: Array<any>;
+  leavedata={
+    name:'',
+    date:''
+  }
+
   file:any;
   fullid:any;
   empName:any;
@@ -30,6 +39,13 @@ export class LeaverequestComponent implements OnInit {
     reason:'',
   
   }
+  empData1={
+    file:'',
+    month:'',
+    year:'',
+    name:'',
+  
+  }
 
   
  
@@ -41,12 +57,16 @@ export class LeaverequestComponent implements OnInit {
   todays:string='';
   reqtype:string='';
   myArray:any;
+  leavedatarray:any;
 
   constructor(private _auth: AuthService,
     private _router: Router, private _httpclient:HttpClient,private http1: Http) { }
     
     
   ngOnInit() {
+    // this.leavedataarray1[0]="umesh"
+    console.log(this.leavedataarray1.push("hi")+"array isss")
+    
     console.log("gud")
     this.http1.get('https://hrmsbackend.herokuapp.com/user/getleaveemployee')
     .subscribe(
@@ -145,6 +165,46 @@ export class LeaverequestComponent implements OnInit {
 
     }
     )
+  }
+  levetakendata($event){
+    console.log(this.empData1);
+    let  senddata1 = new FormData();
+    senddata1.append('month',this.empData1.month);
+    senddata1.append('year',this.empData1.year);
+  
+    this._auth.leavetakendata(senddata1).subscribe(res=>{
+      console.log(res);
+      this.leavedatarray=res;
+      var jsonObj = JSON.parse(this.leavedatarray._body);
+        console.log(jsonObj)
+        this.leavedatarray=jsonObj.data
+        console.log(this.leavedatarray)
+        var lengt=this.leavedatarray.length
+        console.log(lengt+"length is")
+      this.arr=this.leavedatarray.name
+      this.leavedataarray1[0]="umesh"
+      console.log(this.leavedataarray1+"array is")
+      console.log(this.leavedatarray[0].name)
+      // for (let i = 0; i < lengt; i++) {
+      //   console.log("inside for")
+      //      this.leavedataarray1=this.leavedatarray[i].reasons
+      //     console.log(this.leavedatarray[i].reason)
+
+          
+
+          
+      // } 
+     
+      
+
+      const fileName = 'test.xlsx';
+
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.leavedatarray);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'test');
+  
+      XLSX.writeFile(wb, fileName);
+    })
   }
   
   }

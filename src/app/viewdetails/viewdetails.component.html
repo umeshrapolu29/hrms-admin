@@ -167,10 +167,10 @@
                             <div class="input-group">                                   
                                                                        
                                     <input type="radio"  	name="gender" 
-                                    value="male" 
+                                    value="Male" 
                                     [(ngModel)]=" empData.gender" class="mt-1">Male 
             &nbsp;&nbsp;&nbsp;<input type="radio" 	name="gender" 
-            value="female" 
+            value="Female" 
             [(ngModel)]=" empData.gender"class="mt-1">Female
                                   </div>
                      </div>
@@ -234,10 +234,10 @@
                      <input type="text"  	name="reportmanager" 
                      Autocomplete="off" 
                      [(ngModel)]=" empData.reportmanager" #password="ngModel"
-                     matInput placeholder="Reporting Manager" required>
+                     matInput placeholder="Reporting Manager Email" required>
                      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
                         <div *ngIf="password.hasError('required')">
-                          Please enter Report Manager 
+                          Please enter Report Manager Email
                         </div>
                         </mat-error>
                      </mat-form-field></div>
@@ -246,10 +246,10 @@
                      <input type="text" name="nextimmadiatemanager" 
                      Autocomplete="off"
                      [(ngModel)]=" empData.nextimmadiatemanager"
-                     #cnfPwd="ngModel" matInput placeholder="Next to reporting manager" required>
+                     #cnfPwd="ngModel" matInput placeholder="Next to reporting manager Email" required>
                      <mat-error *ngIf="cnfPwd.invalid && (cnfPwd.dirty || cnfPwd.touched)">
                         <div *ngIf="cnfPwd.hasError('required')">
-                          Please enter Next Immediate Manager 
+                          Please enter Next Immediate Manager  Email 
                         </div>
                         </mat-error>
                      </mat-form-field></div>
@@ -260,10 +260,10 @@
                <input type="text"  	name="hrmanager" 
                Autocomplete="off"  
                [(ngModel)]=" empData.hrmanager" #password="ngModel"
-               matInput placeholder="HR Manager" required>
+               matInput placeholder="HR Manager Email" required>
                <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
                   <div *ngIf="password.hasError('required')">
-                    Please enter HR Manager 
+                    Please enter HR Manager Email 
                   </div>
                   </mat-error>
                </mat-form-field></div>

@@ -42,14 +42,14 @@ export class AuthService {
   private _attendenceUrl=" https://hrmsbackend.herokuapp.com/user/attendence";
   private _getiprocurementdataUrl=" https://hrmsbackend.herokuapp.com/user/getiprocurementdata";
   private _adminregisterUrl=" https://hrmsbackend.herokuapp.com/user/admin";
-  private _resetpasswordUrl = " https://hrmsbackend.herokuapp.com/user/adminresetpassword";
-  private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/adminforgetpassword";
+  private _resetpasswordUrl = " http://localhost:3001/user/adminresetpassword";
+  private _forgotpasswordUrl = "  http://localhost:3001/user/adminforgetpassword";
   private _deleteuserUrl = "  https://hrmsbackend.herokuapp.com/user/deleteuser";
   private _deletenoticeUrl = "  https://hrmsbackend.herokuapp.com/removenotice";
   private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
   private _bankdetailsUrl = "   https://hrmsbackend.herokuapp.com/user/bankdetails";
   private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
-
+  private _leavetakendataUrl = "http://localhost:3001/user/leavetakendata";
 
 
   constructor(private http: HttpClient,private http1:Http,
@@ -225,6 +225,11 @@ personaldetails(getiprodata)
 {
   
   return this.http1.post(this._personaldetailsUrl, getiprodata)
+}
+leavetakendata(getiprodata)
+{
+  
+  return this.http1.post(this._leavetakendataUrl, getiprodata)
 }
 } 
 
