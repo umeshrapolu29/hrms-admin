@@ -3,6 +3,10 @@ import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import{HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2'
+import { DilogeComponent } from 'app/diloge/diloge.component';
+import{HolidaydeleteComponent} from 'app/holidaydelete/holidaydelete.component'
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-holiday',
@@ -16,7 +20,7 @@ export class HolidayComponent implements OnInit {
   array1:any;
   array2:any;
   constructor(private _auth: AuthService,
-    private _router: Router) { }
+    private _router: Router,public dialog: MatDialog,private _snackBar: MatSnackBar) { }
     addholidaydata={    
     holidaytype:'',
    
@@ -44,6 +48,28 @@ export class HolidayComponent implements OnInit {
   ngOnInit() {
   
     
+  }
+  viewemployee1(selected:any){
+
+ 
+    console.log("inside details");
+    console.log(selected._id+"id is")
+    localStorage.setItem('deletedholidayid',selected._id)
+   
+   
+     }
+
+  openDialog(): void {
+      
+    const dialogRef = this.dialog.open(HolidaydeleteComponent, {
+      
+   
+    });
+    
+  
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
   }
   // 
   holidaytype()

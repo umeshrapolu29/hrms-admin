@@ -98,6 +98,7 @@
                                       <th>Occasion</th>
                                       <th>Day</th>
                                       <th>Holiday Type</th>
+                                      <th>Delete</th>
                                    </tr>
                                    </thead>
                                    <tbody>                                 
@@ -109,6 +110,10 @@
                                           <td>{{hero.reason}}</td>
                                           <td>{{hero.dayofweek}}</td>
                                           <td>{{hero.holidaytype}}</td>
+                                          <td class="actionIcons"> 
+                                           
+                                              <button class="text-danger" (click)="openDialog()" (click)="viewemployee1(hero)"><i class="fa fa-trash-alt "></i></button>
+                                              </td> 
                                       </tr>                      
                                                                          
                                                                     																	

@@ -253,21 +253,7 @@ export class ViewdetailsComponent  {
  console.log("inside details");
  console.log(selected._id+"id is")
  localStorage.setItem('deletedid',selected._id)
-//  this._auth.deleteuser(viewemployee1).subscribe((res)=>{
-//    console.log(res);
-//    this.array=res;
-//    var jsonObj = JSON.parse(this.array._body);
-//        console.log(jsonObj.msg)
 
-//      if(jsonObj.msg=="data Retrived")
-//      {
-//        Swal.fire('','deleted Successful','success')
-//        this._router.navigate(['/homepage'])
-//      }
-//      else{
-//        Swal.fire('','uploaded failed','error')
-//      }
-//  })
 
   }
 

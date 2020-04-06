@@ -46,6 +46,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { HolidaydeleteComponent } from './holidaydelete/holidaydelete.component';
 
 
 
@@ -94,6 +95,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     AdminregistrationComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
+    HolidaydeleteComponent,
  
     // FileSelectDirective,
     // FileDropDirective    
@@ -101,6 +103,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
    entryComponents:
    [
      DilogeComponent,
+     HolidaydeleteComponent
    ],
   providers: [AuthGuard,AuthService, {
     provide: HTTP_INTERCEPTORS,
