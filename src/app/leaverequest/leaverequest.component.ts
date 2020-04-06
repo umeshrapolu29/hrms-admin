@@ -13,8 +13,24 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./leaverequest.component.scss']
 })
 export class LeaverequestComponent implements OnInit {
+
+
+
+
+
  leavedataarray1:Array<String>;
+dummyarray=new Array()
+
+
   
+
+
+
+
+
+
+
+
   ename:string='';
   ename1:string='';
   ename2:string='';
@@ -66,6 +82,8 @@ export class LeaverequestComponent implements OnInit {
   ngOnInit() {
     // this.leavedataarray1[0]="umesh"
     // console.log(this.leavedataarray1.push("hi")+"array isss")
+    // this.dummyarray[0]="umesh"
+    //   console.log( this.dummyarray[0]+"data is")
     
     console.log("gud")
     this.http1.get('https://hrmsbackend.herokuapp.com/user/getleaveemployee')
@@ -182,24 +200,41 @@ export class LeaverequestComponent implements OnInit {
         var lengt=this.leavedatarray.length
         console.log(lengt+"length is")
       this.arr=this.leavedatarray.name
-      this.leavedataarray1[0]="umesh"
-      console.log(this.leavedataarray1+"array is")
-      console.log(this.leavedatarray[0].name)
-      // for (let i = 0; i < lengt; i++) {
-      //   console.log("inside for")
-      //      this.leavedataarray1=this.leavedatarray[i].reasons
-      //     console.log(this.leavedatarray[i].reason)
+
+
+
+
+
+
+
+      // var stringyleavedata=JSON.stringify(this.leavedatarray)
+      // console.log(stringyleavedata)
+      
+
+
+
+     
+      for (let i = 0; i < lengt; i++) {
+        console.log("inside for")
+           this.dummyarray[i]={reason:this.leavedatarray[i].reason,name:this.leavedatarray[i].name}
+            // this.dummyarray[i]={name:this.leavedatarray[i].name}
+    
+
+           console.log(this.leavedatarray[i].reason)
+
+         
 
           
 
           
-      // } 
+      } 
+      console.log(this.dummyarray)
      
       
 
       const fileName = 'test.xlsx';
 
-      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.leavedatarray);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dummyarray);
       const wb: XLSX.WorkBook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'test');
   
