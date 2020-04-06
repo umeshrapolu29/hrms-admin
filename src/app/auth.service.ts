@@ -33,7 +33,7 @@ export class AuthService {
   private _getleaveupdateUrl = "https://hrmsbackend.herokuapp.com/user/leaveupdate";
 
   private _getemployeeUrl= "https://hrmsbackend.herokuapp.com/Users/getUsers";
-  private _addholidayUrl=" https://hrmsbackend.herokuapp.com/user/addholiday";
+  private _addholidayUrl="https://hrmsbackend.herokuapp.com/user/addholiday";
   private _viewholidayUrl=" https://hrmsbackend.herokuapp.com/user/viewholiday";
   private _viewemployeeUrl="http://localhost:3000/Admin/getUsers";
   private _sendstatusUrl="http://localhost:3000/LeaveRequest/updateStatus";

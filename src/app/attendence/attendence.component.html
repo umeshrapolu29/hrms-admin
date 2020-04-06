@@ -40,7 +40,8 @@
 						  </div>
 						</div> -->
 				  </div>           
-				  </div>
+					</div>
+					<form #myForm="ngForm" (submit)="submitForm(myForm)">
 					<table class="table table-striped table-hover tabel-responsive" id="myTable">
 				  <thead>
 					<tr class="table-fields font-weight-bolder">
@@ -59,17 +60,30 @@
 			
 					  <td>Forgot ID card </td>
 					  <td > 
-						 <!-- <input type="radio" name="status" value="Present"  [(ngModel)]="leavedata.status">Present
-						 <input type="radio" name="status" value="Absent" [(ngModel)]="leavedata.status" class="ml-4">Absent -->
-						 <input type="radio"  name="{{hero.fullid}}" value="Present" (change)="onSelectionChange(entry)"   >Present
-						 <input type="radio" name="{{hero.fullid}}" value="Absent" (change)="onSelectionChange(entry)"   >Absent
+					
+						 <!-- <input type="radio"  name="{{hero.fullid}}" [value]="Present" [checked]="idx === 0"    (change)="onSelectionChange(entry)" >Present
+						 <input type="radio" name="{{hero.fullid}}" [value]="Absent" [checked]="idx === 0"   (change)="onSelectionChange(entry)"   >Absent
+						 
+ -->
+ <!-- <input type="radio" class="custom-control-input"  name="{{hero.fullid}}" value="Present"   >Present
+ <input type="radio" class="custom-control-input"  name="{{hero.fullid}}" value="Absent"  >Absent -->
+ <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel required>
+ <label class="custom-control-label" for="male">Male</label>
+ <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel required>
+ <label class="custom-control-label" for="female">Female</label>
+
+
+
+
 						</td>
 						<td>
-						 <button class=" actionIcons" (click)="addattendence(hero)"><i class="fas fa-cloud-upload-alt mr-2"> </i>Update</button>
+						 <!-- <button class=" actionIcons" (click)="addattendence(hero)"><i class="fas fa-cloud-upload-alt mr-2"> </i>Update</button> -->
+						 <!-- <button type="submit" class="btn btn-danger btn-lg btn-block">Find out gender</button> -->
 						 </td>                                               
 					</tr> 
 				   </tbody>
 				 </table>
+				</form>
 				 <!-- <nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-end font-weight-bold ">
 					  <li class="page-item disabled border">

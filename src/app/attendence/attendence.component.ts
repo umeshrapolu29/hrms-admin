@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-attendence',
@@ -16,11 +17,32 @@ export class AttendenceComponent implements OnInit {
   myArray:any;
 
   constructor( private http:Http,private _auth: AuthService, ) { }
-  leavedata={
+  entries = [];
+    selectedEntry;
+
+    isSubmitted = false;
+
+
+  leavedata:any={
     status:'',
    
     email:localStorage.getItem('email1')
   }
+
+  submitForm(form: NgForm) {
+    this.isSubmitted = true;
+    if(!form.valid) {
+      return false;
+    } else {
+    alert(JSON.stringify(form.value))
+    }
+  }
+  onSelectionChange(entry) {
+    console.log("inside method")
+    this.selectedEntry = entry;
+    console.log(this.selectedEntry)
+}
+
 
 
   ngOnInit() {

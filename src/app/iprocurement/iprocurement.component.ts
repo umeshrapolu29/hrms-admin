@@ -41,6 +41,7 @@ export class IprocurementComponent implements OnInit {
   array2:any
   array1:any;
   empName:any;
+  billfile:any;
 
   photo:string;
   empData = { 
@@ -120,6 +121,7 @@ export class IprocurementComponent implements OnInit {
         this.item1= this.array2.item;
         this.description1= this.array2.description;
         this.amount1= this.array2.amount;
+        this.billfile=this.array2.file
         this.tid= this.array2.TID;
         localStorage.setItem('iproid',this.array2.TID)
         localStorage.setItem('iproname',this.name1)
