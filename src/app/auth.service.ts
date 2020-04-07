@@ -51,6 +51,7 @@ export class AuthService {
   private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
   private _leavetakendataUrl = "http://localhost:3001/user/leavetakendata";
   private _deleteholidayUrl = "https://hrmsbackend.herokuapp.com/user/deleteholiday";
+  private _attendence1Url = "https://hrmsbackend.herokuapp.com/user/attendence";
 
 
 
@@ -237,6 +238,11 @@ deleteholiday(getiprodata)
 {
   
   return this.http1.post(this._deleteholidayUrl, getiprodata)
+}
+attendence1(getiprodata)
+{
+  
+  return this.http1.post(this._attendence1Url, getiprodata)
 }
 } 
 
