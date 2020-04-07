@@ -67,10 +67,24 @@
  -->
  <!-- <input type="radio" class="custom-control-input"  name="{{hero.fullid}}" value="Present"   >Present
  <input type="radio" class="custom-control-input"  name="{{hero.fullid}}" value="Absent"  >Absent -->
- <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel required>
- <label class="custom-control-label" for="male">Male</label>
- <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel required>
- <label class="custom-control-label" for="female">Female</label>
+ <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+		<!-- Gender -->
+		<div>
+			 <input id="{{hero.firstname}}" type="radio" class="custom-control-input" value="Present" name="{{hero.fullid}}" ngModel required>
+			 <label class="custom-control-label" for="{{hero.firstname}}">Present</label>
+		</div>
+ 
+		<div>
+			 <input id="{{hero.fullid}}" type="radio" class="custom-control-input" value="Absent" name="{{hero.fullid}}" ngModel required>
+			 <label class="custom-control-label" for="{{hero.fullid}}">Absent</label>
+		</div>
+ 
+	
+ 
+		<!-- Submit Button -->
+		<!-- <button type="submit" class="btn btn-danger btn-lg btn-block">Update</button> -->
+		<button  type="submit" class=" actionIcons" ><i class="fas fa-cloud-upload-alt mr-2" (click)="sendstatus()"></i>Update</button>
+ </form><!-- Form ends -->
 
 
 
