@@ -216,7 +216,7 @@ dummyarray=new Array()
      
       for (let i = 0; i < lengt; i++) {
         console.log("inside for")
-           this.dummyarray[i]={reason:this.leavedatarray[i].reason,name:this.leavedatarray[i].name}
+           this.dummyarray[i]={Date:this.leavedatarray[i].fromdate,Name:this.leavedatarray[i].name}
             // this.dummyarray[i]={name:this.leavedatarray[i].name}
     
 
