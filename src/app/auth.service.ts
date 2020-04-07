@@ -49,7 +49,7 @@ export class AuthService {
   private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
   private _bankdetailsUrl = "   https://hrmsbackend.herokuapp.com/user/bankdetails";
   private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
-  private _leavetakendataUrl = "http://localhost:3001/user/leavetakendata";
+  private _leavetakendataUrl = "https://hrmsbackend.herokuapp.com/user/leavetakendata";
   private _deleteholidayUrl = "https://hrmsbackend.herokuapp.com/user/deleteholiday";
   private _attendence1Url = "https://hrmsbackend.herokuapp.com/user/attendence";
 
